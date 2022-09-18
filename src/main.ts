@@ -1,3 +1,4 @@
+//Variables
 let gameIsOn = false;
 let gameIsPaused = false;
 let timer : ReturnType<typeof setTimeout>;
@@ -54,7 +55,8 @@ const switchGameOn = () => {
             timer = setTimeout(() => gameOnAnim.style.display = 'none', 5000);
         }
 
-        const imgTest: HTMLElement | null = document.getElementById('splash') as HTMLImageElement
+        //Show Menu
+        const imgTest: HTMLElement | null = document.getElementById('menu') as HTMLImageElement
         imgTest.style.display = 'block'
 
     }
@@ -79,7 +81,7 @@ const switchGameOff = () => {
             clearTimeout(timer)
         }
 
-        const imgTest: HTMLElement | null = document.getElementById('splash') as HTMLImageElement
+        const imgTest: HTMLElement | null = document.getElementById('menu') as HTMLImageElement
         imgTest.style.display = 'none'
     }
 }
@@ -88,21 +90,19 @@ const switchGameOff = () => {
 const pauseGame = () => {
     if (document.readyState === 'complete') {
         const pauseBtn: HTMLElement | null = document.getElementById('pause')
-
-        if(!gameIsPaused){
-            if (pauseBtn !== null) {
+        if (pauseBtn !== null) {
+            if (!gameIsPaused) {
                 pauseBtn.innerHTML = "play_arrow"
                 gameIsPaused = true;
             }
-        }
-        else{
-            if (pauseBtn !== null) {
+            else {
+
                 pauseBtn.innerHTML = "pause"
                 gameIsPaused = false;
+
             }
         }
        
-     
     }
 }
 

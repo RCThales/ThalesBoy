@@ -1,4 +1,5 @@
 "use strict";
+//Variables
 let gameIsOn = false;
 let gameIsPaused = false;
 let timer;
@@ -44,7 +45,8 @@ const switchGameOn = () => {
             gameOnAnim.style.display = 'block';
             timer = setTimeout(() => gameOnAnim.style.display = 'none', 5000);
         }
-        const imgTest = document.getElementById('splash');
+        //Show Menu
+        const imgTest = document.getElementById('menu');
         imgTest.style.display = 'block';
     }
 };
@@ -61,7 +63,7 @@ const switchGameOff = () => {
             gameOnAnim.style.display = 'none';
             clearTimeout(timer);
         }
-        const imgTest = document.getElementById('splash');
+        const imgTest = document.getElementById('menu');
         imgTest.style.display = 'none';
     }
 };
@@ -69,14 +71,12 @@ const switchGameOff = () => {
 const pauseGame = () => {
     if (document.readyState === 'complete') {
         const pauseBtn = document.getElementById('pause');
-        if (!gameIsPaused) {
-            if (pauseBtn !== null) {
+        if (pauseBtn !== null) {
+            if (!gameIsPaused) {
                 pauseBtn.innerHTML = "play_arrow";
                 gameIsPaused = true;
             }
-        }
-        else {
-            if (pauseBtn !== null) {
+            else {
                 pauseBtn.innerHTML = "pause";
                 gameIsPaused = false;
             }
