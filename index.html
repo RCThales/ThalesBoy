@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="header">
-    <span id="goBack"><a href="#"><- Go back</a></span>
+    <span id="goBack"><a href="https://www.thalescardoso.com"><- Go back</a></span>
     </div>
  
     <div id="screenContainer">
@@ -23,7 +23,7 @@
             
         <div id="buttons">
             <button type="button" id="powerBtn" onclick="gameOnAndOff()"> <i class="material-icons power">power_settings_new</i></button>
-        <button type="button" id="resetBtn"> <i class="material-icons restore">restore</i></button>
+        <button type="button" id="resetBtn" onclick="pauseGame()"> <i id="pause" class="material-icons pause">pause</i></button>
         </div>
         
         <!---------->
@@ -37,6 +37,7 @@
             <span id="ledSymbol">) ) )</span>
             <span id="powerName">POWER</span>    
         </div>
+        
         <div id="videoGameName">
             <span>THALES BOY</span> 
             <div id="coloredName">
@@ -47,12 +48,12 @@
                 <span style="color:rgb(47, 154, 180);">R</span>
             </div>
         </div>
+
+    <img id="splash" class="gameimg" src="./img/coinAnim.gif" alt="">
          
     </div> <!--END OF SCREEN CONTAINER-->
     
-    <!--
-        <img id="player" src="./img/Animacao_Walk_Right200x.png" alt="">
-    -->
+
 
 
 </body>

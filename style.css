@@ -70,6 +70,7 @@ body {
     border-radius: 50%/ 0 0 30px 30px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
+    transition: .3s all ease;
 
 }
 
@@ -84,8 +85,24 @@ body {
 
 }
 
+#splash{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.7;
+}
+
+
+
 #gameOnAnim{
     display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    transition: .3s all ease;
 }
 
 #videoGameName {
@@ -186,28 +203,33 @@ body {
     #buttons {
             top: -12%;
             left: 50%;
-
         }
 
     #screen {
-            height: 300px;
-            width: 300px;
-    
-        }
-        #powerName {
-            font-size: 0.6rem;
-            top: 32%;
+        height: 300px;
+        width: 300px;
 
-        }
+    }
+    #gameOnAnim {
+        height: 300px;
+        width: 300px;
+    }
+    #powerName {
+        font-size: 0.6rem;
+        top: 32%;
 
-        #ledSymbol {
-            left: 11%;
-        }
+    }
 
-        #videoGameName {
-            font-size: 1.2rem;
-        }
+    #ledSymbol {
+        left: 11%;
+    }
+
+    #videoGameName {
+        font-size: 1.2rem;
+    }
 }
+
+      
 
 /*WIDTH SMALL*/
 
@@ -222,6 +244,11 @@ body {
         height: 230px;
         width: 230px;
 
+    }
+
+    #gameOnAnim {
+        height: 230px;
+        width: 230px;
     }
 
     #screenContainer {
@@ -256,6 +283,11 @@ body {
         height: 320px;
         width: 320px;
 
+    }
+
+    #gameOnAnim {
+        height: 320px;
+        width: 320px;
     }
 
     #screenContainer {
@@ -295,6 +327,11 @@ body {
         height: 230px;
         width: 230px;
 
+    }
+
+    #gameOnAnim {
+        height: 230px;
+        width: 230px;
     }
 
     #screenContainer {

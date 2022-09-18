@@ -1,8 +1,9 @@
 let gameIsOn = false;
+let gameIsPaused = false;
 let timer : ReturnType<typeof setTimeout>;
 let onSound = new Audio('../audio/thalesboyOn.mp3');
 
-
+//Toggle the videogame on and off
 const gameOnAndOff = () => {
 
     if(document.readyState === 'complete'){
@@ -31,16 +32,11 @@ const gameOnAndOff = () => {
     }  
 }
 
-
+//What happens when videogame is on
 const switchGameOn = () => {
     if (document.readyState === 'complete') {
         const screen = document.getElementById('screen') as HTMLCanvasElement
         const context = screen?.getContext('2d')
-
-        context?.beginPath();
-        context?.moveTo(150, 50);
-        context?.lineTo(125, 150)
-        context?.stroke();
 
         /*AUDIO ON*/
         onSound.loop = false;
@@ -57,10 +53,15 @@ const switchGameOn = () => {
 
             timer = setTimeout(() => gameOnAnim.style.display = 'none', 5000);
         }
+
+        const imgTest: HTMLElement | null = document.getElementById('splash') as HTMLImageElement
+        imgTest.style.display = 'block'
+
     }
    
 }
 
+//What happens when videogame is off
 const switchGameOff = () => {
     if (document.readyState === 'complete') {
         const screen = document.getElementById('screen') as HTMLCanvasElement
@@ -77,6 +78,31 @@ const switchGameOff = () => {
             gameOnAnim.style.display = 'none'
             clearTimeout(timer)
         }
+
+        const imgTest: HTMLElement | null = document.getElementById('splash') as HTMLImageElement
+        imgTest.style.display = 'none'
+    }
+}
+
+//What happens when videogame is off
+const pauseGame = () => {
+    if (document.readyState === 'complete') {
+        const pauseBtn: HTMLElement | null = document.getElementById('pause')
+
+        if(!gameIsPaused){
+            if (pauseBtn !== null) {
+                pauseBtn.innerHTML = "play_arrow"
+                gameIsPaused = true;
+            }
+        }
+        else{
+            if (pauseBtn !== null) {
+                pauseBtn.innerHTML = "pause"
+                gameIsPaused = false;
+            }
+        }
+       
+     
     }
 }
 

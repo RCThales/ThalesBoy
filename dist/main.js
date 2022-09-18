@@ -1,7 +1,9 @@
 "use strict";
 let gameIsOn = false;
+let gameIsPaused = false;
 let timer;
 let onSound = new Audio('../audio/thalesboyOn.mp3');
+//Toggle the videogame on and off
 const gameOnAndOff = () => {
     if (document.readyState === 'complete') {
         const light = document.getElementById('led');
@@ -26,14 +28,11 @@ const gameOnAndOff = () => {
         }
     }
 };
+//What happens when videogame is on
 const switchGameOn = () => {
     if (document.readyState === 'complete') {
         const screen = document.getElementById('screen');
         const context = screen === null || screen === void 0 ? void 0 : screen.getContext('2d');
-        context === null || context === void 0 ? void 0 : context.beginPath();
-        context === null || context === void 0 ? void 0 : context.moveTo(150, 50);
-        context === null || context === void 0 ? void 0 : context.lineTo(125, 150);
-        context === null || context === void 0 ? void 0 : context.stroke();
         /*AUDIO ON*/
         onSound.loop = false;
         onSound.volume = 0.5;
@@ -45,8 +44,11 @@ const switchGameOn = () => {
             gameOnAnim.style.display = 'block';
             timer = setTimeout(() => gameOnAnim.style.display = 'none', 5000);
         }
+        const imgTest = document.getElementById('splash');
+        imgTest.style.display = 'block';
     }
 };
+//What happens when videogame is off
 const switchGameOff = () => {
     if (document.readyState === 'complete') {
         const screen = document.getElementById('screen');
@@ -58,6 +60,26 @@ const switchGameOff = () => {
         if (gameOnAnim !== null) {
             gameOnAnim.style.display = 'none';
             clearTimeout(timer);
+        }
+        const imgTest = document.getElementById('splash');
+        imgTest.style.display = 'none';
+    }
+};
+//What happens when videogame is off
+const pauseGame = () => {
+    if (document.readyState === 'complete') {
+        const pauseBtn = document.getElementById('pause');
+        if (!gameIsPaused) {
+            if (pauseBtn !== null) {
+                pauseBtn.innerHTML = "play_arrow";
+                gameIsPaused = true;
+            }
+        }
+        else {
+            if (pauseBtn !== null) {
+                pauseBtn.innerHTML = "pause";
+                gameIsPaused = false;
+            }
         }
     }
 };
