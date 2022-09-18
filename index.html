@@ -7,9 +7,10 @@
     <title>ThalesBoy</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="style.css">
-    <script src="./dist/script.js"></script>
+    <script src="./dist/main.js"></script>
 
 </head>
 <body>
@@ -18,13 +19,17 @@
     </div>
  
     <div id="screenContainer">
+        <img id="gameOnAnim" style="position:absolute;" src="./img/thalesboygif.gif"/>
             
         <div id="buttons">
             <button type="button" id="powerBtn" onclick="gameOnAndOff()"> <i class="material-icons power">power_settings_new</i></button>
         <button type="button" id="resetBtn"> <i class="material-icons restore">restore</i></button>
         </div>
         
-        <canvas id="screen">       
+        <!---------->
+        <!--SCREEN-->
+        <!---------->
+        <canvas id="screen"> 
         </canvas>  
 
         <div>
@@ -43,17 +48,21 @@
             </div>
         </div>
          
-    </div>
+    </div> <!--END OF SCREEN CONTAINER-->
     
+    <!--
+        <img id="player" src="./img/Animacao_Walk_Right200x.png" alt="">
+    -->
+
 
 </body>
 <footer>
    
     <div class="footer">
     <ul>
-        <li><a href=""></a>Github</li>
-        <li><a href=""></a>Instagram</li>
-        <li><a href=""></a>Linkedin</li>
+        <li><a target="_blank" href="https://github.com/RCThales/">My Github</a> <i style="color: white; padding-left:10px;" class="fa fa-github"></i></li>
+        <li><a target="_blank" href="https://instagram.com/thalescardris">My Instagram</a> <i style="color: white; padding-left:10px;" class="fa fa-instagram"></i></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/thalesrodriguescardoso/">My Linkedin</a> <i style="color: white; padding-left:10px;" class="fa fa-linkedin"></i></li>
     </ul>
     </div>
 

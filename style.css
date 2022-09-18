@@ -16,7 +16,6 @@ body {
 .header {
     padding: 20px;
     text-align: center;
-    background: #000000;
     color: white;
     font-size: 20px;
     position: fixed;
@@ -24,11 +23,11 @@ body {
     width: 100vw;
     z-index: 100;
     font-family: 'bebas neue';
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .header #goBack a{
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
 
@@ -45,7 +44,7 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     font-family: 'bebas neue';
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .footer ul {
@@ -56,8 +55,9 @@ body {
     justify-content: space-evenly;
 }
 
-.footer li {
-   
+.footer a {
+    color: white;
+    text-decoration: none;
 }
 
 #screenContainer {
@@ -84,7 +84,9 @@ body {
 
 }
 
-
+#gameOnAnim{
+    display: none;
+}
 
 #videoGameName {
     font-size: 1.3rem;
@@ -112,7 +114,7 @@ body {
     display: inline-block;
     position: absolute;
     top: 25%;
-    left: 5%;
+    left: 4%;
     transform: translate(-50%, -50%);
     transition: .3s all ease;
 }
@@ -128,7 +130,7 @@ body {
     color: gray;
     position: absolute;
     top: 25%;
-    left: 10%;
+    left: 9%;
     transform: translate(-50%, -50%);
 }
 
@@ -137,7 +139,7 @@ body {
     color: gray;
     position: absolute;
     top: 30%;
-    left: 7%;
+    left: 6%;
     transform: translate(-50%, -50%);
 }
 
@@ -171,8 +173,15 @@ body {
     cursor: pointer;
 }
 
-/*MEDIA QUERIES*/
+#player{
+    opacity: 0.8;
+}
 
+/*--------------*/
+/*MEDIA QUERIES*/
+/*--------------*/
+
+/*WIDTH BIG*/
 @media screen and (max-width: 700px) {
     #buttons {
             top: -12%;
@@ -199,6 +208,8 @@ body {
             font-size: 1.2rem;
         }
 }
+
+/*WIDTH SMALL*/
 
 @media screen and (max-width: 500px) {
     #buttons {
@@ -232,6 +243,8 @@ body {
     }
 }
 
+/*HEIGHT BIG*/
+
 @media screen and (max-height: 1100px) {
     #buttons {
         top: -20%;
@@ -251,18 +264,25 @@ body {
 
     #ledSymbol {
         font-size: 0.7rem;
-        left: 12%;
+        left: 9%;
+    }
+
+    #led {      
+        left: 4%;
     }
 
     #powerName {
-        font-size: 0.5rem;
-        top: 32%;
+        font-size: 0.6rem;
+        left:6%;
+        top: 30%;
     }
 
     #videoGameName {
         font-size: 0.8rem;
     }
 }
+
+/*HEIGHT SMALL*/
 
 @media screen and (max-height: 800px) {
     #buttons {
@@ -272,8 +292,8 @@ body {
     }
 
     #screen {
-        height: 250px;
-        width: 250px;
+        height: 230px;
+        width: 230px;
 
     }
 
@@ -283,7 +303,7 @@ body {
 
     #ledSymbol {
         font-size: 0.7rem;
-        left: 12%;
+        left: 9%;
     }
 
     #powerName {
