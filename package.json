@@ -1,0 +1,24 @@
+{
+  "name": "gameboy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RCThales/thalesboy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RCThales/thalesboy/issues"
+  },
+  "homepage": "https://github.com/RCThales/thalesboy#readme",
+  "dependencies": {
+    "typescript": "^4.8.3"
+  }
+}
