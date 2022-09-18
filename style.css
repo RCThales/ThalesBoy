@@ -1,0 +1,75 @@
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html{
+        background: #f7da4c;
+    }
+
+    body{
+        margin: 0;
+        padding: 0;
+    }
+
+    #iframeContainer{
+        background: black;
+        padding: 80px;       
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%/ 0 0 30px 30px;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+
+    }
+
+    #iframeScreen{
+        background: rgb(208, 228, 197);
+        border-radius: 5px;
+    }
+
+    #videoGameName{
+        font-size: 1.3rem;
+        position:absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: gray;
+        display: flex;    
+    }
+
+    #coloredName{
+        margin-left: 10px;
+    }
+
+    #led{
+        height: 10px;
+        width: 10px;
+        background-color: rgb(252, 0, 0);
+        border-radius: 50%;
+        display: inline-block;
+        position:absolute;
+        top: 25%;
+        left: 5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #ledSymbol{
+        color: gray;
+        position:absolute;
+        top: 25%;
+        left: 9%;
+        transform: translate(-50%, -50%);
+    }
+
+    #powerName{
+        font-size:10px;
+        color: gray;
+        position:absolute;
+        top: 28%;
+        left: 7%;
+        transform: translate(-50%, -50%);
+    }
+    
