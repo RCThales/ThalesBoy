@@ -13,11 +13,58 @@ body {
     padding: 0;
 }
 
-#iframeContainer {
+.header {
+    padding: 20px;
+    text-align: center;
+    background: #000000;
+    color: white;
+    font-size: 20px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
+    font-family: 'bebas neue';
+    font-size: 2rem;
+}
+
+.header #goBack a{
+    color: white;
+    text-decoration: none;
+}
+
+.footer {
+    padding: 5px;
+    text-align: center;
+    background: #000000;
+    color: white;
+    font-size: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-family: 'bebas neue';
+    font-size: 2rem;
+}
+
+.footer ul {
+    list-style:none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footer li {
+   
+}
+
+#screenContainer {
     background: black;
     padding: 80px;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%/ 0 0 30px 30px;
@@ -26,11 +73,11 @@ body {
 
 }
 
-#iframeScreen {
+#screen {
     background: rgb(105, 116, 99);
     border-radius: 5px;
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
     transition: .3s all ease;
     background-image: repeating-linear-gradient(85deg, rgba(129, 175, 129, 0.25), rgba(144, 201, 152, 0.25) 1px, transparent 0px, transparent 2px);
     background-size: 10px;
@@ -99,7 +146,7 @@ body {
     flex-direction: row;
     justify-content: center;
     position: absolute;
-    top: 10%;
+    top: -10%;
     left:50%;
     transform: translate(-50%, -50%);
 }
@@ -127,9 +174,13 @@ body {
 /*MEDIA QUERIES*/
 
 @media screen and (max-width: 700px) {
-    #iframeScreen {
-            background: rgb(208, 228, 197);
-            border-radius: 5px;
+    #buttons {
+            top: -12%;
+            left: 50%;
+
+        }
+
+    #screen {
             height: 300px;
             width: 300px;
     
@@ -150,20 +201,20 @@ body {
 }
 
 @media screen and (max-width: 500px) {
-    #iframeScreen {
-        background: rgb(208, 228, 197);
-        border-radius: 5px;
+    #buttons {
+            top: -20%;
+            left: 50%;
+    
+        }
+
+    #screen {
         height: 230px;
         width: 230px;
 
     }
 
-    #iframeContainer {
+    #screenContainer {
         padding: 50px;
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
 
     #ledSymbol {
@@ -181,9 +232,66 @@ body {
     }
 }
 
-/*TBD*/
-@media (orientation: landscape) {
+@media screen and (max-height: 1100px) {
+    #buttons {
+        top: -20%;
+        left: 50%;
 
-  
-    
+    }
+
+    #screen {
+        height: 320px;
+        width: 320px;
+
+    }
+
+    #screenContainer {
+        padding: 50px;
+    }
+
+    #ledSymbol {
+        font-size: 0.7rem;
+        left: 12%;
+    }
+
+    #powerName {
+        font-size: 0.5rem;
+        top: 32%;
+    }
+
+    #videoGameName {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    #buttons {
+        top: -20%;
+        left: 50%;
+
+    }
+
+    #screen {
+        height: 250px;
+        width: 250px;
+
+    }
+
+    #screenContainer {
+        padding: 50px;
+    }
+
+    #ledSymbol {
+        font-size: 0.7rem;
+        left: 12%;
+    }
+
+    #powerName {
+        font-size: 0.5rem;
+        top: 32%;
+    }
+
+    #videoGameName {
+        font-size: 0.8rem;
+    }
 }

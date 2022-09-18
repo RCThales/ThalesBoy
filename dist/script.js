@@ -1,7 +1,7 @@
 "use strict";
 const gameOnAndOff = () => {
     const light = document.getElementById('led');
-    const screen = document.getElementById('iframeScreen');
+    const screen = document.getElementById('screen');
     if (light !== null && screen !== null) {
         //If videogame is on
         if (light.classList.contains('on')) {

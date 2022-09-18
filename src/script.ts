@@ -2,7 +2,7 @@
 const gameOnAndOff = () => {
 
     const light:HTMLElement|null = document.getElementById('led')
-    const screen:HTMLElement|null = document.getElementById('iframeScreen')
+    const screen: HTMLElement | null = document.getElementById('screen')
 
     if(light !== null && screen !== null){
         //If videogame is on

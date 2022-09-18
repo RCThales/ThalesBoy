@@ -13,10 +13,19 @@
 
 </head>
 <body>
-
-    <div id="iframeContainer">
-        <iframe id="iframeScreen">       
-        </iframe>  
+    <div class="header">
+    <span id="goBack"><a href="#"><- Go back</a></span>
+    </div>
+ 
+    <div id="screenContainer">
+            
+        <div id="buttons">
+            <button type="button" id="powerBtn" onclick="gameOnAndOff()"> <i class="material-icons power">power_settings_new</i></button>
+        <button type="button" id="resetBtn"> <i class="material-icons restore">restore</i></button>
+        </div>
+        
+        <canvas id="screen">       
+        </canvas>  
 
         <div>
             <span id="led"></span>
@@ -35,13 +44,18 @@
         </div>
          
     </div>
+    
 
-    <div id="buttons">
-        <button type="button" id="powerBtn" onclick="gameOnAndOff()"> <i class="material-icons power">power_settings_new</i></button>
-       <button type="button" id="resetBtn"> <i class="material-icons restore">restore</i></button>
-    </div>
 </body>
 <footer>
-    <h3>Back to Main Page</h3>
+   
+    <div class="footer">
+    <ul>
+        <li><a href=""></a>Github</li>
+        <li><a href=""></a>Instagram</li>
+        <li><a href=""></a>Linkedin</li>
+    </ul>
+    </div>
+
 </footer>
 </html>
