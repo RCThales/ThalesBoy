@@ -4,6 +4,27 @@ let gameIsPaused = false;
 let timer : ReturnType<typeof setTimeout>;
 let onSound = new Audio('../audio/thalesboyOn.mp3');
 
+window.addEventListener('load', () => {
+    const screen = document.querySelector('canvas') as HTMLCanvasElement
+    const screenFrame = document.getElementById('screenFrame') as HTMLElement
+    
+     //Resizing the Canvas
+    screen.width = screenFrame.offsetWidth - 150
+    screen.height = screenFrame.offsetWidth - 150
+
+
+
+})
+
+window.addEventListener('resize', () => {
+    const screen = document.querySelector('canvas') as HTMLCanvasElement
+    const screenFrame = document.getElementById('screenFrame') as HTMLElement
+    screen.width = screenFrame.offsetWidth - 150
+    screen.height = screenFrame.offsetWidth - 150
+  
+})
+
+
 //Toggle the videogame on and off
 const gameOnAndOff = () => {
 
@@ -38,26 +59,16 @@ const switchGameOn = () => {
     if (document.readyState === 'complete') {
         const screen = document.getElementById('screen') as HTMLCanvasElement
         const context = screen?.getContext('2d')
+        
+        /*Video game intro*/
+        screen.style.backgroundImage = ''
+        screen.style.backgroundImage = 'url(../img/thalesboygif.gif)'
+        timer = setTimeout(() => screen.style.backgroundImage = 'repeating-linear-gradient(85deg, rgba(129, 175, 129, 0.25), rgba(144, 201, 152, 0.25) 1px, transparent 0px, transparent 2px)', 5000)
 
         /*AUDIO ON*/
         onSound.loop = false;
         onSound.volume = 0.5;
         onSound.play();
-
-        const gameOnAnim = document.getElementById('gameOnAnim') as HTMLImageElement
-
-        if (gameOnAnim !== null) {
-
-            gameOnAnim.src = ''
-            gameOnAnim.src = '../img/thalesboygif.gif'
-            gameOnAnim.style.display = 'block'
-
-            timer = setTimeout(() => gameOnAnim.style.display = 'none', 5000);
-        }
-
-        //Show Menu
-        const imgTest: HTMLElement | null = document.getElementById('menu') as HTMLImageElement
-        imgTest.style.display = 'block'
 
     }
    
@@ -74,15 +85,11 @@ const switchGameOff = () => {
         onSound.pause();
         onSound.currentTime = 0;
 
-        const gameOnAnim: HTMLElement | null = document.getElementById('gameOnAnim')
+        screen.style.backgroundImage = 'repeating-linear-gradient(85deg, rgba(129, 175, 129, 0.25), rgba(144, 201, 152, 0.25) 1px, transparent 0px, transparent 2px)'
 
-        if (gameOnAnim !== null) {
-            gameOnAnim.style.display = 'none'
-            clearTimeout(timer)
-        }
+        clearTimeout(timer)
+        
 
-        const imgTest: HTMLElement | null = document.getElementById('menu') as HTMLImageElement
-        imgTest.style.display = 'none'
     }
 }
 
