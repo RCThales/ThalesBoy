@@ -1,88 +1,113 @@
+:root{
+
+    --primary: #F6B002;
+
+}
+
 * {
     box-sizing: border-box;
 }
 
 html {
-    background: #F6B002;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    padding: 0 auto;
 }
 
 body {
+    background: var(--primary);
     margin: 0;
     padding: 0;
 }
 
-.header {
-    padding: 20px;
-    text-align: center;
-    color: white;
-    font-size: 20px;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: 100;
-    font-family: 'bebas neue';
-    font-size: 1.5rem;
-}
-
-.header #goBack a{
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-}
-
 .footer {
-    padding: 5px;
     text-align: center;
     background: #000000;
     color: white;
-    font-size: 20px;
     position: fixed;
     bottom: 0;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    width: 100%;
     font-family: 'bebas neue';
-    font-size: 1.5rem;
 }
 
 .footer ul {
     list-style:none;
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
 .footer a {
+    font-size: clamp(0.6rem, 1.5rem, 100%);
     color: white;
     text-decoration: none;
 }
 
-#screenContainer {
-    background: black;
-    padding: 80px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#mainContainer {
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+#screenArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#screenFrame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: #000000 solid ;
+    border-width: clamp(4rem, 5vw, 5rem);
+    min-width: 400px;
+    max-width: 30vw;
     border-radius: 50%/ 0 0 30px 30px;
     border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
-    transition: .3s all ease;
+    border-top-left-radius: 20px;  
+    background: #000000; 
 
 }
 
 #screen {
+    margin-top: 10px;
+    min-width: 300px;
+    max-width: 20vw;
     background: rgb(105, 116, 99);
-    border-radius: 5px;
-    height: 500px;
-    width: 500px;
-    transition: .3s all ease;
     background-image: repeating-linear-gradient(85deg, rgba(129, 175, 129, 0.25), rgba(144, 201, 152, 0.25) 1px, transparent 0px, transparent 2px);
-    background-size: 10px;
+    border-radius: 5px;
+    aspect-ratio: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 
+}
+
+#gameOnAnim{
+    /*display: none;*/
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 600px;
+    max-height: 600px;
+    aspect-ratio: 1;
+    background-size: 10px;
+    border-radius: 5px;
+    z-index: 10000;
+    opacity: 0.8;
+
+}
+
+#buttonArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 #menu{
@@ -95,25 +120,14 @@ body {
     width: 20%;
 }
 
-
-
-#gameOnAnim{
-    display: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10000;
-    transition: .3s all ease;
-}
-
 #videoGameName {
-    font-size: 1.3rem;
-    position: absolute;
-    top: 92%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+    margin: 0 auto;
+    margin-top: 3.5rem;
+    font-size: clamp(1.2rem, 1.5vw, 2rem);
     color: gray;
     display: flex;
+    justify-content: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic;
     font-weight: 600;
@@ -132,7 +146,7 @@ body {
     display: inline-block;
     position: absolute;
     top: 25%;
-    left: 4%;
+    left: 22%;
     transform: translate(-50%, -50%);
     transition: .3s all ease;
 }
@@ -147,8 +161,8 @@ body {
 #ledSymbol {
     color: gray;
     position: absolute;
-    top: 25%;
-    left: 9%;
+    top: 24.85%;
+    left: 26%;
     transform: translate(-50%, -50%);
 }
 
@@ -156,28 +170,27 @@ body {
     font-size: 0.8rem;
     color: gray;
     position: absolute;
-    top: 30%;
-    left: 6%;
+    top: 28%;
+    left: 24%;
     transform: translate(-50%, -50%);
 }
 
-#buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: absolute;
-    top: -10%;
-    left:50%;
-    transform: translate(-50%, -50%);
-}
+
 
 #powerBtn, #resetBtn{
-    padding: 10px;
-    margin: 0 50px 0 50px;
-    width: 100px;
-    background-color: #F6B002;
+    text-align: center;
+    border-radius: 10px;
+    margin: 5rem 50px 30px 0;
+    max-width: 6rem;
+    background-color: var(--primary);
     transition: .1s ease;
+    border: none;
 
+}
+
+#powerBtn i,
+#resetBtn i{
+    font-size: clamp(4rem, 5vw, 5rem);
 }
 
 #resetBtn:hover, #powerBtn:hover {
@@ -195,161 +208,9 @@ body {
     opacity: 0.8;
 }
 
+
 /*--------------*/
 /*MEDIA QUERIES*/
 /*--------------*/
 
-/*WIDTH BIG*/
-@media screen and (max-width: 700px) {
-    #buttons {
-            top: -12%;
-            left: 50%;
-        }
 
-    #screen {
-        height: 300px;
-        width: 300px;
-
-    }
-    #gameOnAnim {
-        height: 300px;
-        width: 300px;
-    }
-    #powerName {
-        font-size: 0.6rem;
-        top: 32%;
-
-    }
-
-    #ledSymbol {
-        left: 11%;
-    }
-
-    #videoGameName {
-        font-size: 1.2rem;
-    }
-}
-
-      
-
-/*WIDTH SMALL*/
-
-@media screen and (max-width: 500px) {
-    #buttons {
-            top: -20%;
-            left: 50%;
-    
-        }
-
-    #screen {
-        height: 230px;
-        width: 230px;
-
-    }
-
-    #gameOnAnim {
-        height: 230px;
-        width: 230px;
-    }
-
-    #screenContainer {
-        padding: 50px;
-    }
-
-    #ledSymbol {
-        font-size: 0.7rem;
-        left: 12%;
-    }
-
-    #powerName {
-        font-size: 0.5rem;
-        top: 32%;
-    }
-
-    #videoGameName {
-        font-size: 0.8rem;
-    }
-}
-
-/*HEIGHT BIG*/
-
-@media screen and (max-height: 1100px) {
-    #buttons {
-        top: -20%;
-        left: 50%;
-
-    }
-
-    #screen {
-        height: 320px;
-        width: 320px;
-
-    }
-
-    #gameOnAnim {
-        height: 320px;
-        width: 320px;
-    }
-
-    #screenContainer {
-        padding: 50px;
-    }
-
-    #ledSymbol {
-        font-size: 0.7rem;
-        left: 9%;
-    }
-
-    #led {      
-        left: 4%;
-    }
-
-    #powerName {
-        font-size: 0.6rem;
-        left:6%;
-        top: 30%;
-    }
-
-    #videoGameName {
-        font-size: 0.8rem;
-    }
-}
-
-/*HEIGHT SMALL*/
-
-@media screen and (max-height: 800px) {
-    #buttons {
-        top: -20%;
-        left: 50%;
-
-    }
-
-    #screen {
-        height: 230px;
-        width: 230px;
-
-    }
-
-    #gameOnAnim {
-        height: 230px;
-        width: 230px;
-    }
-
-    #screenContainer {
-        padding: 50px;
-    }
-
-    #ledSymbol {
-        font-size: 0.7rem;
-        left: 9%;
-    }
-
-    #powerName {
-        font-size: 0.5rem;
-        top: 32%;
-    }
-
-    #videoGameName {
-        font-size: 0.8rem;
-    }
-}

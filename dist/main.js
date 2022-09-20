@@ -4,6 +4,19 @@ let gameIsOn = false;
 let gameIsPaused = false;
 let timer;
 let onSound = new Audio('../audio/thalesboyOn.mp3');
+window.addEventListener('load', () => {
+    const screen = document.querySelector('canvas');
+    const screenFrame = document.getElementById('screenFrame');
+    //Resizing the Canvas
+    screen.width = screenFrame.offsetWidth - 150;
+    screen.height = screenFrame.offsetWidth - 150;
+});
+window.addEventListener('resize', () => {
+    const screen = document.querySelector('canvas');
+    const screenFrame = document.getElementById('screenFrame');
+    screen.width = screenFrame.offsetWidth - 150;
+    screen.height = screenFrame.offsetWidth - 150;
+});
 //Toggle the videogame on and off
 const gameOnAndOff = () => {
     if (document.readyState === 'complete') {
@@ -34,20 +47,14 @@ const switchGameOn = () => {
     if (document.readyState === 'complete') {
         const screen = document.getElementById('screen');
         const context = screen === null || screen === void 0 ? void 0 : screen.getContext('2d');
+        /*Video game intro*/
+        screen.style.backgroundImage = '';
+        screen.style.backgroundImage = 'url(../img/thalesboygif.gif)';
+        timer = setTimeout(() => screen.style.backgroundImage = 'repeating-linear-gradient(85deg, rgba(129, 175, 129, 0.25), rgba(144, 201, 152, 0.25) 1px, transparent 0px, transparent 2px)', 5000);
         /*AUDIO ON*/
         onSound.loop = false;
         onSound.volume = 0.5;
         onSound.play();
-        const gameOnAnim = document.getElementById('gameOnAnim');
-        if (gameOnAnim !== null) {
-            gameOnAnim.src = '';
-            gameOnAnim.src = '../img/thalesboygif.gif';
-            gameOnAnim.style.display = 'block';
-            timer = setTimeout(() => gameOnAnim.style.display = 'none', 5000);
-        }
-        //Show Menu
-        const imgTest = document.getElementById('menu');
-        imgTest.style.display = 'block';
     }
 };
 //What happens when videogame is off
@@ -58,13 +65,8 @@ const switchGameOff = () => {
         context === null || context === void 0 ? void 0 : context.clearRect(0, 0, screen.width, screen.height);
         onSound.pause();
         onSound.currentTime = 0;
-        const gameOnAnim = document.getElementById('gameOnAnim');
-        if (gameOnAnim !== null) {
-            gameOnAnim.style.display = 'none';
-            clearTimeout(timer);
-        }
-        const imgTest = document.getElementById('menu');
-        imgTest.style.display = 'none';
+        screen.style.backgroundImage = 'repeating-linear-gradient(85deg, rgba(129, 175, 129, 0.25), rgba(144, 201, 152, 0.25) 1px, transparent 0px, transparent 2px)';
+        clearTimeout(timer);
     }
 };
 //What happens when videogame is off

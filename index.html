@@ -13,46 +13,51 @@
     <script src="./dist/main.js"></script>
 
 </head>
-<header class="header">
-     <span id="goBack"><a href="https://www.thalescardoso.com"><- Go back</a></span>
-</header>
 <body>
  
-    <div id="screenContainer">
+    <div id="mainContainer">
+        <div id="screenArea">
+            <div id="screenFrame">
+                  <canvas id="screen" class="">                      
+                </canvas>   
 
-        <img id="gameOnAnim" style="position:absolute;" src="./img/thalesboygif.gif"/>
-            
-        <div id="buttons">
-            <button type="button" id="powerBtn" onclick="gameOnAndOff()"> <i class="material-icons power">power_settings_new</i></button>
-        <button type="button" id="resetBtn" onclick="pauseGame()"> <i id="pause" class="material-icons pause">pause</i></button>
-        </div>
-        
-        <!---------->
-        <!--SCREEN-->
-        <!---------->
-        <canvas id="screen"> 
-        </canvas>  
 
-        <div>
+         <div>
             <span id="led"></span>
             <span id="ledSymbol">) ) )</span>
             <span id="powerName">POWER</span>    
         </div>
         
-        <div id="videoGameName">
-            <span>THALES BOY</span> 
-            <div id="coloredName">
-                <span style="color:red;">C</span>
-                <span style="color:rgb(135, 67, 167);">O</span>
-                <span style="color:rgb(71, 172, 51);">L</span>
-                <span style="color:rgb(233, 198, 43);">O</span>
-                <span style="color:rgb(47, 154, 180);">R</span>
-            </div>
-        </div>
 
-    <img id="menu" class="gameimg" src="./img/coinAnim.gif" alt="">
+            <div id="videoGameName">
+                <span>THALES BOY</span> 
+                <div id="coloredName">
+                    <span style="color:red;">C</span>
+                    <span style="color:rgb(135, 67, 167);">O</span>
+                    <span style="color:rgb(71, 172, 51);">L</span>
+                    <span style="color:rgb(233, 198, 43);">O</span>
+                    <span style="color:rgb(47, 154, 180);">R</span>
+                </div>
+            </div>
+
+            </div>
+             <!---------->
+                <!--SCREEN-->
+                <!---------->           
+               
+                
+          
+        </div>
+        
+        <div id="buttonArea">
+            <button type="button" id="powerBtn" onclick="gameOnAndOff()"> <i class="material-icons power">power_settings_new</i></button>
+            <button type="button" id="resetBtn" onclick="pauseGame()"> <i id="pause" class="material-icons pause">pause</i></button>
+        </div>
+    
          
     </div> <!--END OF SCREEN CONTAINER-->
+
+
     
 </body>
 <footer>
