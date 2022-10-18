@@ -8,6 +8,9 @@ const getStartColor = () => {
     if (localStorage.getItem('gameColor') === null) {
         localStorage.setItem('gameColor', 'yellow');
         yellow.style.display = 'none';
+        document.documentElement.style.setProperty('--primary', '#f8b725');
+        document.documentElement.style.setProperty('--accent', '#fcbe2b');
+        document.documentElement.style.setProperty('--carving', '#e1b245');
         return;
     }
     const colors = {
