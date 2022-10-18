@@ -1,8 +1,10 @@
 
 
 :root{
-
+    --primary: #f8b725;
     --secondary: #f6f3f3;
+    --carving: #e1b245;
+    --accent: #fcbe2b;
     --dark: rgb(27, 27, 32);
 }
 
