@@ -143,7 +143,7 @@ header{
     background-color: var(--accent);
     position: absolute;
     bottom: 0;
-    width: 82%;
+    width: 81.5%;
     height: 50%;
     transform: translateY(-40px);
     border-radius: 10px 10px;
@@ -245,16 +245,87 @@ header{
 
 /* AINDA N FUNFA*/
 .gameBtns{
-    z-index: 100;
+ 
     width: 100px;
     height: 100px;
+
 }
 
 .gameBtn{
-    width: 10px;
-    height: 10px;
+    cursor: pointer;
+    position: absolute;
+    width: 30px;
+    height: 30px;
     z-index: 100;
-    background-color: #ffffff;
+    background-color: #333834;
+    border: none;
+    transition: all ease 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameBtn:active {
+    background-color: #242725;
+}
+
+.leftBtns{
+    position: absolute;
+    top: 72%;
+    left: 25%;
+}
+
+.up{
+    transform: translateY(-29px);
+    border-radius: 5px 5px 0 0;
+    box-shadow: rgb(27, 27, 32) 3px 1px 2px 1px;
+}
+
+.right{
+    transform: translateX(29px);
+    border-radius: 0 5px 5px 0;
+    box-shadow: rgb(27, 27, 32) 3px 1px 2px 1px;
+}
+
+.down{
+    transform: translateY(29px);
+    border-radius: 0 0 5px 5px;
+    box-shadow: rgb(27, 27, 32) 3px 1px 2px 1px;
+}
+
+.left{
+    transform: translateX(-29px);
+    border-radius: 5px 0 0 5px;
+    box-shadow: rgb(27, 27, 32) 3px 1px 2px 0px;
+}
+
+.rightBtns {
+    position: absolute;
+    top: 73%;
+    left: 75%;
+}
+
+.a{
+    transform: translateY(-30px);
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: rgb(27, 27, 32) 3px 1px 2px 0px;   
+    font-weight: bold;
+    font-size: large;
+}
+
+.b{
+    transform: translateX(-50px);
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: rgb(27, 27, 32) 3px 1px 2px 0px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.center{
+    cursor: default;
+    pointer-events: none;
 }
 
 .footer {
@@ -293,3 +364,30 @@ header{
     transition: all ease 0.2s;
 }
 
+@media screen and (max-width: 600px) and (orientation: portrait) {
+    .gameBody{
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .bodyShadow{
+        width: 90%;
+        transition: all ease 0.2s;
+        transform: translate(3%, 10%);
+        height: 100vh;
+    }
+
+    .brand{
+        top: 53%;
+    }
+
+    .screenFrame{
+        transform: scale(0.95);
+    }
+
+    .powerBtn {
+        position: absolute;
+        right: 0%;
+    }
+}
