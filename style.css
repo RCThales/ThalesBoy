@@ -28,30 +28,6 @@ header{
     background-color: #000000;
 }
 
-.brand{
-    z-index: 10;
-    position: absolute;
-    top: 60%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    height: 30px;
-    width: 30%;
-    border: solid 4px var(--carving);
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Noto Sans Mono', monospace;
-    color: var(--carving);
-
-    transition: all ease 0.2s;
-}
-
-.brand:hover {
-    border: #141414 solid 4px;
-    color: #141414;
-}
-
 .main_nav{
 
    display: flex;
@@ -208,6 +184,45 @@ header{
     font-size: 1.5em;
     font-style: italic;
     font-weight: bold;
+}
+
+/* PLAYING AREA*/
+.brand {
+    z-index: 10;
+    position: absolute;
+    top: 60%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    height: 30px;
+    width: 30%;
+    border: solid 4px var(--carving);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans Mono', monospace;
+    color: var(--carving);
+
+    transition: all ease 0.2s;
+}
+
+.brand:hover {
+    border: #141414 solid 4px;
+    color: #141414;
+}
+
+/* AINDA N FUNFA*/
+.gameBtns{
+    z-index: 100;
+    width: 100px;
+    height: 100px;
+}
+
+.gameBtn{
+    width: 10px;
+    height: 10px;
+    z-index: 100;
+    background-color: #ffffff;
 }
 
 .footer {
