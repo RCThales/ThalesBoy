@@ -21,15 +21,15 @@
     <script  src="./dist/main.js"></script>
 
 </head>
-<body>
+<body onload="getStartColor()">
 
     <header>
         <nav class="main_nav">
-           <button onclick="changeColor('yellow')" style="background-color: #f8b725;" class="color1"><span class="littleScreen"></span></button>   
-            <button onclick="changeColor('blue')" style="background-color: #008199;" class="color2"><span class="littleScreen"></span></button>
-            <button onclick="changeColor('pink')" style="background-color: #e74254;" class="color3"><span class="littleScreen"></span></button>
-            <button onclick="changeColor('purple')" style="background-color: #6d2fdc;" class="color4"><span class="littleScreen"></span></button>
-            <button onclick="changeColor('green')" style="background-color: #79be01;" class="color5"><span class="littleScreen"></span></button>
+           <button id="yellow" onclick="changeColor('yellow')" style="background-color: #f8b725;" class="color1"><span class="littleScreen"></span></button>   
+            <button id="blue" onclick="changeColor('blue')" style="background-color: #008199;" class="color2"><span class="littleScreen"></span></button>
+            <button id="pink" onclick="changeColor('pink')" style="background-color: #e74254;" class="color3"><span class="littleScreen"></span></button>
+            <button id="purple" onclick="changeColor('purple')" style="background-color: #6d2fdc;" class="color4"><span class="littleScreen"></span></button>
+            <button id="green" onclick="changeColor('green')" style="background-color: #79be01;" class="color5"><span class="littleScreen"></span></button>
         </nav>
        
     </header>
@@ -99,12 +99,12 @@
         <div class="footer">
             <ul>
                 <li><a target="_blank" href="https://github.com/RCThales/">My Github
-                    <i style="color: white; padding-left:10px;" class="fa fa-github"></i></a></li>
+                    <i style="padding-left:10px;" class="fa fa-github"></i></a></li>
                 <li><a target="_blank" href="https://instagram.com/thalescardris">My Instagram
-                    <i style="color: white; padding-left:10px;" class="fa fa-instagram"></i>
+                    <i style="padding-left:10px;" class="fa fa-instagram"></i>
                 </a></li>
                 <li><a target="_blank" href="https://www.linkedin.com/in/thalesrodriguescardoso/">My Linkedin
-                    <i style="color: white; padding-left:10px;" class="fa fa-linkedin"></i>
+                    <i style="padding-left:10px;" class="fa fa-linkedin"></i>
                 </a></li>
             </ul>
         </div>

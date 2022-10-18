@@ -1,10 +1,9 @@
 
 
 :root{
-    --primary: #f8b725;
+
     --secondary: #f6f3f3;
-    --accent:#fcbe2b;
-    --carving: #e1b245;
+    --dark: rgb(27, 27, 32);
 }
 
 html {
@@ -25,7 +24,7 @@ body {
 header{
     width: 100vw;
     padding: 10px;
-    background-color: #000000;
+    background-color: var(--dark);
 }
 
 .main_nav{
@@ -56,10 +55,39 @@ header{
     width: 25px;
     height: 25px;
     background-color: rgb(143, 169, 173);
-    border: #000000 solid 8px;
+    border: var(--dark) solid 8px;
     border-bottom-right-radius: 30% 10%;
     border-bottom-left-radius: 30% 10%;
 
+}
+
+.main_nav button:hover {
+    transform: scale(1.1);
+}
+
+.vanish{
+    animation: miniGameEffect 2s;
+}
+
+@keyframes miniGameEffect {
+
+    10%{
+        transform: rotate(10deg);
+    }
+
+    60%{
+        transform: rotate(720deg);
+    }
+    80%{
+        transform: translateY(10px);
+    }
+    85% {
+        transform:translateY(-50vh);
+    } 
+    
+    100%{
+        transform: scale(0);
+    }
 }
 
 .main_nav button:active {
@@ -100,6 +128,7 @@ header{
     border-radius: 10px 10px;
     border-bottom-right-radius: 30% 10%;
     border-bottom-left-radius: 30% 10%;
+    transition: all ease 0.3s;
 }
 
 .bodyShadow{
@@ -127,8 +156,8 @@ header{
     border-radius: 10px 10px;
     border-bottom-right-radius: 30% 10%;
     border-bottom-left-radius: 30% 10%;
-    border: #000000 solid 60px;
-    background-color: black;
+    border: var(--dark) solid 60px;
+    background-color: var(--dark);
 }
 
 .led, .powerName, .ledSymbol{
@@ -207,8 +236,8 @@ header{
 }
 
 .brand:hover {
-    border: #141414 solid 4px;
-    color: #141414;
+    border: var(--dark) solid 4px;
+    color: var(--dark);
 }
 
 /* AINDA N FUNFA*/
@@ -227,7 +256,7 @@ header{
 
 .footer {
     text-align: center;
-    background: #000000;
+    background: var(--dark);
     padding: 10px;
     color: white;
     width: 100vw;
@@ -247,9 +276,17 @@ header{
     font-size: clamp(1.3rem, 2.5rem, 100%);
     color: white;
     text-decoration: none;
+    transition: all 0.2s ease;
 }
 
 .footer a:hover {
-    transform: scale(1.2);
+    color: var(--primary);
+    font-size: clamp(1.5rem, 2.8rem, 100%);
+}
+
+.footer  i {
+    font-size: 2rem;
+    color: var(--primary);
+    transition: all ease 0.2s;
 }
 
