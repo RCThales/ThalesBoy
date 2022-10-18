@@ -375,6 +375,7 @@ header{
     .bodyShadow{
         width: 70%;
         transition: all ease 0.2s;
+        height: 100vh;
     }
 
     .brand{
