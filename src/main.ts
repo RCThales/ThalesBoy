@@ -1,3 +1,9 @@
+window.addEventListener('load', () => {
+     //Avoiding the transition when the page is loaded or reloaded
+    const gameBody = document.getElementById('gameBody') as HTMLButtonElement
+
+})
+
 const getStartColor = () => {
     
     const yellow = document.getElementById('yellow') as HTMLButtonElement
@@ -27,6 +33,14 @@ const getStartColor = () => {
 
     //Changin the video game color on start
     changeColor(currentColor)
+
+    //Avoiding the transition when the page is loaded or reloaded
+    const gameBody = document.getElementById('gameBody') as HTMLButtonElement
+    gameBody.style.transition = '0s ease all'
+
+    const brand = document.getElementById('brand') as HTMLElement
+    brand.style.transition = '0s ease all'
+      
 }
 
 const changeColor = (color:string) => {
@@ -35,6 +49,11 @@ const changeColor = (color:string) => {
     const pink = document.getElementById('pink') as HTMLButtonElement
     const purple = document.getElementById('purple') as HTMLButtonElement
     const green = document.getElementById('green') as HTMLButtonElement
+
+    const gameBody = document.getElementById('gameBody') as HTMLButtonElement
+    gameBody.style.transition = '1s ease all'
+     const brand = document.getElementById('brand') as HTMLElement
+    brand.style.transition = '0.5s ease all'
 
     const colors = {
         yellow: {id: yellow, primary: '#f8b725', accent: '#fcbe2b', carving: '#e1b245'},

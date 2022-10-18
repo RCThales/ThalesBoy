@@ -1,4 +1,8 @@
 "use strict";
+window.addEventListener('load', () => {
+    //Avoiding the transition when the page is loaded or reloaded
+    const gameBody = document.getElementById('gameBody');
+});
 const getStartColor = () => {
     const yellow = document.getElementById('yellow');
     const blue = document.getElementById('blue');
@@ -22,6 +26,11 @@ const getStartColor = () => {
     colors[currentColor].style.display = 'none';
     //Changin the video game color on start
     changeColor(currentColor);
+    //Avoiding the transition when the page is loaded or reloaded
+    const gameBody = document.getElementById('gameBody');
+    gameBody.style.transition = '0s ease all';
+    const brand = document.getElementById('brand');
+    brand.style.transition = '0s ease all';
 };
 const changeColor = (color) => {
     const yellow = document.getElementById('yellow');
@@ -29,6 +38,10 @@ const changeColor = (color) => {
     const pink = document.getElementById('pink');
     const purple = document.getElementById('purple');
     const green = document.getElementById('green');
+    const gameBody = document.getElementById('gameBody');
+    gameBody.style.transition = '1s ease all';
+    const brand = document.getElementById('brand');
+    brand.style.transition = '0.5s ease all';
     const colors = {
         yellow: { id: yellow, primary: '#f8b725', accent: '#fcbe2b', carving: '#e1b245' },
         blue: { id: blue, primary: '#008199', accent: '#24C6E3', carving: '#00687A' },
