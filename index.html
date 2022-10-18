@@ -6,69 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThalesBoy</title>
 
+    <!--GOOGLE-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@900&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
 
+    <!--ICONS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="./dist/main.js"></script>
+
+    <script  src="./dist/main.js"></script>
 
 </head>
 <body>
- 
-    <div id="mainContainer">
-        <div id="screenArea">
-            <div id="screenFrame">
-                  <canvas id="screen" class="">                      
-                </canvas>   
 
+    <header>
+        <nav class="main_nav">
+           <button style="background-color: #f8b725;" class="color1"><span class="littleScreen"></span></button>   
+            <button style="background-color: #008199;" class="color2"><span class="littleScreen"></span></button>
+            <button style="background-color: #e74254;" class="color3"><span class="littleScreen"></span></button>
+            <button style="background-color: #6d2fdc;" class="color4"><span class="littleScreen"></span></button>
+            <button style="background-color: #79be01;" class="color5"><span class="littleScreen"></span></button>
+        </nav>
+       
+    </header>
 
-         <div>
-            <span id="led"></span>
-            <span id="ledSymbol">) ) )</span>
-            <span id="powerName">POWER</span>    
-        </div>
-        
+    <main class="mainContainer">
+        <div class="gameBody">  
+            <button type="button" class="powerBtn" onclick="gameOnAndOff()">
+                <!-- <i class="material-icons power">power_settings_new</i> -->
+            </button>
 
-            <div id="videoGameName">
-                <span>THALES BOY</span> 
-                <div id="coloredName">
-                    <span style="color:red;">C</span>
-                    <span style="color:rgb(135, 67, 167);">O</span>
-                    <span style="color:rgb(71, 172, 51);">L</span>
-                    <span style="color:rgb(233, 198, 43);">O</span>
-                    <span style="color:rgb(47, 154, 180);">R</span>
+            <div class="screenArea">
+                <div class="screenFrame">
+                    <span class="led"></span>
+                    <span class="powerName">POWER</span>
+                    <span class="ledSymbol">)))</span>
+
+                    <!---------->
+                    <!--SCREEN-->
+                    <!---------->
+                    <canvas class="screen">                      
+                    </canvas>   
+
+                    <div class="videoGameName">
+                        <span class="grayName">THALES BOY</span>
+                        <div class="coloredName">
+                            <span style="color:red;">C</span>
+                            <span style="color:rgb(135, 67, 167);">O</span>
+                            <span style="color:rgb(71, 172, 51);">L</span>
+                            <span style="color:rgb(233, 198, 43);">O</span>
+                            <span style="color:rgb(47, 154, 180);">R</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                        
+                <div class="brand">HIRE MEº</div>
 
+                <div class="bodyShadow"></div>
+                  
             </div>
-             <!---------->
-                <!--SCREEN-->
-                <!---------->           
-               
-                
-          
         </div>
-        
-        <div id="buttonArea">
-            <button type="button" id="powerBtn" onclick="gameOnAndOff()"> <i class="material-icons power">power_settings_new</i></button>
-            <button type="button" id="resetBtn" onclick="pauseGame()"> <i id="pause" class="material-icons pause">pause</i></button>
+
+    </main> <!--END OF SCREEN CONTAINER-->
+
+    <footer>  
+        <div class="footer">
+            <ul>
+                <li><a target="_blank" href="https://github.com/RCThales/">My Github
+                    <i style="color: white; padding-left:10px;" class="fa fa-github"></i></a></li>
+                <li><a target="_blank" href="https://instagram.com/thalescardris">My Instagram
+                    <i style="color: white; padding-left:10px;" class="fa fa-instagram"></i>
+                </a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/thalesrodriguescardoso/">My Linkedin
+                    <i style="color: white; padding-left:10px;" class="fa fa-linkedin"></i>
+                </a></li>
+            </ul>
         </div>
     
-         
-    </div> <!--END OF SCREEN CONTAINER-->
+    </footer>
 
-
-    
 </body>
-<footer>
-   
-    <div class="footer">
-    <ul>
-        <li><a target="_blank" href="https://github.com/RCThales/">My Github</a> <i style="color: white; padding-left:10px;" class="fa fa-github"></i></li>
-        <li><a target="_blank" href="https://instagram.com/thalescardris">My Instagram</a> <i style="color: white; padding-left:10px;" class="fa fa-instagram"></i></li>
-        <li><a target="_blank" href="https://www.linkedin.com/in/thalesrodriguescardoso/">My Linkedin</a> <i style="color: white; padding-left:10px;" class="fa fa-linkedin"></i></li>
-    </ul>
-    </div>
-
-</footer>
 </html>

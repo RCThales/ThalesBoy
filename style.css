@@ -1,216 +1,240 @@
+
+
 :root{
-
-    --primary: #F6B002;
-
-}
-
-* {
-    box-sizing: border-box;
+    --primary: #f8b725;
+    --secondary: #f6f3f3;
+    --accent:#fcbe2b;
+    --carving: #e1b245;
 }
 
 html {
-    margin: 0 auto;
-    padding: 0 auto;
+    box-sizing: border-box;
+    background: var(--secondary);
+    width: 100vw;
 }
 
 body {
-    background: var(--primary);
     margin: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header{
+    width: 100vw;
+    padding: 10px;
+    background-color: #000000;
+}
+
+.brand{
+    z-index: 10;
+    position: absolute;
+    top: 60%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    height: 30px;
+    width: 30%;
+    border: solid 4px var(--carving);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans Mono', monospace;
+    color: var(--carving);
+
+    transition: all ease 0.2s;
+}
+
+.brand:hover {
+    border: #141414 solid 4px;
+    color: #141414;
+}
+
+.main_nav{
+
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+}
+
+.main_nav button{
+
+    width: 3rem;
+    height: 4rem;
+    border: none;
+    transition: all 0.1s ease;
+    border-radius: 3px 3px;
+    border-bottom-right-radius: 30% 10%;
+    border-bottom-left-radius: 30% 10%;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+}
+
+.littleScreen{
+    transform: translateY(5px);
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(143, 169, 173);
+    border: #000000 solid 8px;
+    border-bottom-right-radius: 30% 10%;
+    border-bottom-left-radius: 30% 10%;
+
+}
+
+.main_nav button:active {
+
+    transform: scale(.9);
+}
+
+.powerBtn{
+    position: absolute;
+    right: -2%;
+    border: 0;
+    background-color: rgb(75, 75, 75);
+    border-radius: 2 px 2px;
+    width: 10px;
+    height:30px;
+}
+
+.mainContainer{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+}
+
+.gameBody{
+    position: relative;
+    background: var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 45em;
+    width: clamp(30rem,35rem,100%);
+    padding: 30px 0;
+    border-radius: 10px 10px;
+    border-bottom-right-radius: 30% 10%;
+    border-bottom-left-radius: 30% 10%;
+}
+
+.bodyShadow{
+    background-color: var(--accent);
+    position: absolute;
+    bottom: 0;
+    width: 82%;
+    height: 50%;
+    transform: translateY(-40px);
+    border-radius: 10px 10px;
+    border-bottom-right-radius: 30% 10%;
+    border-bottom-left-radius: 30% 10%;
+}
+
+.screen {
+    background-color: rgb(143, 169, 173);
+    width: 17em;
+    height: 17em;
+    transform: translateY(-20px);
+}
+
+.screenFrame {
+    z-index: 1;
+    position: relative;
+    border-radius: 10px 10px;
+    border-bottom-right-radius: 30% 10%;
+    border-bottom-left-radius: 30% 10%;
+    border: #000000 solid 60px;
+    background-color: black;
+}
+
+.led, .powerName, .ledSymbol{
+    position: absolute;
+    z-index: 1;
+    top:10%;
+    right: 115%;
+}
+
+.led {
+    background: red;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+
+.powerName{
+    color: gray;
+    transform: translate(30px,20px);
+    font-size: 0.7em;
+}
+
+.ledSymbol {
+    color: gray;
+    font-weight: 800;
+    transform: translate(35px, -5px);
+    letter-spacing: 3px;
+
+}
+
+.videoGameName{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+}
+
+.grayName{
+    color: gray;
+    font-family: 'Noto Sans Mono', monospace;
+    font-size: 1.3em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.coloredName {
+    color: gray;
+    letter-spacing: -6px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .footer {
     text-align: center;
     background: #000000;
+    padding: 10px;
     color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    width: 100vw;
     font-family: 'bebas neue';
 }
 
 .footer ul {
     list-style:none;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .footer a {
-    font-size: clamp(0.6rem, 1.5rem, 100%);
+    font-size: clamp(1.3rem, 2.5rem, 100%);
     color: white;
     text-decoration: none;
 }
 
-#mainContainer {
-    height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
+.footer a:hover {
+    transform: scale(1.2);
 }
-#screenArea {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-}
-
-#screenFrame{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: #000000 solid ;
-    border-width: clamp(4rem, 5vw, 5rem);
-    min-width: 400px;
-    max-width: 30vw;
-    border-radius: 50%/ 0 0 30px 30px;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;  
-    background: #000000; 
-
-}
-
-#screen {
-    margin-top: 10px;
-    min-width: 300px;
-    max-width: 20vw;
-    background: rgb(105, 116, 99);
-    background-image: repeating-linear-gradient(85deg, rgba(129, 175, 129, 0.25), rgba(144, 201, 152, 0.25) 1px, transparent 0px, transparent 2px);
-    border-radius: 5px;
-    aspect-ratio: 1;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-
-}
-
-#gameOnAnim{
-    /*display: none;*/
-    min-width: 300px;
-    min-height: 300px;
-    max-width: 600px;
-    max-height: 600px;
-    aspect-ratio: 1;
-    background-size: 10px;
-    border-radius: 5px;
-    z-index: 10000;
-    opacity: 0.8;
-
-}
-
-#buttonArea {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#menu{
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.7;
-    width: 20%;
-}
-
-#videoGameName {
-
-    margin: 0 auto;
-    margin-top: 3.5rem;
-    font-size: clamp(1.2rem, 1.5vw, 2rem);
-    color: gray;
-    display: flex;
-    justify-content: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: italic;
-    font-weight: 600;
-
-}
-
-#coloredName {
-    margin-left: 10px;
-}
-
-#led {
-    background-color: rgb(34, 34, 34);
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    display: inline-block;
-    position: absolute;
-    top: 25%;
-    left: 22%;
-    transform: translate(-50%, -50%);
-    transition: .3s all ease;
-}
-
-.on {
-    box-shadow:
-        0 0 60px 30px rgb(196, 0, 0),
-        0 0 100px 10px rgb(255, 0, 0),
-        0 0 140px 10px rgb(255, 18, 18);
-}
-
-#ledSymbol {
-    color: gray;
-    position: absolute;
-    top: 24.85%;
-    left: 26%;
-    transform: translate(-50%, -50%);
-}
-
-#powerName {
-    font-size: 0.8rem;
-    color: gray;
-    position: absolute;
-    top: 28%;
-    left: 24%;
-    transform: translate(-50%, -50%);
-}
-
-
-
-#powerBtn, #resetBtn{
-    text-align: center;
-    border-radius: 10px;
-    margin: 5rem 50px 30px 0;
-    max-width: 6rem;
-    background-color: var(--primary);
-    transition: .1s ease;
-    border: none;
-
-}
-
-#powerBtn i,
-#resetBtn i{
-    font-size: clamp(4rem, 5vw, 5rem);
-}
-
-#resetBtn:hover, #powerBtn:hover {
-    background-color: #f8b919;
-    cursor:pointer;
-}
-
-#resetBtn:active,
-#powerBtn:active {
-    box-shadow: 0px 0px 10px 2px rgba(27, 27, 27, 0.5) inset;
-    cursor: pointer;
-}
-
-#player{
-    opacity: 0.8;
-}
-
-
-/*--------------*/
-/*MEDIA QUERIES*/
-/*--------------*/
-
 
