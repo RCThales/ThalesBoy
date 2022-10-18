@@ -142,10 +142,11 @@ header{
 .bodyShadow{
     background-color: var(--accent);
     position: absolute;
-    bottom: 0;
-    width: 81.5%;
-    height: 50%;
-    transform: translateY(-40px);
+    top: 70%;
+    right: 50%;
+    width: 70%;
+    height: 50%;  
+    transform: translate(50%, -50%);
     border-radius: 10px 10px;
     border-bottom-right-radius: 30% 10%;
     border-bottom-left-radius: 30% 10%;
@@ -372,10 +373,8 @@ header{
     }
 
     .bodyShadow{
-        width: 90%;
+        width: 70%;
         transition: all ease 0.2s;
-        transform: translate(3%, 10%);
-        height: 100vh;
     }
 
     .brand{
