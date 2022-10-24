@@ -391,7 +391,7 @@ a {
     }
 
     .screenFrame{
-        transform: scale(0.95);
+        transform: scale(0.9);
     }
 
     .powerBtn {
