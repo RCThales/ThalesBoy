@@ -365,6 +365,14 @@ header{
     transition: all ease 0.2s;
 }
 
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 @media screen and (max-width: 600px) and (orientation: portrait) {
     .gameBody{
         width: 100vw;

@@ -1,6 +1,5 @@
 window.addEventListener('load', () => {
-     //Avoiding the transition when the page is loaded or reloaded
-    const gameBody = document.getElementById('gameBody') as HTMLButtonElement
+
 
 })
 
@@ -50,6 +49,7 @@ const changeColor = (color:string) => {
     const purple = document.getElementById('purple') as HTMLButtonElement
     const green = document.getElementById('green') as HTMLButtonElement
 
+    //Adding the transition for the coloring effect
     const gameBody = document.getElementById('gameBody') as HTMLButtonElement
     gameBody.style.transition = '1s ease all'
      const brand = document.getElementById('brand') as HTMLElement
@@ -83,7 +83,5 @@ const changeColor = (color:string) => {
 
     //Animation trigger
     currentColorButton.id.style.display = 'none'
-
-
 
 }
