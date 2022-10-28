@@ -1,4 +1,6 @@
 window.addEventListener('load', () => {
+    const splash = document.getElementById('splash') as HTMLElement
+    setTimeout(function(){splash.style.display = 'none'}, 1900)
 
     const yellow = document.getElementById('yellow') as HTMLButtonElement
     const blue = document.getElementById('blue') as HTMLButtonElement
@@ -35,8 +37,27 @@ window.addEventListener('load', () => {
     const brand = document.getElementById('brand') as HTMLElement
     brand.style.transition = 'background 0s'
 
+
+
 })
 
+const colorMode = () => {
+    const container = document.querySelector('.container') as HTMLElement
+    const button = document.querySelector('.nightMode') as HTMLButtonElement
+    button.classList.toggle('night')
+
+    //Night Mode
+    if(button.classList.contains('night')){
+        button.textContent = '🌚'
+        container.style.background = 'var(--secondary)'
+        return
+    }
+
+    //Day Mode
+    button.textContent = '🌞'
+    container.style.background = 'var(--darkAccent)'
+
+}
 
 const changeColor = (color:string) => {
     const yellow = document.getElementById('yellow') as HTMLButtonElement
@@ -87,14 +108,20 @@ const gamePower = () => {
     led?.classList.toggle('on')
     const btn = document.getElementById('powerBtn') as HTMLElement
 
+    const toggle = document.querySelector('#powerText') as HTMLElement
+   
+
     //Check if game is on or off
     const isOn = led?.classList.contains('on') ? true : false
 
     if(isOn){
         btn.style.transform = 'translateY(15px)'
+        toggle.style.transform = 'translateY(10px) rotate(-10deg)'
+        toggle.textContent = '◄◄◄UnToggle'
         return
     }
-
-     btn.style.transform = 'translateY(-15px)'
+     toggle.textContent = '◄◄◄Toggle'
+     toggle.style.transform = 'translateY(-8px) rotate(-10deg)'
+     btn.style.transform = 'translateY(0px)'
     
 }

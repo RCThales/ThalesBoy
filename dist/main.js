@@ -1,5 +1,7 @@
 "use strict";
 window.addEventListener('load', () => {
+    const splash = document.getElementById('splash');
+    setTimeout(function () { splash.style.display = 'none'; }, 1900);
     const yellow = document.getElementById('yellow');
     const blue = document.getElementById('blue');
     const pink = document.getElementById('pink');
@@ -28,6 +30,20 @@ window.addEventListener('load', () => {
     const brand = document.getElementById('brand');
     brand.style.transition = 'background 0s';
 });
+const colorMode = () => {
+    const container = document.querySelector('.container');
+    const button = document.querySelector('.nightMode');
+    button.classList.toggle('night');
+    //Night Mode
+    if (button.classList.contains('night')) {
+        button.textContent = '🌚';
+        container.style.background = 'var(--secondary)';
+        return;
+    }
+    //Day Mode
+    button.textContent = '🌞';
+    container.style.background = 'var(--darkAccent)';
+};
 const changeColor = (color) => {
     const yellow = document.getElementById('yellow');
     const blue = document.getElementById('blue');
@@ -66,11 +82,16 @@ const gamePower = () => {
     const led = document.querySelector('.led');
     led === null || led === void 0 ? void 0 : led.classList.toggle('on');
     const btn = document.getElementById('powerBtn');
+    const toggle = document.querySelector('#powerText');
     //Check if game is on or off
     const isOn = (led === null || led === void 0 ? void 0 : led.classList.contains('on')) ? true : false;
     if (isOn) {
         btn.style.transform = 'translateY(15px)';
+        toggle.style.transform = 'translateY(10px) rotate(-10deg)';
+        toggle.textContent = '◄◄◄UnToggle';
         return;
     }
-    btn.style.transform = 'translateY(-15px)';
+    toggle.textContent = '◄◄◄Toggle';
+    toggle.style.transform = 'translateY(-8px) rotate(-10deg)';
+    btn.style.transform = 'translateY(0px)';
 };

@@ -6,6 +6,7 @@
     --carving: #e1b245;
     --accent: #fcbe2b;
     --dark: rgb(27, 27, 32);
+    --darkAccent: rgb(42, 42, 50);
 }
 
 html {
@@ -20,6 +21,52 @@ body {
     width: 100vw;
 }
 
+#splash {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background-color: rgb(250, 253, 238);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 1;
+    animation: fadeOut 2s 1;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+@keyframes fadeOut {
+    50%{
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#splash h1 {
+    font-size: 5rem;
+    font-family: 'Noto Sans Mono', monospace;
+}
+
+#splash h2 {
+    font-size: 2rem;
+    font-family: 'bebas neue', monospace;
+    font-weight: 100;
+}
+
+#splash .videoGameName {
+    font-size: 2rem;
+}
+
 .container{
     overflow: hidden;
     width: 100vw;
@@ -28,6 +75,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: var(--darkAccent);
 }
 
 header{
@@ -105,11 +153,11 @@ header{
 
 .powerBtn{
     position: absolute;
-    right: -2%;
+    right: -3%;
     border: 0;
     background-color: rgb(75, 75, 75);
-    border-radius: 2 px 2px;
-    width: 10px;
+    border-radius: 2px 2px;
+    width: 15px;
     height:30px;
     transition: all ease 0.2s;
 }
@@ -120,7 +168,7 @@ header{
 }
 
 #powerText {
-    transform: rotate(-10deg) translateY(-15px);
+    transform: rotate(-10deg) translateY(-8px);
     position: absolute;
     right: -10%;
     font-size: 2rem;
@@ -128,16 +176,54 @@ header{
     border: 0;
     width: 10px;
     height: 30px;
+    transition: all ease 0.2s;
+    animation: toggle 3s infinite;
+    color: var(--primary);
+}
+
+@keyframes toggle {
+    0%{
+        
+    }
+    50%{
+            font-size: 2.1rem;
+            opacity: 0.8;
+    }
 }
 
 .mainContainer{
 
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    width: 100%;
 
+}
+
+.nightMode {
+    position: absolute;
+    left: 96%;
+    bottom: 10px;
+    z-index: 10;
+    cursor: pointer;
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    border: none;
+    font-size: 1.5em;
+    transition: all ease .2s;
+}
+
+.nightMode:hover {
+    font-size: 1.6em;
+}
+
+.night {
+    background-color: var(--darkAccent);
 }
 
 .gameBody{
@@ -148,7 +234,7 @@ header{
     justify-content: flex-start;
     align-items: center;
     height: 45rem;
-    width: clamp(30rem,35rem,100%);
+    width: clamp(30rem,35rem,0%);
     padding: 30px 0;
     border-radius: 10px 10px;
     border-bottom-right-radius: 30% 10%;
