@@ -111,6 +111,23 @@ header{
     border-radius: 2 px 2px;
     width: 10px;
     height:30px;
+    transition: all ease 0.2s;
+}
+
+.powerBtn:hover {
+    cursor: pointer;
+    height: 35px;
+}
+
+#powerText {
+    transform: rotate(-10deg) translateY(-15px);
+    position: absolute;
+    right: -10%;
+    font-size: 2rem;
+    font-family: 'bebas neue';
+    border: 0;
+    width: 10px;
+    height: 30px;
 }
 
 .mainContainer{
@@ -420,6 +437,10 @@ a {
     .powerBtn {
         position: absolute;
         right: 0%;
+    }
+
+    #powerText{
+        display: none;
     }
 
     .gameBtn{

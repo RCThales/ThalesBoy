@@ -63,6 +63,14 @@ const changeColor = (color) => {
     currentColorButton.id.style.display = 'none';
 };
 const gamePower = () => {
-    var _a;
-    (_a = document.querySelector('.led')) === null || _a === void 0 ? void 0 : _a.classList.toggle('on');
+    const led = document.querySelector('.led');
+    led === null || led === void 0 ? void 0 : led.classList.toggle('on');
+    const btn = document.getElementById('powerBtn');
+    //Check if game is on or off
+    const isOn = (led === null || led === void 0 ? void 0 : led.classList.contains('on')) ? true : false;
+    if (isOn) {
+        btn.style.transform = 'translateY(15px)';
+        return;
+    }
+    btn.style.transform = 'translateY(-15px)';
 };

@@ -83,5 +83,18 @@ const changeColor = (color:string) => {
 }
 
 const gamePower = () => {
-    document.querySelector('.led')?.classList.toggle('on')
+    const led = document.querySelector('.led')
+    led?.classList.toggle('on')
+    const btn = document.getElementById('powerBtn') as HTMLElement
+
+    //Check if game is on or off
+    const isOn = led?.classList.contains('on') ? true : false
+
+    if(isOn){
+        btn.style.transform = 'translateY(15px)'
+        return
+    }
+
+     btn.style.transform = 'translateY(-15px)'
+    
 }
