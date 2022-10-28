@@ -1,10 +1,5 @@
 window.addEventListener('load', () => {
 
-
-})
-
-const getStartColor = () => {
-    
     const yellow = document.getElementById('yellow') as HTMLButtonElement
     const blue = document.getElementById('blue') as HTMLButtonElement
     const pink = document.getElementById('pink') as HTMLButtonElement
@@ -39,8 +34,9 @@ const getStartColor = () => {
 
     const brand = document.getElementById('brand') as HTMLElement
     brand.style.transition = '0s ease all'
-      
-}
+
+})
+
 
 const changeColor = (color:string) => {
     const yellow = document.getElementById('yellow') as HTMLButtonElement
@@ -57,10 +53,10 @@ const changeColor = (color:string) => {
 
     const colors = {
         yellow: {id: yellow, primary: '#f8b725', accent: '#fcbe2b', carving: '#e1b245'},
-        blue: {id: blue, primary: '#008199', accent: '#24C6E3', carving: '#00687A'},
-        pink: {id: pink, primary: '#e74254', accent: '#E3243B', carving: '#B83544'},
+        blue: {id: blue, primary: '#008199', accent: '#0089A1', carving: '#00687A'},
+        pink: {id: pink, primary: '#e74254', accent: '#F7485C', carving: '#B83544'},
         purple: {id: purple, primary: '#6d2fdc', accent: '#6A24E3', carving: '#5A26B5'},
-        green: {id: green, primary: '#79be01', accent: '#9DE324', carving: '#619902'}
+        green: {id: green, primary: '#79be01', accent: '#80C902', carving: '#619902'}
     }
 
     //Managing buttons
@@ -84,4 +80,8 @@ const changeColor = (color:string) => {
     //Animation trigger
     currentColorButton.id.style.display = 'none'
 
+}
+
+const gamePower = () => {
+    document.querySelector('.led')?.classList.toggle('on')
 }
