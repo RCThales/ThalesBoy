@@ -388,6 +388,10 @@ header{
     transition: all ease 0.2s;
 }
 
+.noTransition {
+    transition: all 0s
+}
+
 input,
 textarea,
 button,
@@ -419,25 +423,25 @@ a {
     }
 
     .gameBtn{
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
     }
 
     .up {
-        transform: translateY(-50px);
+        transform: translateY(-39px);
     }
 
     .right {
-        transform: translateX(50px);
+        transform: translateX(39px);
 
     }
 
     .down {
-        transform: translateY(50px);
+        transform: translateY(39px);
     }
 
     .left {
-        transform: translateX(-50px);
+        transform: translateX(-39px);
     }
 
     .a {
@@ -449,4 +453,5 @@ a {
         transform: translateX(-70px);
         padding: 30px;
     }
+
 }

@@ -25,15 +25,15 @@ window.addEventListener('load', () => {
     //Hiding the selected color button
     colors[currentColor as keyof typeof colors].style.display = 'none';
 
-    //Changin the video game color on start
+    //Changing the video game color on start
     changeColor(currentColor)
 
     //Avoiding the transition when the page is loaded or reloaded
     const gameBody = document.getElementById('gameBody') as HTMLButtonElement
-    gameBody.style.transition = '0s ease all'
+    gameBody.style.transition = 'background 0s'
 
     const brand = document.getElementById('brand') as HTMLElement
-    brand.style.transition = '0s ease all'
+    brand.style.transition = 'background 0s'
 
 })
 
@@ -47,9 +47,9 @@ const changeColor = (color:string) => {
 
     //Adding the transition for the coloring effect
     const gameBody = document.getElementById('gameBody') as HTMLButtonElement
-    gameBody.style.transition = '1s ease all'
+    gameBody.style.transition = 'background 1s ease'
      const brand = document.getElementById('brand') as HTMLElement
-    brand.style.transition = '0.5s ease all'
+    brand.style.transition = 'background 0.5s ease'
 
     const colors = {
         yellow: {id: yellow, primary: '#f8b725', accent: '#fcbe2b', carving: '#e1b245'},
