@@ -120,3 +120,39 @@ const gamePower = () => {
     toggle.style.transform = 'translateY(-8px) rotate(-10deg)';
     btn.style.transform = 'translateY(0px)';
 };
+//Swipe color change function
+let touchstartX = 0;
+let touchendX = 0;
+const checkDirection = () => {
+    const currentColor = localStorage.getItem('gameColor');
+    const colors = ['yellow',
+        'blue',
+        'pink',
+        'purple',
+        'green'];
+    const index = colors.indexOf(currentColor);
+    console.log(index);
+    //left
+    if (touchendX < touchstartX) {
+        if (index === 4) {
+            changeColor(colors[0]);
+            return;
+        }
+        changeColor(colors[index + 1]);
+    }
+    //right
+    if (touchendX > touchstartX) {
+        if (index === 0) {
+            changeColor(colors[4]);
+            return;
+        }
+        changeColor(colors[index - 1]);
+    }
+};
+document.addEventListener('touchstart', e => {
+    touchstartX = e.changedTouches[0].screenX;
+});
+document.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX;
+    checkDirection();
+});
