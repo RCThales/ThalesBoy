@@ -39,6 +39,7 @@
     <div class="container">
         <header>
             <nav class="main_nav">
+
                 <button id="yellow" onclick="changeColor('yellow')" style="background-color: #f8b725;" class="color1"><span
                         class="littleScreen"></span></button>
                 <button id="blue" onclick="changeColor('blue')" style="background-color: #008199;" class="color2"><span
@@ -49,6 +50,8 @@
                         class="littleScreen"></span></button>
                 <button id="green" onclick="changeColor('green')" style="background-color: #79be01;" class="color5"><span
                         class="littleScreen"></span></button>
+                <button class="nightMode" onpointerup="colorMode()">
+                </button>
             </nav>
 
         </header>
@@ -116,7 +119,6 @@
 
                 </div>
             </div>
-            <button class="nightMode" onpointerup="colorMode()">☀️</button>
         </main>
         <!--END OF SCREEN CONTAINER-->
 

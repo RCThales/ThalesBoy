@@ -1,7 +1,9 @@
 "use strict";
 window.addEventListener('load', () => {
+    //Splash Screen
     const splash = document.getElementById('splash');
     setTimeout(function () { splash.style.display = 'none'; }, 1900);
+    //Colors
     const yellow = document.getElementById('yellow');
     const blue = document.getElementById('blue');
     const pink = document.getElementById('pink');
@@ -29,19 +31,43 @@ window.addEventListener('load', () => {
     gameBody.style.transition = 'background 0s';
     const brand = document.getElementById('brand');
     brand.style.transition = 'background 0s';
+    //Setting Color mode on startup
+    if (localStorage.getItem('colorMode') === null) {
+        localStorage.setItem('colorMode', 'day');
+        return;
+    }
+    colorModeStartup();
 });
-const colorMode = () => {
+const colorModeStartup = () => {
     const container = document.querySelector('.container');
     const button = document.querySelector('.nightMode');
-    button.classList.toggle('night');
+    const colorMode = localStorage.getItem('colorMode');
     //Night Mode
-    if (button.classList.contains('night')) {
+    if (colorMode === 'day') {
         button.textContent = '🌚';
         container.style.background = 'var(--secondary)';
+        localStorage.setItem('colorMode', 'day');
         return;
     }
     //Day Mode
     button.textContent = '🌞';
+    localStorage.setItem('colorMode', 'night');
+    container.style.background = 'var(--darkAccent)';
+};
+const colorMode = () => {
+    const container = document.querySelector('.container');
+    const button = document.querySelector('.nightMode');
+    const colorMode = localStorage.getItem('colorMode');
+    //Night Mode
+    if (colorMode === 'night') {
+        button.textContent = '🌚';
+        container.style.background = 'var(--secondary)';
+        localStorage.setItem('colorMode', 'day');
+        return;
+    }
+    //Day Mode
+    button.textContent = '🌞';
+    localStorage.setItem('colorMode', 'night');
     container.style.background = 'var(--darkAccent)';
 };
 const changeColor = (color) => {

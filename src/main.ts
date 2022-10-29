@@ -1,7 +1,10 @@
 window.addEventListener('load', () => {
+
+    //Splash Screen
     const splash = document.getElementById('splash') as HTMLElement
     setTimeout(function(){splash.style.display = 'none'}, 1900)
 
+    //Colors
     const yellow = document.getElementById('yellow') as HTMLButtonElement
     const blue = document.getElementById('blue') as HTMLButtonElement
     const pink = document.getElementById('pink') as HTMLButtonElement
@@ -37,24 +40,52 @@ window.addEventListener('load', () => {
     const brand = document.getElementById('brand') as HTMLElement
     brand.style.transition = 'background 0s'
 
-
-
+    //Setting Color mode on startup
+    if(localStorage.getItem('colorMode') === null){
+        localStorage.setItem('colorMode', 'day')
+        return
+    }
+    colorModeStartup() 
 })
 
-const colorMode = () => {
+const colorModeStartup = () => {
     const container = document.querySelector('.container') as HTMLElement
     const button = document.querySelector('.nightMode') as HTMLButtonElement
-    button.classList.toggle('night')
+    const colorMode = localStorage.getItem('colorMode')
+    
 
     //Night Mode
-    if(button.classList.contains('night')){
+    if(colorMode === 'day'){
         button.textContent = '🌚'
         container.style.background = 'var(--secondary)'
+        localStorage.setItem('colorMode', 'day')
         return
     }
 
     //Day Mode
     button.textContent = '🌞'
+    localStorage.setItem('colorMode', 'night')
+    container.style.background = 'var(--darkAccent)'
+
+}
+
+const colorMode = () => {
+    const container = document.querySelector('.container') as HTMLElement
+    const button = document.querySelector('.nightMode') as HTMLButtonElement
+    const colorMode = localStorage.getItem('colorMode')
+    
+
+    //Night Mode
+    if(colorMode === 'night'){
+        button.textContent = '🌚'
+        container.style.background = 'var(--secondary)'
+        localStorage.setItem('colorMode', 'day')
+        return
+    }
+
+    //Day Mode
+    button.textContent = '🌞'
+    localStorage.setItem('colorMode', 'night')
     container.style.background = 'var(--darkAccent)'
 
 }
