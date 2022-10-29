@@ -34,7 +34,6 @@ window.addEventListener('load', () => {
     //Setting Color mode on startup
     if (localStorage.getItem('colorMode') === null) {
         localStorage.setItem('colorMode', 'day');
-        return;
     }
     colorModeStartup();
 });
