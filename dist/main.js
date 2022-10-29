@@ -3,6 +3,11 @@ window.addEventListener('load', () => {
     //Splash Screen
     const splash = document.getElementById('splash');
     setTimeout(function () { splash.style.display = 'none'; }, 1900);
+    //Setting Color mode on startup
+    if (localStorage.getItem('colorMode') === null) {
+        localStorage.setItem('colorMode', 'day');
+    }
+    colorModeStartup();
     //Colors
     const yellow = document.getElementById('yellow');
     const blue = document.getElementById('blue');
@@ -31,11 +36,6 @@ window.addEventListener('load', () => {
     gameBody.style.transition = 'background 0s';
     const brand = document.getElementById('brand');
     brand.style.transition = 'background 0s';
-    //Setting Color mode on startup
-    if (localStorage.getItem('colorMode') === null) {
-        localStorage.setItem('colorMode', 'day');
-    }
-    colorModeStartup();
 });
 const colorModeStartup = () => {
     const container = document.querySelector('.container');

@@ -4,6 +4,12 @@ window.addEventListener('load', () => {
     const splash = document.getElementById('splash') as HTMLElement
     setTimeout(function(){splash.style.display = 'none'}, 1900)
 
+    //Setting Color mode on startup
+    if(localStorage.getItem('colorMode') === null){
+        localStorage.setItem('colorMode', 'day')
+    }
+    colorModeStartup() 
+
     //Colors
     const yellow = document.getElementById('yellow') as HTMLButtonElement
     const blue = document.getElementById('blue') as HTMLButtonElement
@@ -40,11 +46,6 @@ window.addEventListener('load', () => {
     const brand = document.getElementById('brand') as HTMLElement
     brand.style.transition = 'background 0s'
 
-    //Setting Color mode on startup
-    if(localStorage.getItem('colorMode') === null){
-        localStorage.setItem('colorMode', 'day')
-    }
-    colorModeStartup() 
 })
 
 const colorModeStartup = () => {
