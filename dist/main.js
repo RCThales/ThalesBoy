@@ -158,9 +158,13 @@ const checkDirection = () => {
 };
 const gameBody = document.querySelector('.gameBody');
 gameBody.addEventListener('touchstart', e => {
-    touchstartX = e.changedTouches[0].screenX;
+    if (e.touches.length === 1) {
+        touchstartX = e.changedTouches[0].screenX;
+    }
 });
 gameBody.addEventListener('touchend', e => {
-    touchendX = e.changedTouches[0].screenX;
+    if (e.touches.length === 1) {
+        touchstartX = e.changedTouches[0].screenX;
+    }
     checkDirection();
 });
