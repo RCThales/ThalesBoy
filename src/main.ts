@@ -138,6 +138,7 @@ const gamePower = () => {
     const led = document.querySelector('.led')
     led?.classList.toggle('on')
     const btn = document.getElementById('powerBtn') as HTMLElement
+    const btnMobile = document.getElementById('powerBtnMobile') as HTMLElement
 
     const toggle = document.querySelector('#powerText') as HTMLElement
    
@@ -147,6 +148,8 @@ const gamePower = () => {
 
     if(isOn){
         btn.style.transform = 'translateY(15px)'
+        btnMobile.style.transform = 'translateX(130px)'
+        btnMobile.style.color = 'red'
         toggle.style.transform = 'translateY(10px) rotate(-10deg)'
         toggle.textContent = '◄◄◄UnToggle'
         return
@@ -154,6 +157,8 @@ const gamePower = () => {
      toggle.textContent = '◄◄◄Toggle'
      toggle.style.transform = 'translateY(-8px) rotate(-10deg)'
      btn.style.transform = 'translateY(0px)'
+     btnMobile.style.transform = 'translateX(0px)'
+     btnMobile.style.color = 'var(--darkAccent)'
     
 }
 
@@ -173,10 +178,11 @@ const checkDirection = () => {
 
   const index = colors.indexOf(currentColor)
 
-  console.log(index);
-
+  console.log(touchstartX);
+  console.log(touchendX);
+  const distance = 50
   //left
-  if (touchendX < touchstartX){
+  if (touchendX < touchstartX && (touchstartX - touchendX) > distance ){
 
     if(index === 4){
          changeColor(colors[0])
@@ -187,7 +193,7 @@ const checkDirection = () => {
    
   } 
   //right
-  if (touchendX > touchstartX){
+  if (touchendX > touchstartX && (touchendX - touchstartX) > distance){
     if(index === 0){
          changeColor(colors[4])
          return
@@ -197,11 +203,12 @@ const checkDirection = () => {
   } 
 }
 
-document.addEventListener('touchstart', e => {
+const gameBody = document.querySelector('.gameBody') as HTMLElement
+gameBody.addEventListener('touchstart', e => {
   touchstartX = e.changedTouches[0].screenX
 })
 
-document.addEventListener('touchend', e => {
+gameBody.addEventListener('touchend', e => {
   touchendX = e.changedTouches[0].screenX
   checkDirection()
 })

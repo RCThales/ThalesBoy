@@ -496,6 +496,35 @@ header{
     transition: all 0s
 }
 
+.toggleFrame{
+    display: none;
+    z-index: 10000;
+    position: absolute;
+    top: 140%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    height: 30px;
+    width: 135px;
+    border: solid 4px var(--carving);
+    border-radius: 30px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.powerBtnMobile {
+    position: absolute;
+    left: -20px;
+    display: none;
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+    border: solid 4px var(--carving);
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    color: var(--darkAccent);
+    transition: all ease 0.5s;
+}
+
 input,
 textarea,
 button,
@@ -505,6 +534,20 @@ a {
 }
 
 @media screen and (max-width: 600px) and (orientation: portrait) {
+
+    .powerBtn{
+        display: none;
+    }
+
+
+
+    .toggleFrame{
+        display: flex;
+    }
+
+    .powerBtnMobile {
+        display: flex;
+    }
     .gameBody{
         width: 100vw;
         height: 100vh;
@@ -576,6 +619,7 @@ a {
     #splash .videoGameName {
         font-size: 1.5rem;
     }
+
 
 }
 

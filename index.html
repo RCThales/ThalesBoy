@@ -58,15 +58,18 @@
 
         <main class="mainContainer">
             <div class="gameBody" id="gameBody">
-                <button type="button" id="powerBtn" class="powerBtn" onpointerup="gamePower()">
-              
-                <!--<i class="material-icons power">power_settings_new</i> -->
+                <button type="button" id="powerBtn" class="powerBtn" onpointerup="gamePower()">       
                 </button>
-                    <span id="powerText">◄◄◄Toggle</span>
-      
+                <span id="powerText">◄◄◄Toggle</span>
 
                 <div class="screenArea">
                     <div class="screenFrame">
+                        <div class="toggleFrame">
+                                <button type="button" id="powerBtnMobile" class="powerBtnMobile" onpointerup="gamePower()">
+                                    <i class="material-icons power">power_settings_new</i>
+
+                                </button>
+                        </div>         
                         <span class="led"></span>
                         <span class="powerName">POWER</span>
                         <span class="ledSymbol">)))</span>

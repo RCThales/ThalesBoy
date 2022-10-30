@@ -107,11 +107,14 @@ const gamePower = () => {
     const led = document.querySelector('.led');
     led === null || led === void 0 ? void 0 : led.classList.toggle('on');
     const btn = document.getElementById('powerBtn');
+    const btnMobile = document.getElementById('powerBtnMobile');
     const toggle = document.querySelector('#powerText');
     //Check if game is on or off
     const isOn = (led === null || led === void 0 ? void 0 : led.classList.contains('on')) ? true : false;
     if (isOn) {
         btn.style.transform = 'translateY(15px)';
+        btnMobile.style.transform = 'translateX(130px)';
+        btnMobile.style.color = 'red';
         toggle.style.transform = 'translateY(10px) rotate(-10deg)';
         toggle.textContent = '◄◄◄UnToggle';
         return;
@@ -119,6 +122,8 @@ const gamePower = () => {
     toggle.textContent = '◄◄◄Toggle';
     toggle.style.transform = 'translateY(-8px) rotate(-10deg)';
     btn.style.transform = 'translateY(0px)';
+    btnMobile.style.transform = 'translateX(0px)';
+    btnMobile.style.color = 'var(--darkAccent)';
 };
 //Swipe color change function
 let touchstartX = 0;
@@ -131,9 +136,11 @@ const checkDirection = () => {
         'purple',
         'green'];
     const index = colors.indexOf(currentColor);
-    console.log(index);
+    console.log(touchstartX);
+    console.log(touchendX);
+    const distance = 50;
     //left
-    if (touchendX < touchstartX) {
+    if (touchendX < touchstartX && (touchstartX - touchendX) > distance) {
         if (index === 4) {
             changeColor(colors[0]);
             return;
@@ -141,7 +148,7 @@ const checkDirection = () => {
         changeColor(colors[index + 1]);
     }
     //right
-    if (touchendX > touchstartX) {
+    if (touchendX > touchstartX && (touchendX - touchstartX) > distance) {
         if (index === 0) {
             changeColor(colors[4]);
             return;
@@ -149,10 +156,11 @@ const checkDirection = () => {
         changeColor(colors[index - 1]);
     }
 };
-document.addEventListener('touchstart', e => {
+const gameBody = document.querySelector('.gameBody');
+gameBody.addEventListener('touchstart', e => {
     touchstartX = e.changedTouches[0].screenX;
 });
-document.addEventListener('touchend', e => {
+gameBody.addEventListener('touchend', e => {
     touchendX = e.changedTouches[0].screenX;
     checkDirection();
 });
