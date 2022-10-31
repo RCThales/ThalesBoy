@@ -1,3 +1,7 @@
+onselectstart = (e) => {
+  e.preventDefault()
+  }
+
 window.addEventListener('load', () => {
 
     //Splash Screen
@@ -165,6 +169,7 @@ const gamePower = () => {
 //Swipe color change function
 let touchstartX = 0
 let touchendX = 0
+let fingerCount = 0
     
 const checkDirection = () => {
 
@@ -178,8 +183,6 @@ const checkDirection = () => {
 
   const index = colors.indexOf(currentColor)
 
-  console.log(touchstartX);
-  console.log(touchendX);
   const distance = 50
   //left
   if (touchendX < touchstartX && (touchstartX - touchendX) > distance ){
@@ -205,15 +208,18 @@ const checkDirection = () => {
 
 const gameBody = document.querySelector('.gameBody') as HTMLElement
 gameBody.addEventListener('touchstart', e => {
-    if(e.touches.length === 1) {
-    touchstartX = e.changedTouches[0].screenX
-  }
- 
+
+    fingerCount = e.touches.length
+    touchstartX = e.changedTouches[0].clientX  
+     
 })
 
 gameBody.addEventListener('touchend', e => {
-  if(e.touches.length === 1) {
-    touchstartX = e.changedTouches[0].screenX
-  }
-  checkDirection()
+
+    touchendX = e.changedTouches[0].clientX
+    if(fingerCount === 1){
+     
+        checkDirection() 
+    }
+
 })

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <title>ThalesBoy</title>
 
     <!--GOOGLE-->
@@ -97,9 +98,9 @@
 
                     <div class="gameBtns">
                         <div class="leftBtns">
-                            <button class="gameBtn up">▲</button>
+                            <button onpointerleave="console.log(1)" onpointerdown="console.log(1)" class="gameBtn up">▲</button>
                             <button class="gameBtn right">►</button>
-                            <button class="gameBtn down">▼</button>
+                            <button onmousedown="console.log(2)" class="gameBtn down">▼</button>
                             <button class="gameBtn left">◄</button>
                             <button class="gameBtn center">◉</button>
                         </div>
