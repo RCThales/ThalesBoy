@@ -17,7 +17,6 @@ html {
 
 body {
     margin: 0;
-    height: 100vh;
     width: 100vw;
 }
 
@@ -69,8 +68,8 @@ body {
 
 .container{
     overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,7 +88,7 @@ header{
    display: flex;
    justify-content: space-evenly;
    align-items: center;
-   gap: 20px;
+   gap: 30px;
    margin: 0 30px 0 30px;
 }
 
@@ -203,8 +202,7 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
-    width: 100%;
+    flex: 1;
 
 }
 
@@ -463,6 +461,7 @@ header{
     color: white;
     width: 100vw;
     font-family: 'bebas neue';
+    z-index: 1000000;
 }
 
 .footer ul {
@@ -535,11 +534,21 @@ a {
 
 @media screen and (max-width: 600px) and (orientation: portrait) {
 
-    .powerBtn{
+    header{
         display: none;
     }
 
+    footer{
+        display: none;
+    }
 
+    body{
+        overflow: hidden;
+    }
+
+    .powerBtn{
+        display: none;
+    }
 
     .toggleFrame{
         display: flex;
@@ -555,9 +564,10 @@ a {
     }
 
     .bodyShadow{
+        top: 55%;
         width: 60%;
+        height: 70%;
         transition: all ease 0.2s;
-        height: 100vh;
     }
     .screenFrame{
         transform: scale(0.95) translateY(30px);
@@ -623,16 +633,16 @@ a {
 
 }
 
-@media screen and (max-height: 1000px) and (orientation: landscape) {
-    .gameBody {
+@media screen and (max-height: 1080px) and (max-width: 1920px) and (orientation: landscape) {
+    main {
             transform: scale(0.8);
         }
 
 }
 
-@media screen and (max-height: 800px) and (orientation: landscape){
-    .gameBody {
-        transform: scale(0.5);
+@media screen and (max-height: 720px) and (max-width: 1280px) and (orientation: landscape) {
+    main {
+        transform: scale(0.6);
     }
 
 }
