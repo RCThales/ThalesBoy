@@ -139,6 +139,7 @@ const changeColor = (color:string) => {
 }
 
 const gamePower = () => {
+    const screen = document.querySelector('.screen') as HTMLIFrameElement
     const led = document.querySelector('.led')
     led?.classList.toggle('on')
     const btn = document.getElementById('powerBtn') as HTMLElement
@@ -151,18 +152,25 @@ const gamePower = () => {
     const isOn = led?.classList.contains('on') ? true : false
 
     if(isOn){
+        //Button movement
         btn.style.transform = 'translateY(15px)'
         btnMobile.style.transform = 'translateX(130px)'
         btnMobile.style.color = 'red'
         toggle.style.transform = 'translateY(10px) rotate(-10deg)'
         toggle.textContent = '◄◄◄UnToggle'
+
+        screen.src = 'https://tgs1.netlify.app/'
+        let audio = new Audio('../audio/thalesboyOn.mp3');
+        audio.play();
         return
     }
-     toggle.textContent = '◄◄◄Toggle'
-     toggle.style.transform = 'translateY(-8px) rotate(-10deg)'
-     btn.style.transform = 'translateY(0px)'
-     btnMobile.style.transform = 'translateX(0px)'
-     btnMobile.style.color = 'var(--darkAccent)'
+    toggle.textContent = '◄◄◄Toggle'
+    toggle.style.transform = 'translateY(-8px) rotate(-10deg)'
+    btn.style.transform = 'translateY(0px)'
+    btnMobile.style.transform = 'translateX(0px)'
+    btnMobile.style.color = 'var(--darkAccent)'
+
+    screen.src = ''
     
 }
 

@@ -107,6 +107,7 @@ const changeColor = (color) => {
     currentColorButton.id.style.display = 'none';
 };
 const gamePower = () => {
+    const screen = document.querySelector('.screen');
     const led = document.querySelector('.led');
     led === null || led === void 0 ? void 0 : led.classList.toggle('on');
     const btn = document.getElementById('powerBtn');
@@ -115,11 +116,15 @@ const gamePower = () => {
     //Check if game is on or off
     const isOn = (led === null || led === void 0 ? void 0 : led.classList.contains('on')) ? true : false;
     if (isOn) {
+        //Button movement
         btn.style.transform = 'translateY(15px)';
         btnMobile.style.transform = 'translateX(130px)';
         btnMobile.style.color = 'red';
         toggle.style.transform = 'translateY(10px) rotate(-10deg)';
         toggle.textContent = '◄◄◄UnToggle';
+        screen.src = 'https://tgs1.netlify.app/';
+        let audio = new Audio('../audio/thalesboyOn.mp3');
+        audio.play();
         return;
     }
     toggle.textContent = '◄◄◄Toggle';
@@ -127,6 +132,7 @@ const gamePower = () => {
     btn.style.transform = 'translateY(0px)';
     btnMobile.style.transform = 'translateX(0px)';
     btnMobile.style.color = 'var(--darkAccent)';
+    screen.src = '';
 };
 //Swipe color change function
 let touchstartX = 0;

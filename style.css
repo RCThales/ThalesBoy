@@ -256,9 +256,12 @@ header{
 
 .screen {
     background-color: rgb(143, 169, 173);
+    background-image: repeating-linear-gradient(36deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2) 1px, transparent 0px, transparent 2px);
+    opacity: 0.8;
     width: 17em;
     height: 17em;
     transform: translateY(-20px);
+    border: none;
 }
 
 .screenFrame {
