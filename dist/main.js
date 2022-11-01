@@ -1,4 +1,5 @@
 "use strict";
+let audio = new Audio('../audio/thalesboyOn.mp3');
 onselectstart = (e) => {
     e.preventDefault();
 };
@@ -121,17 +122,16 @@ const gamePower = () => {
         btnMobile.style.transform = 'translateX(130px)';
         btnMobile.style.color = 'red';
         toggle.style.transform = 'translateY(10px) rotate(-10deg)';
-        toggle.textContent = '◄◄◄UnToggle';
         screen.src = 'https://tgs1.netlify.app/';
-        let audio = new Audio('../audio/thalesboyOn.mp3');
         audio.play();
         return;
     }
-    toggle.textContent = '◄◄◄Toggle';
     toggle.style.transform = 'translateY(-8px) rotate(-10deg)';
     btn.style.transform = 'translateY(0px)';
     btnMobile.style.transform = 'translateX(0px)';
     btnMobile.style.color = 'var(--darkAccent)';
+    audio.pause();
+    audio.currentTime = 0;
     screen.src = '';
 };
 //Swipe color change function
