@@ -6,6 +6,9 @@ onselectstart = (e) => {
 
 window.addEventListener('load', () => {
 
+    let myScreenOrientation = window.screen.orientation;
+    myScreenOrientation.lock("portrait");
+
     //Splash Screen
     const splash = document.getElementById('splash') as HTMLElement
     setTimeout(function(){splash.style.display = 'none'}, 1900)
@@ -147,8 +150,9 @@ const gamePower = () => {
     const btn = document.getElementById('powerBtn') as HTMLElement
     const btnMobile = document.getElementById('powerBtnMobile') as HTMLElement
 
-    const toggle = document.querySelector('#powerText') as HTMLElement
+    let toggle = document.querySelectorAll('#powerText > *')
    
+    console.log(toggle);
 
     //Check if game is on or off
     const isOn = led?.classList.contains('on') ? true : false
@@ -158,13 +162,22 @@ const gamePower = () => {
         btn.style.transform = 'translateY(15px)'
         btnMobile.style.transform = 'translateX(130px)'
         btnMobile.style.color = 'red'
-        toggle.style.transform = 'translateY(10px) rotate(-10deg)'
+
+        toggle.forEach((e:any) =>{
+                 e.style.display = 'none' 
+        })
+
+   
 
         screen.src = 'https://tgs1.netlify.app/'
         audio.play()
         return
     }
-    toggle.style.transform = 'translateY(-8px) rotate(-10deg)'
+    
+      toggle.forEach((e:any) =>{
+                 e.style.display = 'block' 
+        })
+
     btn.style.transform = 'translateY(0px)'
     btnMobile.style.transform = 'translateX(0px)'
     btnMobile.style.color = 'var(--darkAccent)'

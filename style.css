@@ -179,23 +179,57 @@ button{
 }
 
 #powerText {
-    transform: rotate(-10deg) translate(10px,-20px);
+    transform: rotate(-10deg) translate(10px,-5px);
     position: absolute;
-    right: -10%;
-    font-size: 2rem;
-    font-family: 'bebas neue';
-    border: 0;
+    right: -5%;
+    font-size: 1em;
     width: 10px;
-    height: 30px;
     transition: all ease 0.2s;
-    animation: toggle 3s infinite;
     color: var(--primary);
+    display: flex;
+    gap: 10px;
 }
 
-@keyframes toggle {
-    50%{
-            font-size: 2.1rem;
-            opacity: 0.8;
+#powerText span:nth-child(1) {
+
+   opacity: 0;
+    animation: textArrows 5s infinite;
+
+
+}
+
+#powerText span:nth-child(2) {
+
+    opacity: 0;
+    animation: textArrows 5s infinite 0.3s;
+}
+
+#powerText span:nth-child(3) {
+
+    opacity: 0;
+    animation: textArrows 5s infinite 0.5s;
+}
+
+@keyframes textArrows {
+
+    30% {
+            opacity: 0;
+        }
+    40%{
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+        font-size: 2rem;
+    }
+    60%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
     }
 }
 
@@ -594,8 +628,10 @@ button{
     grid-template-columns: repeat(6, 1fr);
     column-gap: 0px;
     font-size: 3rem;
+    padding: 0 12px;
     height: 10px;
     justify-items: center;
+    pointer-events: none;
 }
 
 .speaker2 {
@@ -604,6 +640,7 @@ button{
     grid-template-columns: repeat(8, 1fr);
     font-size: 3rem;
     height: 10px;
+    pointer-events: none;
 }
 
 .speakerColored{
@@ -619,7 +656,8 @@ a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-@media screen and (max-width: 600px) and (orientation: portrait) {
+/*MOBILE*/
+@media screen and (max-width: 800px) and (orientation: portrait) {
 
     header{
         display: none;
@@ -653,6 +691,7 @@ a {
     .bodyShadow{
         top: 55%;
         width: 60%;
+        max-width: 300px;
         height: 70%;
         transition: all ease 0.2s;
     }
@@ -703,15 +742,19 @@ a {
 
     .leftBtns{
         z-index: 100;
-        transform: translateY(-50px);
+        transform: translateY(-100px);
     }
     .rightBtns {
         z-index: 100;
-        transform: translateY(-50px);
+        transform: translateY(-100px);
     }
     .startSelectBtns {
         z-index: 100;
-        transform: translateY(-50px);
+        transform: translateY(-100px);
+    }
+
+    .speakers{
+        transform: translateY(-100px);
     }
 
     #splash h1 {
@@ -732,6 +775,7 @@ a {
 
 }
 
+/* SHORT SCREENS*/
 @media screen and (max-height: 745px) and (orientation: portrait) {
     .screenFrame {
             transform:scale(0.9) translateY(-30px);
@@ -753,8 +797,13 @@ a {
         transform: translateY(-10px);
     }
 
+    .speakers {
+        transform: translateY(0px);
+    }
+
 }
 
+/*FULL HD*/
 @media screen and (max-height: 1080px) and (max-width: 1920px) and (orientation: landscape) {
     main {
             transform: scale(0.8);
@@ -762,6 +811,7 @@ a {
 
 }
 
+/*HD*/
 @media screen and (max-height: 720px) and (max-width: 1280px) and (orientation: landscape) {
     main {
         transform: scale(0.6);

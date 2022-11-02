@@ -4,6 +4,8 @@ onselectstart = (e) => {
     e.preventDefault();
 };
 window.addEventListener('load', () => {
+    let myScreenOrientation = window.screen.orientation;
+    myScreenOrientation.lock("portrait");
     //Splash Screen
     const splash = document.getElementById('splash');
     setTimeout(function () { splash.style.display = 'none'; }, 1900);
@@ -113,7 +115,8 @@ const gamePower = () => {
     led === null || led === void 0 ? void 0 : led.classList.toggle('on');
     const btn = document.getElementById('powerBtn');
     const btnMobile = document.getElementById('powerBtnMobile');
-    const toggle = document.querySelector('#powerText');
+    let toggle = document.querySelectorAll('#powerText > *');
+    console.log(toggle);
     //Check if game is on or off
     const isOn = (led === null || led === void 0 ? void 0 : led.classList.contains('on')) ? true : false;
     if (isOn) {
@@ -121,12 +124,16 @@ const gamePower = () => {
         btn.style.transform = 'translateY(15px)';
         btnMobile.style.transform = 'translateX(130px)';
         btnMobile.style.color = 'red';
-        toggle.style.transform = 'translateY(10px) rotate(-10deg)';
+        toggle.forEach((e) => {
+            e.style.display = 'none';
+        });
         screen.src = 'https://tgs1.netlify.app/';
         audio.play();
         return;
     }
-    toggle.style.transform = 'translateY(-8px) rotate(-10deg)';
+    toggle.forEach((e) => {
+        e.style.display = 'block';
+    });
     btn.style.transform = 'translateY(0px)';
     btnMobile.style.transform = 'translateX(0px)';
     btnMobile.style.color = 'var(--darkAccent)';
