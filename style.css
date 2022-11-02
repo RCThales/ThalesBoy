@@ -858,7 +858,7 @@ a {
 
 }
 
-@media (hover: none) and (orientation:landscape) {
+@media (hover: none) and (orientation:landscape) and (max-width: 1000px) {
 
     .landscapeMessage {
             display: flex;
