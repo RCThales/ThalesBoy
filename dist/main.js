@@ -4,8 +4,6 @@ onselectstart = (e) => {
     e.preventDefault();
 };
 window.addEventListener('load', () => {
-    let myScreenOrientation = window.screen.orientation;
-    myScreenOrientation.lock("portrait");
     //Splash Screen
     const splash = document.getElementById('splash');
     setTimeout(function () { splash.style.display = 'none'; }, 1900);

@@ -20,6 +20,45 @@ body {
     width: 100vw;
 }
 
+.landscapeMessage{
+    background-color: var(--accent);
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 10000;
+  
+}
+
+.landscapeMessage h2, .landscapeMessage h3 {
+    margin: 30px;
+    font-family: 'Noto Sans Mono', monospace;
+    color: #242725;
+    text-align: center;
+}
+
+.landscapeMessage img{
+    animation: flipPhone 5s infinite 0.5s;
+    filter: contrast(500%);
+}
+
+@keyframes flipPhone {
+    30%{
+        transform: rotate(0deg);
+    }
+
+    50%{
+        transform: rotate(90deg);
+    }
+
+    70%{
+        transform: rotate(90deg);
+    }
+}
+
 #splash {
     position: absolute;
     top: 50%;
@@ -67,7 +106,7 @@ body {
 }
 
 .container{
-    overflow: hidden;
+    overflow:auto;
     min-width: 100vw;
     min-height: 100vh;
     display: flex;
@@ -776,7 +815,7 @@ a {
 }
 
 /* SHORT SCREENS*/
-@media screen and (max-height: 745px) and (orientation: portrait) {
+@media screen and (max-height: 800px) and (orientation: portrait) {
     .screenFrame {
             transform:scale(0.9) translateY(-30px);
     
@@ -817,4 +856,12 @@ a {
         transform: scale(0.6);
     }
 
+}
+
+@media (hover: none) and (orientation:landscape) {
+
+    .landscapeMessage {
+            display: flex;
+        }
+    
 }
