@@ -1,5 +1,6 @@
 "use strict";
 let audio = new Audio('../audio/thalesboyOn.mp3');
+let introOff = () => { };
 onselectstart = (e) => {
     e.preventDefault();
 };
@@ -108,7 +109,8 @@ const changeColor = (color) => {
     currentColorButton.id.style.display = 'none';
 };
 const gamePower = () => {
-    const container = document.querySelector('.container');
+    const screenIntro = document.querySelector('.screenIntro');
+    screenIntro.style.display = 'block';
     const screen = document.querySelector('.screen');
     const led = document.querySelector('.led');
     led === null || led === void 0 ? void 0 : led.classList.toggle('on');
@@ -117,6 +119,7 @@ const gamePower = () => {
     const gif = document.createElement('img');
     let toggle = document.querySelectorAll('#powerText > *');
     //Check if game is on or off
+    //ANCHOR GAME ON
     const isOn = (led === null || led === void 0 ? void 0 : led.classList.contains('on')) ? true : false;
     if (isOn) {
         //Button movement
@@ -126,16 +129,24 @@ const gamePower = () => {
         toggle.forEach((e) => {
             e.style.display = 'none';
         });
+        //Opening game system link
         screen.src = 'https://tgs1.netlify.app/';
+        //Intro Effect
         audio.play();
+        //Creating gif every time the game is on so the gif can play once from the start
         gif.src = '../img/thalesboygif.gif';
         gif.className = 'gameIntro';
-        container.append(gif);
-        setTimeout(() => {
+        screenIntro.append(gif);
+        //End of the animation
+        introOff = setTimeout(() => {
             gif.remove();
-        }, 5000);
+            screenIntro.style.display = 'none';
+        }, 4500);
         return;
     }
+    //ANCHOR GAME OFF
+    window.clearTimeout(introOff);
+    screenIntro.style.display = 'none';
     toggle.forEach((e) => {
         e.style.display = 'block';
     });

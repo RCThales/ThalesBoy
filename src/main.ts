@@ -1,4 +1,5 @@
 let audio = new Audio('../audio/thalesboyOn.mp3');
+let introOff:any= () => {}
 
 onselectstart = (e) => {
   e.preventDefault()
@@ -141,7 +142,9 @@ const changeColor = (color:string) => {
 }
 
 const gamePower = () => {
-    const container = document.querySelector('.container') as HTMLElement
+    const screenIntro = document.querySelector('.screenIntro') as HTMLElement
+    screenIntro.style.display = 'block'
+
     const screen = document.querySelector('.screen') as HTMLIFrameElement
     const led = document.querySelector('.led')
     led?.classList.toggle('on')
@@ -152,8 +155,9 @@ const gamePower = () => {
     let toggle = document.querySelectorAll('#powerText > *')
 
     //Check if game is on or off
-    const isOn = led?.classList.contains('on') ? true : false
 
+    //ANCHOR GAME ON
+    const isOn = led?.classList.contains('on') ? true : false
     if(isOn){
         //Button movement
         btn.style.transform = 'translateY(15px)'
@@ -164,24 +168,31 @@ const gamePower = () => {
                  e.style.display = 'none' 
         })
 
+        //Opening game system link
         screen.src = 'https://tgs1.netlify.app/'
+
+        //Intro Effect
         audio.play()
 
+        //Creating gif every time the game is on so the gif can play once from the start
         gif.src = '../img/thalesboygif.gif'
         gif.className = 'gameIntro'
-
-        container.append(gif)
-        
-        setTimeout(() => {
+        screenIntro.append(gif)
+        //End of the animation
+        introOff = setTimeout(() => {
           gif.remove()
-        }, 5000)
-
+          screenIntro.style.display = 'none'
+        }, 4500)
         return
     }
-    
-      toggle.forEach((e:any) =>{
-                 e.style.display = 'block' 
-        })
+
+     //ANCHOR GAME OFF
+    window.clearTimeout(introOff)
+    screenIntro.style.display = 'none'
+
+    toggle.forEach((e:any) =>{
+                e.style.display = 'block' 
+    })
 
     btn.style.transform = 'translateY(0px)'
     btnMobile.style.transform = 'translateX(0px)'

@@ -339,6 +339,27 @@ button{
     border: none;
 }
 
+.screenIntro{
+    position: absolute;
+    background-color: rgb(143, 169, 173);
+    background-image: repeating-linear-gradient(36deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2) 1px, transparent 0px, transparent 2px);
+    width: 17em;
+    height: 17em;
+    transform: translateY(-20px);
+    z-index: 10000;
+}
+
+.gameIntro {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    opacity: 0.6;
+}
+
 .screenFrame {
     z-index: 1;
     position: relative;
@@ -683,16 +704,6 @@ button{
 
 .speakerColored{
     color: var(--carving);
-}
-
-.gameIntro{
-    width: 267px;
-    height:267px;
-    z-index: 1000;
-    position: absolute;
-    top: 35.9%;
-    right: 50%;
-    transform: translate(50%, -50%);
 }
 
 /*Canceling highlight color*/
