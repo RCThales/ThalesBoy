@@ -141,15 +141,15 @@ const changeColor = (color:string) => {
 }
 
 const gamePower = () => {
+    const container = document.querySelector('.container') as HTMLElement
     const screen = document.querySelector('.screen') as HTMLIFrameElement
     const led = document.querySelector('.led')
     led?.classList.toggle('on')
     const btn = document.getElementById('powerBtn') as HTMLElement
     const btnMobile = document.getElementById('powerBtnMobile') as HTMLElement
 
+    const gif = document.createElement('img')
     let toggle = document.querySelectorAll('#powerText > *')
-   
-    console.log(toggle);
 
     //Check if game is on or off
     const isOn = led?.classList.contains('on') ? true : false
@@ -164,10 +164,18 @@ const gamePower = () => {
                  e.style.display = 'none' 
         })
 
-   
-
         screen.src = 'https://tgs1.netlify.app/'
         audio.play()
+
+        gif.src = '../img/thalesboygif.gif'
+        gif.className = 'gameIntro'
+
+        container.append(gif)
+        
+        setTimeout(() => {
+          gif.remove()
+        }, 5000)
+
         return
     }
     

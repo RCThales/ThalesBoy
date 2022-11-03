@@ -108,13 +108,14 @@ const changeColor = (color) => {
     currentColorButton.id.style.display = 'none';
 };
 const gamePower = () => {
+    const container = document.querySelector('.container');
     const screen = document.querySelector('.screen');
     const led = document.querySelector('.led');
     led === null || led === void 0 ? void 0 : led.classList.toggle('on');
     const btn = document.getElementById('powerBtn');
     const btnMobile = document.getElementById('powerBtnMobile');
+    const gif = document.createElement('img');
     let toggle = document.querySelectorAll('#powerText > *');
-    console.log(toggle);
     //Check if game is on or off
     const isOn = (led === null || led === void 0 ? void 0 : led.classList.contains('on')) ? true : false;
     if (isOn) {
@@ -127,6 +128,12 @@ const gamePower = () => {
         });
         screen.src = 'https://tgs1.netlify.app/';
         audio.play();
+        gif.src = '../img/thalesboygif.gif';
+        gif.className = 'gameIntro';
+        container.append(gif);
+        setTimeout(() => {
+            gif.remove();
+        }, 5000);
         return;
     }
     toggle.forEach((e) => {

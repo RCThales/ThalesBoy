@@ -685,6 +685,16 @@ button{
     color: var(--carving);
 }
 
+.gameIntro{
+    width: 267px;
+    height:267px;
+    z-index: 1000;
+    position: absolute;
+    top: 35.9%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
 /*Canceling highlight color*/
 input,
 textarea,
@@ -728,7 +738,7 @@ a {
 
     .bodyShadow{
         top: 55%;
-        width: 60%;
+        width: 80%;
         max-width: 300px;
         height: 70%;
         transition: all ease 0.2s;
@@ -780,11 +790,11 @@ a {
 
     .leftBtns{
         z-index: 100;
-        transform: translateY(-100px);
+        transform: translate(-10px,-100px);
     }
     .rightBtns {
         z-index: 100;
-        transform: translateY(-100px);
+        transform: translate(10px, -100px);
     }
     .startSelectBtns {
         z-index: 100;
@@ -822,21 +832,21 @@ a {
         
     .leftBtns {
         z-index: 100;
-        transform: translateY(-10px);
+        transform: translate(-15px,-40px);
     }
 
     .rightBtns {
         z-index: 100;
-        transform: translateY(-10px);
+        transform: translate(15px, -40px);
     }
 
     .startSelectBtns {
         z-index: 100;
-        transform: translateY(-10px);
+        transform: translateY(-40px);
     }
 
     .speakers {
-        transform: translateY(0px);
+        transform: translateY(-20px);
     }
 
 }
