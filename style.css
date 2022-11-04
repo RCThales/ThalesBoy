@@ -18,6 +18,7 @@ html {
 body {
     margin: 0;
     width: 100vw;
+    touch-action: pan-x pan-y;
 }
 
 .landscapeMessage{
@@ -750,7 +751,7 @@ a {
     .bodyShadow{
         top: 55%;
         width: 80%;
-        max-width: 300px;
+        max-width: 260px;
         height: 70%;
         transition: all ease 0.2s;
     }
@@ -837,27 +838,27 @@ a {
 /* SHORT SCREENS*/
 @media screen and (max-height: 800px) and (orientation: portrait) {
     .screenFrame {
-            transform:scale(0.9) translateY(-30px);
+            transform:scale(0.7) translateY(-80px);
     
         }
         
     .leftBtns {
         z-index: 100;
-        transform: translate(-15px,-40px);
+        transform: translate(-15px,-70px);
     }
 
     .rightBtns {
         z-index: 100;
-        transform: translate(15px, -40px);
+        transform: translate(15px, -70px);
     }
 
     .startSelectBtns {
         z-index: 100;
-        transform: translateY(-40px);
+        transform: translateY(-60px);
     }
 
     .speakers {
-        transform: translateY(-20px);
+        transform: translateY(-40px);
     }
 
 }
@@ -878,10 +879,28 @@ a {
 
 }
 
-@media (hover: none) and (orientation:landscape) and (max-width: 1000px) {
+@media  (orientation:landscape) and (pointer:coarse) and (max-width: 1000px) {
 
     .landscapeMessage {
+        position: absolute;
             display: flex;
         }
+
+    .container{
+        display: none;
+    }
     
+}
+
+@media (orientation:landscape) and (pointer:none) and (max-width: 1000px) {
+
+    .landscapeMessage {
+        position: absolute;
+        display: flex;
+    }
+
+    .container {
+        display: none;
+    }
+
 }
