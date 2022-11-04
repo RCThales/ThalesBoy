@@ -142,66 +142,90 @@ const changeColor = (color:string) => {
 }
 
 const gamePower = () => {
-    const screenIntro = document.querySelector('.screenIntro') as HTMLElement
-    screenIntro.style.display = 'block'
-
     const screen = document.querySelector('.screen') as HTMLIFrameElement
     const led = document.querySelector('.led')
     led?.classList.toggle('on')
-    const btn = document.getElementById('powerBtn') as HTMLElement
-    const btnMobile = document.getElementById('powerBtnMobile') as HTMLElement
-
-    const gif = document.createElement('img')
     let toggle = document.querySelectorAll('#powerText > *')
 
     //Check if game is on or off
-
     //ANCHOR GAME ON
     const isOn = led?.classList.contains('on') ? true : false
     if(isOn){
-        //Button movement
-        btn.style.transform = 'translateY(15px)'
-        btnMobile.style.transform = 'translateX(130px)'
-        btnMobile.style.color = 'red'
 
+        //Animated text instruction for the power button
         toggle.forEach((e:any) =>{
                  e.style.display = 'none' 
         })
-
-        //Opening game system link
+        
+        //Opening game system link by shutting screen on
         screen.src = 'https://tgs1.netlify.app/'
+        powerBtnMovement(true)
+        gifPlayer(true)
+        return
+    }
 
-        //Intro Effect
+    //ANCHOR GAME OFF
+    //Animated text instruction for the power button
+    toggle.forEach((e:any) =>{
+                e.style.display = 'block' 
+    })
+    powerBtnMovement(false)
+    gifPlayer(false)
+
+    //Shutting screen off
+    screen.src = ''  
+}
+
+const powerBtnMovement = (on:boolean) => {
+    const btn = document.getElementById('powerBtn') as HTMLElement
+    const btnMobile = document.getElementById('powerBtnMobile') as HTMLElement
+    if(on){
+       //Button movement
+        btn.style.transform = 'translateY(15px)'
+        btnMobile.style.transform = 'translateX(130px)'
+        btnMobile.style.color = 'red'
+        btn.style.pointerEvents = 'none'
+        btnMobile.style.pointerEvents = 'none'
+
+        setTimeout(() => {
+            btn.style.pointerEvents = 'auto'
+            btnMobile.style.pointerEvents = 'auto'
+        },4100)
+        return
+    }
+
+    btn.style.transform = 'translateY(0px)'
+    btnMobile.style.transform = 'translateX(0px)'
+    btnMobile.style.color = 'var(--darkAccent)'
+
+}
+
+const gifPlayer = (on:boolean) => {
+    const screenIntro = document.querySelector('.screenIntro') as HTMLElement
+    screenIntro.style.display = 'block'
+    const gif = document.createElement('img')
+
+    if(on){
+        //Intro Audio Effect
         audio.play()
 
         //Creating gif every time the game is on so the gif can play once from the start
         gif.src = '../img/thalesboygif.gif'
         gif.className = 'gameIntro'
         screenIntro.append(gif)
+        
         //End of the animation
         introOff = setTimeout(() => {
-          gif.remove()
-          screenIntro.style.display = 'none'
-        }, 4500)
+        gif.remove()
+        screenIntro.style.display = 'none'
+        }, 4000)
         return
     }
 
-     //ANCHOR GAME OFF
     window.clearTimeout(introOff)
     screenIntro.style.display = 'none'
-
-    toggle.forEach((e:any) =>{
-                e.style.display = 'block' 
-    })
-
-    btn.style.transform = 'translateY(0px)'
-    btnMobile.style.transform = 'translateX(0px)'
-    btnMobile.style.color = 'var(--darkAccent)'
-
     audio.pause()
     audio.currentTime = 0
-    screen.src = ''
-    
 }
 
 //Swipe color change function

@@ -19,6 +19,7 @@ body {
     margin: 0;
     width: 100vw;
     touch-action: pan-x pan-y;
+                
 }
 
 .landscapeMessage{
@@ -116,8 +117,8 @@ body {
     transition: all ease 0.2s;
     background-image: url('./img/ghibli\ wallpaper.jpg') !important;
     background-size: cover;
-    background-repeat: no-repeat;
     background-blend-mode: multiply;
+
 }
 
 header{
@@ -756,7 +757,7 @@ a {
         transition: all ease 0.2s;
     }
     .screenFrame{
-        transform: scale(0.9);
+        transform: scale(0.9) translateY(-25px);
     
     }
 
@@ -802,19 +803,19 @@ a {
 
     .leftBtns{
         z-index: 100;
-        transform: translate(-10px,-100px);
+        transform: translate(-10px,-80px);
     }
     .rightBtns {
         z-index: 100;
-        transform: translate(10px, -100px);
+        transform: translate(10px, -80px);
     }
     .startSelectBtns {
         z-index: 100;
-        transform: translateY(-100px);
+        transform: translateY(-80px);
     }
 
     .speakers{
-        transform: translateY(-100px);
+        transform: translateY(-80px);
     }
 
     #splash h1 {
@@ -836,7 +837,7 @@ a {
 }
 
 /* SHORT SCREENS*/
-@media screen and (max-height: 800px) and (orientation: portrait) {
+@media screen and (max-height: 667px) and (orientation: portrait) {
     .screenFrame {
             transform:scale(0.7) translateY(-80px);
     

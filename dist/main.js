@@ -109,29 +109,60 @@ const changeColor = (color) => {
     currentColorButton.id.style.display = 'none';
 };
 const gamePower = () => {
-    const screenIntro = document.querySelector('.screenIntro');
-    screenIntro.style.display = 'block';
     const screen = document.querySelector('.screen');
     const led = document.querySelector('.led');
     led === null || led === void 0 ? void 0 : led.classList.toggle('on');
-    const btn = document.getElementById('powerBtn');
-    const btnMobile = document.getElementById('powerBtnMobile');
-    const gif = document.createElement('img');
     let toggle = document.querySelectorAll('#powerText > *');
     //Check if game is on or off
     //ANCHOR GAME ON
     const isOn = (led === null || led === void 0 ? void 0 : led.classList.contains('on')) ? true : false;
     if (isOn) {
+        //Animated text instruction for the power button
+        toggle.forEach((e) => {
+            e.style.display = 'none';
+        });
+        //Opening game system link by shutting screen on
+        screen.src = 'https://tgs1.netlify.app/';
+        powerBtnMovement(true);
+        gifPlayer(true);
+        return;
+    }
+    //ANCHOR GAME OFF
+    //Animated text instruction for the power button
+    toggle.forEach((e) => {
+        e.style.display = 'block';
+    });
+    powerBtnMovement(false);
+    gifPlayer(false);
+    //Shutting screen off
+    screen.src = '';
+};
+const powerBtnMovement = (on) => {
+    const btn = document.getElementById('powerBtn');
+    const btnMobile = document.getElementById('powerBtnMobile');
+    if (on) {
         //Button movement
         btn.style.transform = 'translateY(15px)';
         btnMobile.style.transform = 'translateX(130px)';
         btnMobile.style.color = 'red';
-        toggle.forEach((e) => {
-            e.style.display = 'none';
-        });
-        //Opening game system link
-        screen.src = 'https://tgs1.netlify.app/';
-        //Intro Effect
+        btn.style.pointerEvents = 'none';
+        btnMobile.style.pointerEvents = 'none';
+        setTimeout(() => {
+            btn.style.pointerEvents = 'auto';
+            btnMobile.style.pointerEvents = 'auto';
+        }, 4100);
+        return;
+    }
+    btn.style.transform = 'translateY(0px)';
+    btnMobile.style.transform = 'translateX(0px)';
+    btnMobile.style.color = 'var(--darkAccent)';
+};
+const gifPlayer = (on) => {
+    const screenIntro = document.querySelector('.screenIntro');
+    screenIntro.style.display = 'block';
+    const gif = document.createElement('img');
+    if (on) {
+        //Intro Audio Effect
         audio.play();
         //Creating gif every time the game is on so the gif can play once from the start
         gif.src = '../img/thalesboygif.gif';
@@ -141,21 +172,13 @@ const gamePower = () => {
         introOff = setTimeout(() => {
             gif.remove();
             screenIntro.style.display = 'none';
-        }, 4500);
+        }, 4000);
         return;
     }
-    //ANCHOR GAME OFF
     window.clearTimeout(introOff);
     screenIntro.style.display = 'none';
-    toggle.forEach((e) => {
-        e.style.display = 'block';
-    });
-    btn.style.transform = 'translateY(0px)';
-    btnMobile.style.transform = 'translateX(0px)';
-    btnMobile.style.color = 'var(--darkAccent)';
     audio.pause();
     audio.currentTime = 0;
-    screen.src = '';
 };
 //Swipe color change function
 let touchstartX = 0;
