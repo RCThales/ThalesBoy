@@ -1,5 +1,5 @@
 let audio = new Audio('../audio/thalesboyOn.mp3');
-let introOff:any= () => {}
+let introOff:any = () => {}
 
 onselectstart = (e) => {
   e.preventDefault()

@@ -11,22 +11,22 @@
 
 html {
     box-sizing: border-box;
-    background: var(--secondary);
-    width: 100vw;
 }
 
 body {
     margin: 0;
+    padding: 0;
     width: 100vw;
     touch-action: pan-x pan-y;
+    overflow: hidden;
                 
 }
 
 .landscapeMessage{
+    display: none;
     background-color: var(--accent);
     width: 100vw;
     height: 100vh;
-    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -112,13 +112,9 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
+    align-items: space-evenly;
     transition: all ease 0.2s;
-    background-image: url('./img/ghibli\ wallpaper.jpg') !important;
-    background-size: cover;
-    background-blend-mode: multiply;
-
 }
 
 header{
@@ -603,17 +599,17 @@ button{
     pointer-events: none;
 }
 
-.footer {
+.socials {
     text-align: center;
     background: var(--dark);
     padding: 10px;
     color: white;
     width: 100vw;
     font-family: 'bebas neue';
-    z-index: 1000000;
+    z-index: 1000;
 }
 
-.footer ul {
+.socials ul {
     list-style:none;
     display: flex;
     flex-wrap: wrap;
@@ -622,19 +618,19 @@ button{
     align-items: center;
 }
 
-.footer a {
+.socials a {
     font-size: clamp(1.3rem, 2.5rem, 100%);
     color: white;
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
-.footer a:hover {
+.socials a:hover {
     color: var(--primary);
     font-size: clamp(1.5rem, 2.8rem, 100%);
 }
 
-.footer  i {
+.socials  i {
     font-size: 2rem;
     color: var(--primary);
     transition: all ease 0.2s;
