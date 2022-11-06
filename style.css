@@ -219,6 +219,7 @@ button{
     position: absolute;
     right: -5%;
     font-size: 1em;
+    font-family: 'Reem Kufi Fun', sans-serif;
     width: 10px;
     transition: all ease 0.2s;
     color: var(--primary);
