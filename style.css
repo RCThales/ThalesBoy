@@ -99,7 +99,7 @@ body {
 
 #splash h2 {
     font-size: 2rem;
-    font-family: 'bebas neue', monospace;
+    font-family: 'Reem Kufi Fun', sans-serif;
     font-weight: 100;
 }
 
@@ -606,7 +606,7 @@ button{
     padding: 10px;
     color: white;
     width: 100vw;
-    font-family: 'bebas neue';
+    font-family: 'Reem Kufi Fun', sans-serif;
     z-index: 1000;
 }
 
