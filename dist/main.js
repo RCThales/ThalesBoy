@@ -145,10 +145,12 @@ const playGameAudioAnimation = (on) => {
     });
 };
 const movePowerButton = (on) => {
+    const audio = new Audio('../audio/toggleSound.mp3');
     const btn = document.getElementById('powerBtn');
     const btnMobile = document.getElementById('powerBtnMobile');
     if (on) {
         //Button movement
+        audio.play();
         btn.style.transform = 'translateY(-15px)';
         btnMobile.style.transform = 'translateX(130px)';
         btnMobile.style.color = 'red';
@@ -160,6 +162,7 @@ const movePowerButton = (on) => {
         }, 4100);
         return;
     }
+    audio.play();
     btn.style.transform = 'translateY(0px)';
     btnMobile.style.transform = 'translateX(0px)';
     btnMobile.style.color = 'var(--darkAccent)';

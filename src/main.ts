@@ -185,15 +185,18 @@ const playGameAudioAnimation = (on:boolean) => {
     });
 }
 const movePowerButton = (on:boolean) => {
+    const audio = new Audio('../audio/toggleSound.mp3')
     const btn = document.getElementById('powerBtn') as HTMLElement
     const btnMobile = document.getElementById('powerBtnMobile') as HTMLElement
     if(on){
        //Button movement
+        audio.play() 
         btn.style.transform = 'translateY(-15px)'
         btnMobile.style.transform = 'translateX(130px)'
         btnMobile.style.color = 'red'
         btn.style.pointerEvents = 'none'
         btnMobile.style.pointerEvents = 'none'
+      
 
         setTimeout(() => {
             btn.style.pointerEvents = 'auto'
@@ -202,6 +205,7 @@ const movePowerButton = (on:boolean) => {
         return
     }
 
+    audio.play()
     btn.style.transform = 'translateY(0px)'
     btnMobile.style.transform = 'translateX(0px)'
     btnMobile.style.color = 'var(--darkAccent)'
