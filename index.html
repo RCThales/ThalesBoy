@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@700&family=Noto+Sans+Mono:wght@800;900&family=Reem+Kufi+Fun&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@700&family=Noto+Sans+Mono:wght@800;900&family=Indie+Flower&family=Reem+Kufi+Fun&display=swap"
         rel="stylesheet">
 
     <!--ICONS-->
@@ -70,8 +70,11 @@
                     </ul>
                 </div>
 
-                <button class="nightMode" onpointerup="colorMode()">
+                <button class="themeBtn" onpointerup="selectTheme()">
+                    
                 </button>
+                <div id="themeToolTip">Change Theme</div>
+                
                 
             </nav>
 
@@ -79,7 +82,7 @@
 
         <main class="mainContainer">
             <div class="gameBody" id="gameBody">
-                <button type="button" id="powerBtn" class="powerBtn" onpointerup="gamePower()">       
+                <button type="button" id="powerBtn" class="powerBtn" onpointerup="gamePowerOnAndOff()">       
                 </button>
                 <span id="powerText">
                     <span>◄</span><span>Click</span><span>Here</span>
@@ -88,7 +91,7 @@
                 <div class="screenArea">
                     <div class="screenFrame">
                         <div class="toggleFrame">
-                                <button type="button" id="powerBtnMobile" class="powerBtnMobile" onpointerup="gamePower()">
+                                <button type="button" id="powerBtnMobile" class="powerBtnMobile" onpointerup="gamePowerOnAndOff()">
                                     <i class="material-icons power">power_settings_new</i>
 
                                 </button>

@@ -7,12 +7,12 @@ onselectstart = (e) => {
 window.addEventListener('load', () => {
     //Splash Screen
     const splash = document.getElementById('splash');
-    setTimeout(function () { splash.style.display = 'none'; }, 1900);
+    setTimeout(function () { splash.style.display = 'none'; }, 1500);
     //Setting Color mode on startup
-    if (localStorage.getItem('colorMode') === null) {
-        localStorage.setItem('colorMode', 'day');
+    if (localStorage.getItem('theme') === null) {
+        localStorage.setItem('theme', 'day');
     }
-    colorModeStartup();
+    themeOnStartup();
     //Colors
     const yellow = document.getElementById('yellow');
     const blue = document.getElementById('blue');
@@ -42,36 +42,36 @@ window.addEventListener('load', () => {
     const brand = document.getElementById('brand');
     brand.style.transition = 'background 0s';
 });
-const colorModeStartup = () => {
+const themeOnStartup = () => {
     const container = document.querySelector('.container');
-    const button = document.querySelector('.nightMode');
-    const colorMode = localStorage.getItem('colorMode');
+    const button = document.querySelector('.themeBtn');
+    const theme = localStorage.getItem('theme');
     //Night Mode
-    if (colorMode === 'day') {
+    if (theme === 'day') {
         button.textContent = '🌚';
         container.style.background = 'var(--secondary)';
-        localStorage.setItem('colorMode', 'day');
+        localStorage.setItem('theme', 'day');
         return;
     }
     //Day Mode
     button.textContent = '🌞';
-    localStorage.setItem('colorMode', 'night');
+    localStorage.setItem('theme', 'night');
     container.style.background = 'var(--darkAccent)';
 };
-const colorMode = () => {
+const selectTheme = () => {
     const container = document.querySelector('.container');
-    const button = document.querySelector('.nightMode');
-    const colorMode = localStorage.getItem('colorMode');
+    const button = document.querySelector('.themeBtn');
+    const theme = localStorage.getItem('theme');
     //Night Mode
-    if (colorMode === 'night') {
+    if (theme === 'night') {
         button.textContent = '🌚';
         container.style.background = 'var(--secondary)';
-        localStorage.setItem('colorMode', 'day');
+        localStorage.setItem('theme', 'day');
         return;
     }
     //Day Mode
     button.textContent = '🌞';
-    localStorage.setItem('colorMode', 'night');
+    localStorage.setItem('theme', 'night');
     container.style.background = 'var(--darkAccent)';
 };
 const changeColor = (color) => {
@@ -108,36 +108,23 @@ const changeColor = (color) => {
     //Animation trigger
     currentColorButton.id.style.display = 'none';
 };
-const gamePower = () => {
-    const screen = document.querySelector('.screen');
-    const led = document.querySelector('.led');
-    led === null || led === void 0 ? void 0 : led.classList.toggle('on');
-    let toggle = document.querySelectorAll('#powerText > *');
-    //Check if game is on or off
+const gamePowerOnAndOff = () => {
+    //turnLedOnOrOff() returns true if game is on and false if it is off.
     //ANCHOR GAME ON
-    const isOn = (led === null || led === void 0 ? void 0 : led.classList.contains('on')) ? true : false;
-    if (isOn) {
-        //Animated text instruction for the power button
-        toggle.forEach((e) => {
-            e.style.display = 'none';
-        });
-        //Opening game system link by shutting screen on
-        screen.src = 'https://tgs1.netlify.app/';
-        powerBtnMovement(true);
-        gifPlayer(true);
+    if (turnLedOnOrOff()) {
+        movePowerButton(true);
+        playGif(true);
+        redirectScreenToGameWebPage(true);
+        toggleAnimatedHelperText(true);
         return;
     }
     //ANCHOR GAME OFF
-    //Animated text instruction for the power button
-    toggle.forEach((e) => {
-        e.style.display = 'block';
-    });
-    powerBtnMovement(false);
-    gifPlayer(false);
-    //Shutting screen off
-    screen.src = '';
+    movePowerButton(false);
+    playGif(false);
+    redirectScreenToGameWebPage(false);
+    toggleAnimatedHelperText(false);
 };
-const powerBtnMovement = (on) => {
+const movePowerButton = (on) => {
     const btn = document.getElementById('powerBtn');
     const btnMobile = document.getElementById('powerBtnMobile');
     if (on) {
@@ -157,7 +144,7 @@ const powerBtnMovement = (on) => {
     btnMobile.style.transform = 'translateX(0px)';
     btnMobile.style.color = 'var(--darkAccent)';
 };
-const gifPlayer = (on) => {
+const playGif = (on) => {
     const screenIntro = document.querySelector('.screenIntro');
     screenIntro.style.display = 'block';
     const gif = document.createElement('img');
@@ -179,6 +166,37 @@ const gifPlayer = (on) => {
     screenIntro.style.display = 'none';
     audio.pause();
     audio.currentTime = 0;
+};
+const redirectScreenToGameWebPage = (on) => {
+    const screen = document.querySelector('.screen');
+    if (on) {
+        //Opening game system link by shutting screen on
+        screen.src = 'https://tgs1.netlify.app/';
+        return;
+    }
+    //Shutting screen off
+    screen.src = '';
+};
+const turnLedOnOrOff = () => {
+    const led = document.querySelector('.led');
+    led === null || led === void 0 ? void 0 : led.classList.toggle('on');
+    if (led === null || led === void 0 ? void 0 : led.classList.contains('on'))
+        return true;
+    return false;
+};
+const toggleAnimatedHelperText = (on) => {
+    let toggle = document.querySelectorAll('#powerText > *');
+    if (on) {
+        //Animated text instruction for the power button disappear
+        toggle.forEach((e) => {
+            e.style.display = 'none';
+        });
+        return;
+    }
+    //Animated text instruction for the power button appear
+    toggle.forEach((e) => {
+        e.style.display = 'block';
+    });
 };
 //Swipe color change function
 let touchstartX = 0;

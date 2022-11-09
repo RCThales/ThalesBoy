@@ -9,13 +9,13 @@ window.addEventListener('load', () => {
 
     //Splash Screen
     const splash = document.getElementById('splash') as HTMLElement
-    setTimeout(function(){splash.style.display = 'none'}, 1900)
+    setTimeout(function(){splash.style.display = 'none'}, 1500)
 
     //Setting Color mode on startup
-    if(localStorage.getItem('colorMode') === null){
-        localStorage.setItem('colorMode', 'day')
+    if(localStorage.getItem('theme') === null){
+        localStorage.setItem('theme', 'day')
     }
-    colorModeStartup() 
+    themeOnStartup() 
 
     //Colors
     const yellow = document.getElementById('yellow') as HTMLButtonElement
@@ -55,44 +55,44 @@ window.addEventListener('load', () => {
 
 })
 
-const colorModeStartup = () => {
+const themeOnStartup = () => {
     const container = document.querySelector('.container') as HTMLElement
-    const button = document.querySelector('.nightMode') as HTMLButtonElement
-    const colorMode = localStorage.getItem('colorMode')
+    const button = document.querySelector('.themeBtn') as HTMLButtonElement
+    const theme = localStorage.getItem('theme')
     
 
     //Night Mode
-    if(colorMode === 'day'){
+    if(theme === 'day'){
         button.textContent = '🌚'
         container.style.background = 'var(--secondary)'
-        localStorage.setItem('colorMode', 'day')
+        localStorage.setItem('theme', 'day')
         return
     }
 
     //Day Mode
     button.textContent = '🌞'
-    localStorage.setItem('colorMode', 'night')
+    localStorage.setItem('theme', 'night')
     container.style.background = 'var(--darkAccent)'
 
 }
 
-const colorMode = () => {
+const selectTheme = () => {
     const container = document.querySelector('.container') as HTMLElement
-    const button = document.querySelector('.nightMode') as HTMLButtonElement
-    const colorMode = localStorage.getItem('colorMode')
+    const button = document.querySelector('.themeBtn') as HTMLButtonElement
+    const theme = localStorage.getItem('theme')
     
 
     //Night Mode
-    if(colorMode === 'night'){
+    if(theme === 'night'){
         button.textContent = '🌚'
         container.style.background = 'var(--secondary)'
-        localStorage.setItem('colorMode', 'day')
+        localStorage.setItem('theme', 'day')
         return
     }
 
     //Day Mode
     button.textContent = '🌞'
-    localStorage.setItem('colorMode', 'night')
+    localStorage.setItem('theme', 'night')
     container.style.background = 'var(--darkAccent)'
 
 }
@@ -141,42 +141,27 @@ const changeColor = (color:string) => {
 
 }
 
-const gamePower = () => {
-    const screen = document.querySelector('.screen') as HTMLIFrameElement
-    const led = document.querySelector('.led')
-    led?.classList.toggle('on')
-    let toggle = document.querySelectorAll('#powerText > *')
+const gamePowerOnAndOff = () => {
 
-    //Check if game is on or off
+    //turnLedOnOrOff() returns true if game is on and false if it is off.
     //ANCHOR GAME ON
-    const isOn = led?.classList.contains('on') ? true : false
-    if(isOn){
-
-        //Animated text instruction for the power button
-        toggle.forEach((e:any) =>{
-                 e.style.display = 'none' 
-        })
+    if(turnLedOnOrOff()){
         
-        //Opening game system link by shutting screen on
-        screen.src = 'https://tgs1.netlify.app/'
-        powerBtnMovement(true)
-        gifPlayer(true)
+        movePowerButton(true)
+        playGif(true)
+        redirectScreenToGameWebPage(true)
+        toggleAnimatedHelperText(true)
         return
     }
 
     //ANCHOR GAME OFF
-    //Animated text instruction for the power button
-    toggle.forEach((e:any) =>{
-                e.style.display = 'block' 
-    })
-    powerBtnMovement(false)
-    gifPlayer(false)
-
-    //Shutting screen off
-    screen.src = ''  
+    movePowerButton(false)
+    playGif(false)
+    redirectScreenToGameWebPage(false)
+    toggleAnimatedHelperText(false)
 }
 
-const powerBtnMovement = (on:boolean) => {
+const movePowerButton = (on:boolean) => {
     const btn = document.getElementById('powerBtn') as HTMLElement
     const btnMobile = document.getElementById('powerBtnMobile') as HTMLElement
     if(on){
@@ -200,7 +185,7 @@ const powerBtnMovement = (on:boolean) => {
 
 }
 
-const gifPlayer = (on:boolean) => {
+const playGif = (on:boolean) => {
     const screenIntro = document.querySelector('.screenIntro') as HTMLElement
     screenIntro.style.display = 'block'
     const gif = document.createElement('img')
@@ -226,6 +211,46 @@ const gifPlayer = (on:boolean) => {
     screenIntro.style.display = 'none'
     audio.pause()
     audio.currentTime = 0
+}
+
+const redirectScreenToGameWebPage = (on:boolean) => {
+    const screen = document.querySelector('.screen') as HTMLIFrameElement
+
+    if(on){
+        //Opening game system link by shutting screen on
+        screen.src = 'https://tgs1.netlify.app/'
+        return
+    }
+
+    //Shutting screen off
+    screen.src = ''
+
+}
+
+const turnLedOnOrOff = () => {
+
+    const led = document.querySelector('.led')
+    led?.classList.toggle('on')
+    
+    if(led?.classList.contains('on')) return true
+    return false
+}
+
+const toggleAnimatedHelperText = (on:boolean) => {
+    let toggle = document.querySelectorAll('#powerText > *')
+
+   if(on){
+        //Animated text instruction for the power button disappear
+        toggle.forEach((e:any) =>{
+                    e.style.display = 'none' 
+        })
+        return
+    }
+
+    //Animated text instruction for the power button appear
+    toggle.forEach((e:any) =>{
+        e.style.display = 'block' 
+    })
 }
 
 //Swipe color change function

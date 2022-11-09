@@ -125,6 +125,7 @@ header{
 
 .main_nav{
 
+   position: relative;
    display: flex;
    justify-content: space-evenly;
    align-items: center;
@@ -280,7 +281,7 @@ button{
     width: 100%;
 }
 
-.nightMode {
+.themeBtn {
     margin-left: auto;
     cursor: pointer;
     height: 2em;
@@ -295,8 +296,33 @@ button{
     align-items: center;
 }
 
-.nightMode:hover {
-    font-size: 1.6em;
+.themeBtn:hover {
+    font-size: 1.8em;
+}
+
+#themeToolTip{
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color:var(--darkAccent);
+    background-color: var(--accent);
+    height: 20px;
+    width: 120px;
+    z-index: 1000;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    padding: 8px;
+    right: 3%;
+    transition: all ease 0.2s;
+    font-family: 'Noto Sans Mono', monospace;
+    pointer-events: none;
+}
+
+.themeBtn:hover ~ #themeToolTip {
+
+    opacity: 1;
 }
 
 .gameBody{
