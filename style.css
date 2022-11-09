@@ -45,6 +45,7 @@ body {
 .landscapeMessage img{
     animation: flipPhone 5s infinite 0.5s;
     filter: contrast(500%);
+    mix-blend-mode: multiply;
 }
 
 @keyframes flipPhone {
