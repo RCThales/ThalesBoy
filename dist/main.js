@@ -137,7 +137,6 @@ const playGameAudioAnimation = (on) => {
     if (on) {
         audioAnimation.forEach(element => {
             element.classList.remove('soundOff');
-            console.log(element);
         });
         return;
     }
@@ -150,7 +149,7 @@ const movePowerButton = (on) => {
     const btnMobile = document.getElementById('powerBtnMobile');
     if (on) {
         //Button movement
-        btn.style.transform = 'translateY(15px)';
+        btn.style.transform = 'translateY(-15px)';
         btnMobile.style.transform = 'translateX(130px)';
         btnMobile.style.color = 'red';
         btn.style.pointerEvents = 'none';
@@ -194,7 +193,7 @@ const redirectScreenToGameWebPage = (on) => {
         //Opening game system link by shutting screen on
         setTimeout(() => {
             screen.src = 'https://tgs1.netlify.app/';
-        }, 3200);
+        }, 3000);
         return;
     }
     //Shutting screen off

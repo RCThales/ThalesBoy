@@ -210,6 +210,7 @@ button{
 .powerBtn{
     position: absolute;
     right: -3%;
+    top: 10%;
     border: 0;
     background-color: rgb(75, 75, 75);
     border-radius: 2px 2px;
@@ -224,9 +225,10 @@ button{
 }
 
 #powerText {
-    transform: rotate(-10deg) translate(10px,-5px);
+    transform: rotate(-10deg) translate(10px,35px);
     position: absolute;
     right: -5%;
+
     font-size: 1em;
     font-family: 'Reem Kufi Fun', sans-serif;
     width: 10px;
@@ -739,6 +741,10 @@ button{
     color: var(--carving);
 }
 
+.musicalNotes {
+    
+}
+
 .musicalNote1 {
     position: absolute;
     color: var(--carving);
@@ -783,10 +789,17 @@ button{
 
     from {
             transform: rotate(0deg) translate(30px) rotate(0deg);
+            text-shadow: 0 0 10px rgb(176, 176, 176), 0 0 20px rgb(219, 219, 219), 0 0 30px var(--accent), 0 0 40px var(--accent), 0 0 50px var(--accent), 0 0 60px var(--accent), 0 0 70px var(--accent);
+            opacity: 1;
+    }
+
+    50%{
+        opacity: 1;
     }
     
     to {
         transform: rotate(200deg) translate(0px) rotate(-200deg);
+        text-shadow: 0 0 20px rgb(206, 206, 206), 0 0 30px var(--primary), 0 0 40px var(--primary), 0 0 50px var(--primary), 0 0 60px var(--primary), 0 0 70px var(--primary), 0 0 80px var(--primary);
         opacity: 0;
     }
     
