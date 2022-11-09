@@ -196,7 +196,7 @@ const redirectScreenToGameWebPage = (on) => {
         //Opening game system link by shutting screen on
         setTimeout(() => {
             screen.src = 'https://tgs1.netlify.app/';
-        }, 3000);
+        }, 3800);
         return;
     }
     //Shutting screen off

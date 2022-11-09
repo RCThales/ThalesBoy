@@ -190,7 +190,7 @@ const movePowerButton = (on:boolean) => {
     const btnMobile = document.getElementById('powerBtnMobile') as HTMLElement
     if(on){
        //Button movement
-        audio.play() 
+        audio.play()  
         btn.style.transform = 'translateY(-15px)'
         btnMobile.style.transform = 'translateX(130px)'
         btnMobile.style.color = 'red'
@@ -248,7 +248,7 @@ const redirectScreenToGameWebPage = (on:boolean) => {
         //Opening game system link by shutting screen on
         setTimeout(() => {
             screen.src = 'https://tgs1.netlify.app/'    
-        }, 3000)
+        }, 3800)
        
         return
     }
