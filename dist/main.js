@@ -42,6 +42,12 @@ window.addEventListener('load', () => {
     const brand = document.getElementById('brand');
     brand.style.transition = 'background 0s';
 });
+//Making sure focus is always on the game, so the controllers work.
+window.addEventListener('click', () => {
+    var _a;
+    const screen = document.querySelector('.screen');
+    (_a = screen === null || screen === void 0 ? void 0 : screen.contentWindow) === null || _a === void 0 ? void 0 : _a.focus();
+});
 const themeOnStartup = () => {
     const container = document.querySelector('.container');
     const button = document.querySelector('.themeBtn');
@@ -188,7 +194,7 @@ const redirectScreenToGameWebPage = (on) => {
         //Opening game system link by shutting screen on
         setTimeout(() => {
             screen.src = 'https://tgs1.netlify.app/';
-        }, 3500);
+        }, 3200);
         return;
     }
     //Shutting screen off

@@ -55,6 +55,12 @@ window.addEventListener('load', () => {
 
 })
 
+//Making sure focus is always on the game, so the controllers work.
+window.addEventListener('click', () => {
+    const screen = document.querySelector('.screen') as HTMLIFrameElement
+    screen?.contentWindow?.focus()
+})
+
 const themeOnStartup = () => {
     const container = document.querySelector('.container') as HTMLElement
     const button = document.querySelector('.themeBtn') as HTMLButtonElement
@@ -236,7 +242,7 @@ const redirectScreenToGameWebPage = (on:boolean) => {
         //Opening game system link by shutting screen on
         setTimeout(() => {
             screen.src = 'https://tgs1.netlify.app/'    
-        }, 3500)
+        }, 3200)
        
         return
     }
