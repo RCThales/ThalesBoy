@@ -151,6 +151,7 @@ const gamePowerOnAndOff = () => {
         playGif(true)
         redirectScreenToGameWebPage(true)
         toggleAnimatedHelperText(true)
+        playGameAudioAnimation(true)
         return
     }
 
@@ -159,8 +160,23 @@ const gamePowerOnAndOff = () => {
     playGif(false)
     redirectScreenToGameWebPage(false)
     toggleAnimatedHelperText(false)
+     playGameAudioAnimation(false)
 }
 
+const playGameAudioAnimation = (on:boolean) => {
+    const audioAnimation = document.querySelectorAll('.musicalNotes')
+    if(on){    
+        audioAnimation.forEach(element => {
+            element.classList.remove('soundOff');
+            console.log(element);
+        });
+        return
+    }
+
+    audioAnimation.forEach(element => {
+            element.classList.add('soundOff');
+    });
+}
 const movePowerButton = (on:boolean) => {
     const btn = document.getElementById('powerBtn') as HTMLElement
     const btnMobile = document.getElementById('powerBtnMobile') as HTMLElement
@@ -218,7 +234,10 @@ const redirectScreenToGameWebPage = (on:boolean) => {
 
     if(on){
         //Opening game system link by shutting screen on
-        screen.src = 'https://tgs1.netlify.app/'
+        setTimeout(() => {
+            screen.src = 'https://tgs1.netlify.app/'    
+        }, 3500)
+       
         return
     }
 

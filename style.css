@@ -1,12 +1,19 @@
 
 
 :root{
+    /*COLORS*/
     --primary: #f8b725;
     --secondary: #f6f3f3;
     --carving: #e1b245;
     --accent: #fcbe2b;
     --dark: rgb(27, 27, 32);
     --darkAccent: rgb(42, 42, 50);
+
+    /*SOUND ANIMATION*/
+    --xMovement: 50px;
+    --yMovement: 50px;
+    --scale: 1.1;
+    --rotation: 100deg;
 }
 
 html {
@@ -730,6 +737,59 @@ button{
 
 .speakerColored{
     color: var(--carving);
+}
+
+.musicalNote1 {
+    position: absolute;
+    color: var(--carving);
+    font-size: 3.2rem;
+    right: 30%;
+    top: 50%;
+    animation: soundOn 3s infinite;
+}
+
+.musicalNote1{
+    position: absolute;
+    color:var(--carving);
+    font-size: 3.2rem;
+    right: 30%;
+    top: 50%;
+    animation: soundOn 3s infinite ;
+}
+
+.musicalNote2 {
+    position: absolute;
+    color: var(--carving);
+    font-size: 3.5rem;
+    right: 30%;
+    top: 10%;
+    animation: soundOn 2s infinite;
+}
+
+.musicalNote3 {
+    position: absolute;
+    color: var(--carving);
+    font-size: 3rem;
+    right: 30%;
+    top: 100%;
+    animation: soundOn 2.5s infinite;
+}
+
+.soundOff{
+    display: none;
+}
+
+@keyframes soundOn {
+
+    from {
+            transform: rotate(0deg) translate(30px) rotate(0deg);
+    }
+    
+    to {
+        transform: rotate(200deg) translate(0px) rotate(-200deg);
+        opacity: 0;
+    }
+    
 }
 
 /*Canceling highlight color*/
