@@ -1,5 +1,6 @@
 let audio = new Audio('../audio/thalesboyOn.mp3');
 let introOff:any = () => {}
+const gameIFrame = document.querySelector('.screen') as HTMLIFrameElement
 
 onselectstart = (e) => {
   e.preventDefault()
@@ -7,7 +8,7 @@ onselectstart = (e) => {
 
 window.addEventListener('load', () => {
 
-    //Splash Screen
+    //Splash gameIFrame
     const splash = document.getElementById('splash') as HTMLElement
     setTimeout(function(){splash.style.display = 'none'}, 1500)
 
@@ -57,10 +58,10 @@ window.addEventListener('load', () => {
 
 
 
+
 //Making sure focus is always on the game, so the controllers work.
 window.addEventListener('click', () => {
-    const screen = document.querySelector('.screen') as HTMLIFrameElement
-    screen?.contentWindow?.focus()
+    gameIFrame.focus()
 })
 
 const themeOnStartup = () => {
@@ -160,6 +161,7 @@ const gamePowerOnAndOff = () => {
         redirectScreenToGameWebPage(true)
         toggleAnimatedHelperText(true)
         playGameAudioAnimation(true)
+        gameIFrame?.contentWindow?.focus()
         return
     }
 
@@ -241,20 +243,19 @@ const playGif = (on:boolean) => {
 }
 
 const redirectScreenToGameWebPage = (on:boolean) => {
-    const screen = document.querySelector('.screen') as HTMLIFrameElement
 
     if(on){
   
-        //Opening game system link by shutting screen on
+        //Opening game system link by shutting gameIFrame on
         setTimeout(() => {
-            screen.src = 'https://tgs1.netlify.app/'    
+            gameIFrame.src = 'https://tgs1.netlify.app/'    
         }, 3800)
        
         return
     }
 
-    //Shutting screen off
-    screen.src = ''
+    //Shutting gameIFrame off
+    gameIFrame.src = ''
 
 }
 
@@ -339,5 +340,18 @@ gameBody.addEventListener('touchend', e => {
      
         checkDirection() 
     }
+
+})
+
+/* CONTROLLERS */
+
+const move = (e:any) => {
+    let button = e.key    
+    let keyEvent = new KeyboardEvent('keypress', {key: button})
+    console.log(keyEvent);
+}
+
+gameIFrame.contentWindow?.parent.addEventListener('keydown', (e) => {
+   move(e)
 
 })

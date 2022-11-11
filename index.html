@@ -107,7 +107,7 @@
                         <!---------->
                  
                         <div class="screenIntro"></div>
-                        <iframe allow="autoplay" onload="this.contentWindow.focus()" class="screen" src="" title="Game System by Thales Cardoso" scrolling="no">
+                        <iframe onload="this.contentWindow.focus()" class="screen" src="" title="Game System by Thales Cardoso" scrolling="no">
                         </iframe>
                         
                         <div class="videoGameName">
@@ -127,24 +127,24 @@
 
                     <div class="gameBtns">
                         <div class="leftBtns">
-                            <button class="gameBtn up">▲</button>
-                            <button class="gameBtn right">►</button>
-                            <button class="gameBtn down">▼</button>
-                            <button class="gameBtn left">◄</button>
+                            <button onclick="move(this)" class="gameBtn up">▲</button>
+                            <button onclick="move(this)" class="gameBtn right">►</button>
+                            <button onclick="move(this)" class="gameBtn down">▼</button>
+                            <button onclick="move(this)" class="gameBtn left">◄</button>
                             <button class="gameBtn center">◉</button>
                         </div>
                         <div class="rightBtns">
-                            <button class="gameBtn a">A</button>
-                            <button class="gameBtn b">B</button>
+                            <button onclick="move(this)" class="gameBtn a">A</button>
+                            <button onclick="move(this)" class="gameBtn b">B</button>
                         </div>
                     </div>
 
                     <div class="startSelectBtns">
                         <div class="selectBtn">
-                            <button class="menuBtn select"><span>SELECT</span></button>            
+                            <button onclick="move(this)" class="menuBtn select"><span>SELECT</span></button>            
                         </div>
                         <div class="startBtn">
-                            <button class="menuBtn start"><span>START</span></button>
+                            <button onclick="move(this)" class="menuBtn start"><span>START</span></button>
                         </div>            
                     </div>
 

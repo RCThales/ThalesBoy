@@ -342,13 +342,15 @@ button{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 45rem;
+    height: 50rem;
     width: clamp(30rem,35rem,0%);
     padding: 30px 0;
     border-radius: 10px 10px;
     border-bottom-right-radius: 30% 10%;
     border-bottom-left-radius: 30% 10%;
     transition: all ease 0.3s;
+    transform: scale(1.2);
+    
 }
 
 .bodyShadow{
@@ -368,8 +370,8 @@ button{
     background-color: rgb(143, 169, 173);
     background-image: repeating-linear-gradient(36deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2) 1px, transparent 0px, transparent 2px);
     opacity: 0.8;
-    width: 17em;
-    height: 17em;
+    width: 300px;
+    height: 300px;
     transform: translateY(-20px);
     border: none;
 }
@@ -378,8 +380,8 @@ button{
     position: absolute;
     background-color: rgb(143, 169, 173);
     background-image: repeating-linear-gradient(36deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2) 1px, transparent 0px, transparent 2px);
-    width: 17em;
-    height: 17em;
+    width: 300px;
+    height: 300px;
     transform: translateY(-20px);
     z-index: 10000;
 }
@@ -685,7 +687,7 @@ button{
     right: 50%;
     transform: translate(50%, -50%);
     height: 30px;
-    width: 135px;
+    width: 150px;
     border: solid 4px var(--carving);
     border-radius: 30px;
     justify-content: flex-start;
@@ -844,6 +846,7 @@ a {
         width: 100vw;
         height: 100vh;
         border-radius: 0;
+        transform: scale(1);
     }
 
     .bodyShadow{

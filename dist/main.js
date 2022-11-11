@@ -1,11 +1,13 @@
 "use strict";
+var _a;
 let audio = new Audio('../audio/thalesboyOn.mp3');
 let introOff = () => { };
+const gameIFrame = document.querySelector('.screen');
 onselectstart = (e) => {
     e.preventDefault();
 };
 window.addEventListener('load', () => {
-    //Splash Screen
+    //Splash gameIFrame
     const splash = document.getElementById('splash');
     setTimeout(function () { splash.style.display = 'none'; }, 1500);
     //Setting Color mode on startup
@@ -44,9 +46,7 @@ window.addEventListener('load', () => {
 });
 //Making sure focus is always on the game, so the controllers work.
 window.addEventListener('click', () => {
-    var _a;
-    const screen = document.querySelector('.screen');
-    (_a = screen === null || screen === void 0 ? void 0 : screen.contentWindow) === null || _a === void 0 ? void 0 : _a.focus();
+    gameIFrame.focus();
 });
 const themeOnStartup = () => {
     const container = document.querySelector('.container');
@@ -115,6 +115,7 @@ const changeColor = (color) => {
     currentColorButton.id.style.display = 'none';
 };
 const gamePowerOnAndOff = () => {
+    var _a;
     //turnLedOnOrOff() returns true if game is on and false if it is off.
     //ANCHOR GAME ON
     if (turnLedOnOrOff()) {
@@ -123,6 +124,7 @@ const gamePowerOnAndOff = () => {
         redirectScreenToGameWebPage(true);
         toggleAnimatedHelperText(true);
         playGameAudioAnimation(true);
+        (_a = gameIFrame === null || gameIFrame === void 0 ? void 0 : gameIFrame.contentWindow) === null || _a === void 0 ? void 0 : _a.focus();
         return;
     }
     //ANCHOR GAME OFF
@@ -191,16 +193,15 @@ const playGif = (on) => {
     audio.currentTime = 0;
 };
 const redirectScreenToGameWebPage = (on) => {
-    const screen = document.querySelector('.screen');
     if (on) {
-        //Opening game system link by shutting screen on
+        //Opening game system link by shutting gameIFrame on
         setTimeout(() => {
-            screen.src = 'https://tgs1.netlify.app/';
+            gameIFrame.src = 'https://tgs1.netlify.app/';
         }, 3800);
         return;
     }
-    //Shutting screen off
-    screen.src = '';
+    //Shutting gameIFrame off
+    gameIFrame.src = '';
 };
 const turnLedOnOrOff = () => {
     const led = document.querySelector('.led');
@@ -263,4 +264,13 @@ gameBody.addEventListener('touchend', e => {
     if (fingerCount === 1) {
         checkDirection();
     }
+});
+/* CONTROLLERS */
+const move = (e) => {
+    let button = e.key;
+    let keyEvent = new KeyboardEvent('keypress', { key: button });
+    console.log(keyEvent);
+};
+(_a = gameIFrame.contentWindow) === null || _a === void 0 ? void 0 : _a.parent.addEventListener('keydown', (e) => {
+    move(e);
 });
