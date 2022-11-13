@@ -206,3 +206,14 @@ body{
 .intro{
     display: none;
 }
+
+/*MOBILE*/
+@media screen and (max-width: 680px) and (orientation: portrait) {
+
+
+    #search {
+        display: none;
+
+    }
+
+}

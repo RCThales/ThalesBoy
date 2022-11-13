@@ -12,7 +12,10 @@ let gamesArray = [{
         id: 3,
     }];
 let currentGame = 1;
+let isGameStarting = false;
 const searchInput = document.querySelector('#search');
+let startGameAudio = new Audio('./audio/startgame.wav');
+let gameInspectSound = new Audio('./audio/inspect.wav');
 window.addEventListener('load', () => {
     renderListOfGames(gamesArray);
     selectGame(1, true);
@@ -25,7 +28,8 @@ document.addEventListener('keydown', (keyPressed) => {
     selectMenuViaInput(keyPressed);
 });
 const selectMenuViaInput = (keyPressed) => {
-    if (document.activeElement === searchInput)
+    //if (document.activeElement === searchInput) return
+    if (isGameStarting)
         return;
     const listOfGames = document.querySelectorAll('.games');
     const movement = {
@@ -54,12 +58,10 @@ const renderListOfGames = (array) => {
     });
 };
 const startGame = () => {
-    const gameFrame = document.querySelector('.play');
-    let startGame = new Audio('./audio/startgame.wav');
-    startGame.play();
+    isGameStarting = true;
+    startGameAudio.play();
     setTimeout(() => {
-        gameFrame.href = `./games/game_${currentGame}/game_${currentGame}.html`;
-        gameFrame.click();
+        window.location.href = `./games/game_${currentGame}/game_${currentGame}.html`;
     }, 3000);
     animateGameStart();
 };
@@ -85,7 +87,7 @@ const selectGame = (gameId, isStartup) => {
     currentGame = gameId;
     changeGameImage(gameId);
     if (!isStartup) {
-        let gameInspectSound = new Audio('./audio/inspect.wav');
+        gameInspectSound.currentTime = 0;
         gameInspectSound.play();
     }
 };

@@ -1,5 +1,6 @@
 "use strict";
-let audio = new Audio('../audio/thalesboyOn.mp3');
+let gameOnAudio = new Audio('../audio/thalesboyOn.mp3');
+const toggleAudio = new Audio('../audio/toggleSound.mp3');
 let introOff = () => { };
 const gameIFrame = document.querySelector('.screen');
 onselectstart = (e) => {
@@ -154,12 +155,11 @@ const playGameAudioAnimation = (on) => {
     });
 };
 const movePowerButton = (on) => {
-    const audio = new Audio('../audio/toggleSound.mp3');
     const btn = document.getElementById('powerBtn');
     const btnMobile = document.getElementById('powerBtnMobile');
     if (on) {
         //Button movement
-        audio.play();
+        toggleAudio.play();
         btn.style.transform = 'translateY(-15px)';
         btnMobile.style.transform = 'translateX(130px)';
         btnMobile.style.color = 'red';
@@ -171,7 +171,7 @@ const movePowerButton = (on) => {
         }, 4100);
         return;
     }
-    audio.play();
+    toggleAudio.play();
     btn.style.transform = 'translateY(0px)';
     btnMobile.style.transform = 'translateX(0px)';
     btnMobile.style.color = 'var(--darkAccent)';
@@ -182,7 +182,7 @@ const playGif = (on) => {
     const gif = document.createElement('img');
     if (on) {
         //Intro Audio Effect
-        audio.play();
+        gameOnAudio.play();
         //Creating gif every time the game is on so the gif can play once from the start
         gif.src = '../img/thalesboygif.gif';
         gif.className = 'gameIntro';
@@ -196,8 +196,8 @@ const playGif = (on) => {
     }
     window.clearTimeout(introOff);
     screenIntro.style.display = 'none';
-    audio.pause();
-    audio.currentTime = 0;
+    gameOnAudio.pause();
+    gameOnAudio.currentTime = 0;
 };
 const redirectScreenToGameWebPage = (on) => {
     if (on) {

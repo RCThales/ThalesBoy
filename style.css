@@ -345,9 +345,26 @@ button{
     background-color: rgb(143, 169, 173);
     background-image: repeating-linear-gradient(36deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2) 1px, transparent 0px, transparent 2px);
     opacity: 0.8;
-    width: 300px;
-    height: 300px;
+    aspect-ratio: 1;
+    width: 295px; /*Setting a smaller size than 300px because some fragments are appearing on the borders*/
+    height: 295px;
     transform: translateY(-20px);
+    border: none !important;
+    outline: none !important;
+}
+
+.screen:hover {
+    outline: none;
+    border: none;
+}
+
+.screen:active {
+    outline: none;
+    border: none;
+}
+
+.screen:focus{
+    outline: none;
     border: none;
 }
 
@@ -818,7 +835,7 @@ a {
         display: flex;
     }
     .gameBody{
-        width: 100vw;
+        width: 105vw;
         height: 100vh;
         border-radius: 0;
         transform: scale(1);
@@ -832,7 +849,7 @@ a {
         transition: all ease 0.2s;
     }
     .screenFrame{
-        transform: scale(0.85) translateY(-25px);
+        transform: scale(0.9) translateY(-25px);
     
     }
 
@@ -955,12 +972,16 @@ a {
 
 }
 
-@media  (orientation:landscape) and (pointer:coarse) and (max-width: 1000px) {
+@media  (min-aspect-ratio: 13/9) and (pointer:coarse) and (max-width: 1000px) {
 
     .landscapeMessage {
         position: absolute;
-            display: flex;
+        display: flex;
         }
+
+    .landscapeMessage > * {
+        transform: translateY(20px);
+    }
 
     .container{
         display: none;
@@ -968,11 +989,15 @@ a {
     
 }
 
-@media (orientation:landscape) and (pointer:none) and (max-width: 1000px) {
+@media (min-aspect-ratio: 13/9) and (pointer:none) and (max-width: 1000px) {
 
     .landscapeMessage {
         position: absolute;
         display: flex;
+    }
+
+    .landscapeMessage>* {
+        transform: translateY(20px);
     }
 
     .container {

@@ -12,8 +12,12 @@ let gamesArray = [{
 }]
 
 let currentGame = 1
+let isGameStarting = false
 
 const searchInput = document.querySelector('#search') as HTMLInputElement
+
+let startGameAudio = new Audio('./audio/startgame.wav')
+let gameInspectSound = new Audio('./audio/inspect.wav')
 
 window.addEventListener('load', () => {
 
@@ -32,7 +36,8 @@ document.addEventListener('keydown', (keyPressed) => {
 })
 
 const selectMenuViaInput = (keyPressed:KeyboardEvent) => {
-  if (document.activeElement === searchInput) return
+  //if (document.activeElement === searchInput) return
+  if(isGameStarting) return
 
   const listOfGames = document.querySelectorAll('.games')
 
@@ -70,18 +75,14 @@ const renderListOfGames = (array:object[]) => {
 }
 
 const startGame = () => {
-
-  const gameFrame = document.querySelector('.play') as HTMLAnchorElement
-  let startGame = new Audio('./audio/startgame.wav')
-  startGame.play()
+  isGameStarting = true;
+  startGameAudio.play()
 
   setTimeout(() => {
-    gameFrame.href = `./games/game_${currentGame}/game_${currentGame}.html`
-    gameFrame.click()
+    window.location.href = `./games/game_${currentGame}/game_${currentGame}.html`
   }, 3000);
 
   animateGameStart()
-
 }
 
 const animateGameStart = () => {
@@ -112,7 +113,8 @@ const selectGame = (gameId:number, isStartup:boolean) => {
   changeGameImage(gameId)
 
   if(!isStartup){
-    let gameInspectSound = new Audio('./audio/inspect.wav')
+ 
+    gameInspectSound.currentTime = 0
     gameInspectSound.play()
   }
 }

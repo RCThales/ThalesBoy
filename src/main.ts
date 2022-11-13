@@ -1,4 +1,5 @@
-let audio = new Audio('../audio/thalesboyOn.mp3');
+let gameOnAudio = new Audio('../audio/thalesboyOn.mp3');
+const toggleAudio = new Audio('../audio/toggleSound.mp3')
 let introOff:any = () => {}
 const gameIFrame = document.querySelector('.screen') as HTMLIFrameElement
 
@@ -196,12 +197,12 @@ const playGameAudioAnimation = (on:boolean) => {
     });
 }
 const movePowerButton = (on:boolean) => {
-    const audio = new Audio('../audio/toggleSound.mp3')
+
     const btn = document.getElementById('powerBtn') as HTMLElement
     const btnMobile = document.getElementById('powerBtnMobile') as HTMLElement
     if(on){
        //Button movement
-        audio.play()  
+        toggleAudio.play()  
         btn.style.transform = 'translateY(-15px)'
         btnMobile.style.transform = 'translateX(130px)'
         btnMobile.style.color = 'red'
@@ -216,7 +217,7 @@ const movePowerButton = (on:boolean) => {
         return
     }
 
-    audio.play()
+    toggleAudio.play()
     btn.style.transform = 'translateY(0px)'
     btnMobile.style.transform = 'translateX(0px)'
     btnMobile.style.color = 'var(--darkAccent)'
@@ -230,7 +231,7 @@ const playGif = (on:boolean) => {
 
     if(on){
         //Intro Audio Effect
-        audio.play()
+        gameOnAudio.play()
 
         //Creating gif every time the game is on so the gif can play once from the start
         gif.src = '../img/thalesboygif.gif'
@@ -247,8 +248,8 @@ const playGif = (on:boolean) => {
 
     window.clearTimeout(introOff)
     screenIntro.style.display = 'none'
-    audio.pause()
-    audio.currentTime = 0
+    gameOnAudio.pause()
+    gameOnAudio.currentTime = 0
 }
 
 const redirectScreenToGameWebPage = (on:boolean) => {
