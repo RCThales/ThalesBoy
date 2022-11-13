@@ -310,31 +310,6 @@ button{
     font-size: 1.8em;
 }
 
-#themeToolTip{
-    display: flex;
-    opacity: 0;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    color:var(--darkAccent);
-    background-color: var(--accent);
-    height: 20px;
-    width: 120px;
-    z-index: 1000;
-    border-radius: 10px;
-    font-size: 0.8rem;
-    padding: 8px;
-    right: 3%;
-    transition: all ease 0.2s;
-    font-family: 'Noto Sans Mono', monospace;
-    pointer-events: none;
-}
-
-.themeBtn:hover ~ #themeToolTip {
-
-    opacity: 1;
-}
-
 .gameBody{
     position: relative;
     background: var(--primary);
@@ -349,7 +324,7 @@ button{
     border-bottom-right-radius: 30% 10%;
     border-bottom-left-radius: 30% 10%;
     transition: all ease 0.3s;
-    transform: scale(1.2);
+    transform: scale(1.1);
     
 }
 
@@ -817,7 +792,7 @@ a {
 }
 
 /*MOBILE*/
-@media screen and (max-width: 800px) and (orientation: portrait) {
+@media screen and (max-width: 680px) and (orientation: portrait) {
 
     header{
         display: none;
@@ -857,7 +832,7 @@ a {
         transition: all ease 0.2s;
     }
     .screenFrame{
-        transform: scale(0.9) translateY(-25px);
+        transform: scale(0.85) translateY(-25px);
     
     }
 

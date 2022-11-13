@@ -8,63 +8,32 @@ onselectstart = (e) => {
 
 window.addEventListener('load', () => {
 
-    //Splash gameIFrame
-    const splash = document.getElementById('splash') as HTMLElement
-    setTimeout(function(){splash.style.display = 'none'}, 1500)
+    loadSplashScreen()
 
     //Setting Color mode on startup
     if(localStorage.getItem('theme') === null){
         localStorage.setItem('theme', 'day')
     }
-    themeOnStartup() 
 
-    //Colors
-    const yellow = document.getElementById('yellow') as HTMLButtonElement
-    const blue = document.getElementById('blue') as HTMLButtonElement
-    const pink = document.getElementById('pink') as HTMLButtonElement
-    const purple = document.getElementById('purple') as HTMLButtonElement
-    const green = document.getElementById('green') as HTMLButtonElement
-
-    if(localStorage.getItem('gameColor') === null){
-        localStorage.setItem('gameColor', 'yellow')
-        yellow.style.display = 'none';
-        return
-    }
-
-    const colors = {
-        yellow: yellow,
-        blue: blue,
-        pink: pink,
-        purple: purple,
-        green: green
-    }
-
-    const currentColor = localStorage.getItem('gameColor') as string
-
-    //Hiding the selected color button
-    colors[currentColor as keyof typeof colors].style.display = 'none';
-
-    //Changing the video game color on start
-    changeColor(currentColor)
-
-    //Avoiding the transition when the page is loaded or reloaded
-    const gameBody = document.getElementById('gameBody') as HTMLButtonElement
-    gameBody.style.transition = 'background 0s'
-
-    const brand = document.getElementById('brand') as HTMLElement
-    brand.style.transition = 'background 0s'
+    setColorOnStartUp()
+    setThemeOnStartup() 
 
 })
 
 
+const loadSplashScreen = () => {
+      //Splash gameIFrame
+    const splash = document.getElementById('splash') as HTMLElement
+    setTimeout(function(){splash.style.display = 'none'}, 1500)
+}
 
+/* CONTROLLERS */
+const move = (button:string) => {
+    gameIFrame.contentDocument?.dispatchEvent(new KeyboardEvent('keydown', {'key': button}));
+    console.log(gameIFrame.contentWindow);
+}
 
-//Making sure focus is always on the game, so the controllers work.
-window.addEventListener('click', () => {
-    gameIFrame.focus()
-})
-
-const themeOnStartup = () => {
+const setThemeOnStartup = () => {
     const container = document.querySelector('.container') as HTMLElement
     const button = document.querySelector('.themeBtn') as HTMLButtonElement
     const theme = localStorage.getItem('theme')
@@ -104,6 +73,44 @@ const selectTheme = () => {
     localStorage.setItem('theme', 'night')
     container.style.background = 'var(--darkAccent)'
 
+}
+
+const setColorOnStartUp = () => {
+    //Colors
+    const yellow = document.getElementById('yellow') as HTMLButtonElement
+    const blue = document.getElementById('blue') as HTMLButtonElement
+    const pink = document.getElementById('pink') as HTMLButtonElement
+    const purple = document.getElementById('purple') as HTMLButtonElement
+    const green = document.getElementById('green') as HTMLButtonElement
+
+    if(localStorage.getItem('gameColor') === null){
+        localStorage.setItem('gameColor', 'yellow')
+        yellow.style.display = 'none';
+        return
+    }
+
+    const colors = {
+        yellow: yellow,
+        blue: blue,
+        pink: pink,
+        purple: purple,
+        green: green
+    }
+
+    const currentColor = localStorage.getItem('gameColor') as string
+
+    //Hiding the selected color button
+    colors[currentColor as keyof typeof colors].style.display = 'none';
+
+    //Changing the video game color on start
+    changeColor(currentColor)
+
+    //Avoiding the transition when the page is loaded or reloaded
+    const gameBody = document.getElementById('gameBody') as HTMLButtonElement
+    gameBody.style.transition = 'background 0s'
+
+    const brand = document.getElementById('brand') as HTMLElement
+    brand.style.transition = 'background 0s'
 }
 
 const changeColor = (color:string) => {
@@ -248,8 +255,8 @@ const redirectScreenToGameWebPage = (on:boolean) => {
   
         //Opening game system link by shutting gameIFrame on
         setTimeout(() => {
-            gameIFrame.src = 'https://tgs1.netlify.app/'    
-        }, 3800)
+            gameIFrame.src = '../menu.html'        
+        }, 3500)
        
         return
     }
@@ -343,15 +350,5 @@ gameBody.addEventListener('touchend', e => {
 
 })
 
-/* CONTROLLERS */
 
-const move = (e:any) => {
-    let button = e.key    
-    let keyEvent = new KeyboardEvent('keypress', {key: button})
-    console.log(keyEvent);
-}
 
-gameIFrame.contentWindow?.parent.addEventListener('keydown', (e) => {
-   move(e)
-
-})

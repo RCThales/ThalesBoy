@@ -1,0 +1,208 @@
+body{
+    background-color: antiquewhite;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.gameTransition{
+ 
+    position: absolute;
+    aspect-ratio: 1;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(190, 190, 190);
+    background-image: repeating-linear-gradient(36deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2) 1px, transparent 0px, transparent 2px);
+}
+
+.gameTransitionWrapper {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all ease 3s;
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+}
+
+.gameTransition h2{
+    width: 80%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-family: 'VT323', monospace;
+    font-size: 2em;
+}
+
+.selectedGameImageTransition{
+    max-height: 50%;
+    border-radius: 10px;
+    mix-blend-mode: multiply;
+}
+
+.container{
+    position: relative;
+    aspect-ratio: 1;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(143, 169, 173);
+    background-image: repeating-linear-gradient(36deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2) 1px, transparent 0px, transparent 2px);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: space-evenly;
+}
+
+.menuWrapper{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    z-index: 10000;
+    background-color: rgb(31, 31, 31);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'VT323', monospace;
+    font-weight: bold;
+    text-align: center;
+    opacity: .8;
+}
+
+.gameListWrapper{
+    height: 300px;
+    width: 100%;
+    justify-content: start;
+    background-color: rgb(20, 20, 20);
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+  
+}
+
+.gameList{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 5px;
+}
+
+.gameList button{
+
+    text-align: left;
+    border: none;
+    background: rgb(20, 20, 20);
+    color: white;
+    display: flex;
+    font-family: 'VT323', monospace;
+    align-items: center;
+    font-size: 1.5rem;
+    z-index: 1;
+    transition: all ease 0.1s;
+}
+
+.gameList button:hover{
+
+    text-align: left;
+    border: none;
+    background: rgb(48, 48, 48) !important;
+    cursor: pointer;
+
+}
+
+.gameImageWrapper{
+    background: rgb(48, 48, 48);
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 40%;
+    border-radius: 40%;
+    right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 2;
+    
+
+}
+.selectedGameImageBg {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    opacity: 0.2;
+    mix-blend-mode: multiply;
+    z-index: 2;
+    height: 150px;
+    pointer-events: none;
+
+}
+
+.selectedGameImage {
+    max-width: 70px;
+    z-index: 3;
+    border-radius: 30%;
+    pointer-events: none;
+}
+
+.activeGame{
+    background: #303030 !important;
+}
+
+#search{
+    width: 100%;
+    height: 20px;
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    padding: 0;
+    border: none;
+}
+
+#search:focus {
+    outline: none;
+}
+
+.gameFrame{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
+.play{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 10%;
+    background: none;
+    border: none;
+    box-shadow: 2px rgb(20, 20, 20);
+    color: white;
+    cursor: pointer;
+    transition: all ease 0.2s;
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.play:hover {
+    transform: scale(1.1);
+}
+
+
+.intro{
+    display: none;
+}

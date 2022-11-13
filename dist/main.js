@@ -1,5 +1,4 @@
 "use strict";
-var _a;
 let audio = new Audio('../audio/thalesboyOn.mp3');
 let introOff = () => { };
 const gameIFrame = document.querySelector('.screen');
@@ -7,48 +6,26 @@ onselectstart = (e) => {
     e.preventDefault();
 };
 window.addEventListener('load', () => {
-    //Splash gameIFrame
-    const splash = document.getElementById('splash');
-    setTimeout(function () { splash.style.display = 'none'; }, 1500);
+    loadSplashScreen();
     //Setting Color mode on startup
     if (localStorage.getItem('theme') === null) {
         localStorage.setItem('theme', 'day');
     }
-    themeOnStartup();
-    //Colors
-    const yellow = document.getElementById('yellow');
-    const blue = document.getElementById('blue');
-    const pink = document.getElementById('pink');
-    const purple = document.getElementById('purple');
-    const green = document.getElementById('green');
-    if (localStorage.getItem('gameColor') === null) {
-        localStorage.setItem('gameColor', 'yellow');
-        yellow.style.display = 'none';
-        return;
-    }
-    const colors = {
-        yellow: yellow,
-        blue: blue,
-        pink: pink,
-        purple: purple,
-        green: green
-    };
-    const currentColor = localStorage.getItem('gameColor');
-    //Hiding the selected color button
-    colors[currentColor].style.display = 'none';
-    //Changing the video game color on start
-    changeColor(currentColor);
-    //Avoiding the transition when the page is loaded or reloaded
-    const gameBody = document.getElementById('gameBody');
-    gameBody.style.transition = 'background 0s';
-    const brand = document.getElementById('brand');
-    brand.style.transition = 'background 0s';
+    setColorOnStartUp();
+    setThemeOnStartup();
 });
-//Making sure focus is always on the game, so the controllers work.
-window.addEventListener('click', () => {
-    gameIFrame.focus();
-});
-const themeOnStartup = () => {
+const loadSplashScreen = () => {
+    //Splash gameIFrame
+    const splash = document.getElementById('splash');
+    setTimeout(function () { splash.style.display = 'none'; }, 1500);
+};
+/* CONTROLLERS */
+const move = (button) => {
+    var _a;
+    (_a = gameIFrame.contentDocument) === null || _a === void 0 ? void 0 : _a.dispatchEvent(new KeyboardEvent('keydown', { 'key': button }));
+    console.log(gameIFrame.contentWindow);
+};
+const setThemeOnStartup = () => {
     const container = document.querySelector('.container');
     const button = document.querySelector('.themeBtn');
     const theme = localStorage.getItem('theme');
@@ -79,6 +56,36 @@ const selectTheme = () => {
     button.textContent = '🌞';
     localStorage.setItem('theme', 'night');
     container.style.background = 'var(--darkAccent)';
+};
+const setColorOnStartUp = () => {
+    //Colors
+    const yellow = document.getElementById('yellow');
+    const blue = document.getElementById('blue');
+    const pink = document.getElementById('pink');
+    const purple = document.getElementById('purple');
+    const green = document.getElementById('green');
+    if (localStorage.getItem('gameColor') === null) {
+        localStorage.setItem('gameColor', 'yellow');
+        yellow.style.display = 'none';
+        return;
+    }
+    const colors = {
+        yellow: yellow,
+        blue: blue,
+        pink: pink,
+        purple: purple,
+        green: green
+    };
+    const currentColor = localStorage.getItem('gameColor');
+    //Hiding the selected color button
+    colors[currentColor].style.display = 'none';
+    //Changing the video game color on start
+    changeColor(currentColor);
+    //Avoiding the transition when the page is loaded or reloaded
+    const gameBody = document.getElementById('gameBody');
+    gameBody.style.transition = 'background 0s';
+    const brand = document.getElementById('brand');
+    brand.style.transition = 'background 0s';
 };
 const changeColor = (color) => {
     const yellow = document.getElementById('yellow');
@@ -196,8 +203,8 @@ const redirectScreenToGameWebPage = (on) => {
     if (on) {
         //Opening game system link by shutting gameIFrame on
         setTimeout(() => {
-            gameIFrame.src = 'https://tgs1.netlify.app/';
-        }, 3800);
+            gameIFrame.src = '../menu.html';
+        }, 3500);
         return;
     }
     //Shutting gameIFrame off
@@ -264,13 +271,4 @@ gameBody.addEventListener('touchend', e => {
     if (fingerCount === 1) {
         checkDirection();
     }
-});
-/* CONTROLLERS */
-const move = (e) => {
-    let button = e.key;
-    let keyEvent = new KeyboardEvent('keypress', { key: button });
-    console.log(keyEvent);
-};
-(_a = gameIFrame.contentWindow) === null || _a === void 0 ? void 0 : _a.parent.addEventListener('keydown', (e) => {
-    move(e);
 });
