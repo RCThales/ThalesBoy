@@ -33,6 +33,8 @@ const move = (button:string) => {
     console.log(gameIFrame.contentWindow);
 }
 
+
+
 const setThemeOnStartup = () => {
     const container = document.querySelector('.container') as HTMLElement
     const button = document.querySelector('.themeBtn') as HTMLButtonElement
