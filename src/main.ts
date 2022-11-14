@@ -23,8 +23,11 @@ window.addEventListener('load', () => {
 
 
 const loadSplashScreen = () => {
+
       //Splash gameIFrame
-    const splash = document.getElementById('splash') as HTMLElement
+    const splash = document.querySelector('#splash') as HTMLElement
+    const container = document.querySelector('.container') as HTMLElement
+     setTimeout(function(){container.style.display = 'flex'}, 500)
     setTimeout(function(){splash.style.display = 'none'}, 1500)
 }
 

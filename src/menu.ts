@@ -10,6 +10,7 @@ let gamesArray = [{
   name: 'Cool Game',
   id: 3,
 },
+
 ]
 
 let currentGame = 1

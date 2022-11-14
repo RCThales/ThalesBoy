@@ -81,7 +81,7 @@ body{
     justify-content: start;
     background-color: rgb(20, 20, 20);
     scroll-behavior: smooth;
-    overflow-x: scroll;
+    overflow-y: auto;
   
 }
 

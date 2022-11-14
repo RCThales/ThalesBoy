@@ -17,7 +17,9 @@ window.addEventListener('load', () => {
 });
 const loadSplashScreen = () => {
     //Splash gameIFrame
-    const splash = document.getElementById('splash');
+    const splash = document.querySelector('#splash');
+    const container = document.querySelector('.container');
+    setTimeout(function () { container.style.display = 'flex'; }, 500);
     setTimeout(function () { splash.style.display = 'none'; }, 1500);
 };
 /* CONTROLLERS */
