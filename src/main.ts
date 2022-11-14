@@ -31,9 +31,10 @@ const loadSplashScreen = () => {
 /* CONTROLLERS */
 const move = (button:string) => {
     gameIFrame.contentDocument?.dispatchEvent(new KeyboardEvent('keydown', {'key': button}));
-    gameIFrame.contentDocument?.dispatchEvent(new KeyboardEvent('keypress', {'key': button}));
+    gameIFrame.contentDocument?.dispatchEvent(new KeyboardEvent('keyup', {'key': button}));
 }
 
+//Sending Focus to the screen
 window.addEventListener('click', () => {
      gameIFrame?.focus()
 })

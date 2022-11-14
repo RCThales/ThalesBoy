@@ -10,9 +10,11 @@ let gamesArray = [{
     {
         name: 'Cool Game',
         id: 3,
-    }];
+    },
+];
 let currentGame = 1;
 let isGameStarting = false;
+let keyRepeated = true;
 const searchInput = document.querySelector('#search');
 let startGameAudio = new Audio('./audio/startgame.wav');
 let gameInspectSound = new Audio('./audio/inspect.wav');
@@ -26,17 +28,23 @@ const getNumberOfGames = () => {
     availableGames.textContent = gamesArray.length.toString();
 };
 document.addEventListener('keydown', (keyPressed) => {
-    if (keyPressed.key === 'Enter' || keyPressed.key === 'k') {
-        startGame();
-        return;
+    if (keyRepeated) {
+        if (keyPressed.key === 'Enter' || keyPressed.key === 'k') {
+            startGame();
+            return;
+        }
+        selectMenuViaInput(keyPressed);
+        keyRepeated = false;
     }
-    selectMenuViaInput(keyPressed);
+    console.log(keyRepeated);
+});
+document.addEventListener('keyup', (keyPressed) => {
+    keyRepeated = true;
 });
 const selectMenuViaInput = (keyPressed) => {
     //if (document.activeElement === searchInput) return
     if (isGameStarting)
         return;
-    const listOfGames = document.querySelectorAll('.games');
     const movement = {
         W: currentGame - 1,
         w: currentGame - 1,

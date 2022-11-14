@@ -346,8 +346,8 @@ button{
     background-image: repeating-linear-gradient(36deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.2) 1px, transparent 0px, transparent 2px);
     opacity: 0.8;
     aspect-ratio: 1;
-    width: 295px; /*Setting a smaller size than 300px because some fragments are appearing on the borders*/
-    height: 295px;
+    width: 300px; /*Setting a smaller size than 300px because some fragments are appearing on the borders*/
+    height: 300px;
     transform: translateY(-20px);
     border: none !important;
     outline: none !important;

@@ -24,8 +24,9 @@ const loadSplashScreen = () => {
 const move = (button) => {
     var _a, _b;
     (_a = gameIFrame.contentDocument) === null || _a === void 0 ? void 0 : _a.dispatchEvent(new KeyboardEvent('keydown', { 'key': button }));
-    (_b = gameIFrame.contentDocument) === null || _b === void 0 ? void 0 : _b.dispatchEvent(new KeyboardEvent('keypress', { 'key': button }));
+    (_b = gameIFrame.contentDocument) === null || _b === void 0 ? void 0 : _b.dispatchEvent(new KeyboardEvent('keyup', { 'key': button }));
 };
+//Sending Focus to the screen
 window.addEventListener('click', () => {
     gameIFrame === null || gameIFrame === void 0 ? void 0 : gameIFrame.focus();
 });

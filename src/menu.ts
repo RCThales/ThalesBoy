@@ -9,10 +9,12 @@ let gamesArray = [{
 {
   name: 'Cool Game',
   id: 3,
-}]
+},
+]
 
 let currentGame = 1
 let isGameStarting = false
+let keyRepeated = true
 
 const searchInput = document.querySelector('#search') as HTMLInputElement
 
@@ -33,19 +35,26 @@ const getNumberOfGames = () => {
 }
 
 document.addEventListener('keydown', (keyPressed) => {
-  if(keyPressed.key === 'Enter' || keyPressed.key === 'k'){
-    startGame()
-    return
-  }
+  if(keyRepeated){
 
-  selectMenuViaInput(keyPressed)
+    if(keyPressed.key === 'Enter' || keyPressed.key === 'k'){
+      startGame()
+      return
+    }
+    selectMenuViaInput(keyPressed)
+    keyRepeated = false
+  }
+  
+  console.log(keyRepeated);
+})
+
+document.addEventListener('keyup', (keyPressed) => {
+  keyRepeated = true
 })
 
 const selectMenuViaInput = (keyPressed:KeyboardEvent) => {
   //if (document.activeElement === searchInput) return
   if(isGameStarting) return
-
-  const listOfGames = document.querySelectorAll('.games')
 
   const movement = {
     W: currentGame-1 as number,

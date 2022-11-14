@@ -170,7 +170,7 @@ function checkAppleCollision() {
   }
 }
 
-document.addEventListener('keypress', (event) => {
+document.addEventListener('keydown', (event) => {
   //up
   if (event.key == 'w' || event.key == 'ArrowUp') {
 
