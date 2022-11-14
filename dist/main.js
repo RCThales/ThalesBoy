@@ -22,10 +22,13 @@ const loadSplashScreen = () => {
 };
 /* CONTROLLERS */
 const move = (button) => {
-    var _a;
+    var _a, _b;
     (_a = gameIFrame.contentDocument) === null || _a === void 0 ? void 0 : _a.dispatchEvent(new KeyboardEvent('keydown', { 'key': button }));
-    console.log(gameIFrame.contentWindow);
+    (_b = gameIFrame.contentDocument) === null || _b === void 0 ? void 0 : _b.dispatchEvent(new KeyboardEvent('keypress', { 'key': button }));
 };
+window.addEventListener('click', () => {
+    gameIFrame === null || gameIFrame === void 0 ? void 0 : gameIFrame.focus();
+});
 const setThemeOnStartup = () => {
     const container = document.querySelector('.container');
     const button = document.querySelector('.themeBtn');

@@ -207,13 +207,21 @@ body{
     display: none;
 }
 
-/*MOBILE*/
-@media screen and (max-width: 680px) and (orientation: portrait) {
-
-
-    #search {
-        display: none;
-
-    }
-
+.availableGames{
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    color: white;
+    z-index: 10000;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    margin-left: 10px;
 }
+
+#search {
+    display: none;
+
+  }
+
+
+

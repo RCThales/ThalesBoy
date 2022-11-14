@@ -23,8 +23,14 @@ window.addEventListener('load', () => {
 
   renderListOfGames(gamesArray)
   selectGame(1, true)
+  getNumberOfGames()
 
 })
+
+const getNumberOfGames = () => {
+    const availableGames = document.querySelector('.availableGamesNumber') as HTMLElement
+    availableGames.textContent = gamesArray.length.toString()
+}
 
 document.addEventListener('keydown', (keyPressed) => {
   if(keyPressed.key === 'Enter' || keyPressed.key === 'k'){

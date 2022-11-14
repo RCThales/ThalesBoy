@@ -30,7 +30,8 @@ let yVelocity = 0;
 
 let score = 0;
 
-  let gameMainAudio = new Audio('../../audio/themesong.mp3')
+let gameMainAudio = new Audio('../../audio/themesong.mp3')
+let deathAudio = new Audio('../../audio/error.wav')
 
 const gulpSound = new Audio("../../audio/gulp.mp3");
 
@@ -103,7 +104,6 @@ function isGameOver() {
       gameMainAudio.pause()
       gameMainAudio.currentTime = 0
 
-      let deathAudio = new Audio('../../audio/error.wav')
       deathAudio.play()
 
       ctx.fillStyle = "white";
@@ -170,7 +170,7 @@ function checkAppleCollision() {
   }
 }
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener('keypress', (event) => {
   //up
   if (event.key == 'w' || event.key == 'ArrowUp') {
 

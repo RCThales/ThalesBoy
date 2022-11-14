@@ -31,10 +31,12 @@ const loadSplashScreen = () => {
 /* CONTROLLERS */
 const move = (button:string) => {
     gameIFrame.contentDocument?.dispatchEvent(new KeyboardEvent('keydown', {'key': button}));
-    console.log(gameIFrame.contentWindow);
+    gameIFrame.contentDocument?.dispatchEvent(new KeyboardEvent('keypress', {'key': button}));
 }
 
-
+window.addEventListener('click', () => {
+     gameIFrame?.focus()
+})
 
 const setThemeOnStartup = () => {
     const container = document.querySelector('.container') as HTMLElement
