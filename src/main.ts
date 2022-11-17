@@ -186,8 +186,9 @@ const gamePowerOnAndOff = () => {
     playGif(false)
     redirectScreenToGameWebPage(false)
     toggleAnimatedHelperText(false)
-     playGameAudioAnimation(false)
+    playGameAudioAnimation(false)
 }
+
 
 const playGameAudioAnimation = (on:boolean) => {
     const audioAnimation = document.querySelectorAll('.musicalNotes')

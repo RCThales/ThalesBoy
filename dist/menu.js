@@ -36,7 +36,6 @@ document.addEventListener('keydown', (keyPressed) => {
         selectMenuViaInput(keyPressed);
         keyRepeated = false;
     }
-    console.log(keyRepeated);
 });
 document.addEventListener('keyup', (keyPressed) => {
     keyRepeated = true;

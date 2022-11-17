@@ -46,7 +46,6 @@ document.addEventListener('keydown', (keyPressed) => {
     keyRepeated = false
   }
   
-  console.log(keyRepeated);
 })
 
 document.addEventListener('keyup', (keyPressed) => {
