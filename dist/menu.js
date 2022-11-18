@@ -31,7 +31,23 @@ window.addEventListener('load', () => {
     renderListOfGames(gamesArray);
     selectGame(1, true);
     getNumberOfGames();
+    startGameAudio.volume = 0.3;
+    gameInspectSound.volume = 0.3;
+    localStorage.getItem('isMuted');
+    if (getMutedMenu() === 'true') {
+        startGameAudio.muted = true;
+        gameInspectSound.muted = true;
+        return;
+    }
+    startGameAudio.muted = false;
+    gameInspectSound.muted = false;
 });
+const getMutedMenu = () => {
+    if (localStorage.getItem('isMuted') !== null) {
+        return localStorage.getItem('isMuted');
+    }
+    return 'false';
+};
 const getNumberOfGames = () => {
     const availableGames = document.querySelector('.availableGamesNumber');
     availableGames.textContent = gamesArray.length.toString();
@@ -109,7 +125,6 @@ const renderListOfGames = (array) => {
 };
 const startGame = () => {
     isGameStarting = true;
-    startGameAudio.volume = 0.3;
     startGameAudio.play();
     setTimeout(() => {
         window.location.href = `./games/game_${currentGame}/game_${currentGame}.html`;
@@ -146,7 +161,6 @@ const selectNavOption = (menuOption) => {
     const selectedOption = document.querySelector(`.menuOption${menuOption}`);
     selectedOption.classList.add('navMenuItemActive');
     gameInspectSound.currentTime = 0;
-    gameInspectSound.volume = 0.3;
     gameInspectSound.play();
 };
 const goToLink = () => {
@@ -186,7 +200,6 @@ const selectGame = (gameId, isStartup) => {
     changeGameImage(gameId);
     if (!isStartup) {
         gameInspectSound.currentTime = 0;
-        gameInspectSound.volume = 0.3;
         gameInspectSound.play();
     }
 };

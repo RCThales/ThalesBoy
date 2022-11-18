@@ -39,7 +39,28 @@ window.addEventListener('load', () => {
   selectGame(1, true)
   getNumberOfGames()
 
+  startGameAudio.volume = 0.3
+  gameInspectSound.volume = 0.3
+
+  localStorage.getItem('isMuted')
+
+  if(getMutedMenu() === 'true'){
+    startGameAudio.muted = true
+    gameInspectSound.muted = true
+    return
+  }
+
+  startGameAudio.muted = false
+  gameInspectSound.muted = false
+
 })
+
+const getMutedMenu = () => {
+  if(localStorage.getItem('isMuted') !== null){
+    return localStorage.getItem('isMuted')
+  }
+  return 'false'   
+}
 
 const getNumberOfGames = () => {
     const availableGames = document.querySelector('.availableGamesNumber') as HTMLElement
@@ -135,7 +156,7 @@ const renderListOfGames = (array:object[]) => {
 
 const startGame = () => {
   isGameStarting = true;
-  startGameAudio.volume = 0.3
+ 
   startGameAudio.play()
 
   setTimeout(() => {
@@ -181,8 +202,7 @@ const selectNavOption = (menuOption:number) => {
     const selectedOption = document.querySelector(`.menuOption${menuOption}`) as HTMLElement
     selectedOption.classList.add('navMenuItemActive')
 
-    gameInspectSound.currentTime = 0
-    gameInspectSound.volume = 0.3
+    gameInspectSound.currentTime = 0 
     gameInspectSound.play()
 }
 
@@ -237,7 +257,6 @@ const selectGame = (gameId:number, isStartup:boolean) => {
   if(!isStartup){
  
     gameInspectSound.currentTime = 0
-    gameInspectSound.volume = 0.3
     gameInspectSound.play()
   }
 }

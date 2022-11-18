@@ -36,9 +36,23 @@ let deathAudio = new Audio('../../audio/error.wav')
 const gulpSound = new Audio("../../audio/gulp.mp3");
 
 window.addEventListener('load', () => {
-  gameMainAudio.play()
   gameMainAudio.volume = 0.3
+
+  if(getMutedGame() === 'true'){
+    gameMainAudio.muted = true
+    return
+  }
+  gameMainAudio.muted = false
+  gameMainAudio.play() 
+
 })
+
+const getMutedGame = () => {
+  if(localStorage.getItem('isMuted') !== null){
+    return localStorage.getItem('isMuted')
+  }
+  return 'false'   
+}
 
 //game loop
 function drawGame() {

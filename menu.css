@@ -73,7 +73,7 @@ header a {
 }
 
 header a:hover {
-    color: rgb(237, 175, 31);
+    rotate: 10deg;
     transform: scale(1.1);
 
 }

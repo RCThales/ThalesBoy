@@ -1,7 +1,6 @@
 const gameOnAudio = new Audio('../audio/thalesboyOn.mp3');
-gameOnAudio.volume = 0.3
 const toggleAudio = new Audio('../audio/toggleSound.mp3')
-toggleAudio.volume = 0.3
+
 let introOff:any = () => {}
 const gameIFrame = document.querySelector('.screen') as HTMLIFrameElement
 
@@ -21,8 +20,26 @@ window.addEventListener('load', () => {
     setColorOnStartUp()
     setThemeOnStartup() 
 
+    gameOnAudio.volume = 0.3
+    toggleAudio.volume = 0.3
+
+
+    if(getMutedMain() === 'true'){
+        gameOnAudio.muted = true
+        toggleAudio.muted = true
+        return
+    }
+    gameOnAudio.muted = false
+    toggleAudio.muted = false
+
 })
 
+const getMutedMain = () => {
+  if(localStorage.getItem('isMuted') !== null){
+    return localStorage.getItem('isMuted')
+  }
+  return 'false'   
+}
 
 const loadSplashScreen = () => {
 
@@ -170,6 +187,15 @@ const changeColor = (color:string) => {
 
 const gamePowerOnAndOff = () => {
 
+    if(getMutedMain() === 'true'){
+        gameOnAudio.muted = true
+        toggleAudio.muted = true
+    }
+    else{
+        gameOnAudio.muted = false
+        toggleAudio.muted = false
+    }
+
     //turnLedOnOrOff() returns true if game is on and false if it is off.
     //ANCHOR GAME ON
     if(turnLedOnOrOff()){
@@ -189,6 +215,8 @@ const gamePowerOnAndOff = () => {
     redirectScreenToGameWebPage(false)
     toggleAnimatedHelperText(false)
     playGameAudioAnimation(false)
+
+    
 }
 
 
