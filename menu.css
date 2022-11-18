@@ -153,15 +153,29 @@ header a:nth-child(4){
 
 }
 
+.navMenu {
+    transition: all ease 0.2s;
+    opacity: 0.9;
+}
+
 .navMenuActive{
+    padding: 15px;
+
+}
+
+.navMenuActive a{
+    transform: scale(1.2);
+
+}
+
+.navMenuItemActive{
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
     background-color: #4f4f4f;
     min-height: 100%;
-    width: 50px;
-
+    width: 40px;
     border-radius: 10px;
     transition: all ease 0.2s;
 
@@ -267,6 +281,7 @@ header a:nth-child(4){
     max-height: 40px;
     background-color: #303030;
     padding-left: 10px;
+    opacity: 0.9;
 }
 
 .availableGamesNumber {

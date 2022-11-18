@@ -63,6 +63,12 @@ const selectMenuViaInput = (keyPressed) => {
         s: currentGame + 1,
         ArrowUp: currentGame - 1,
         ArrowDown: currentGame + 1,
+        D: 0,
+        d: 0,
+        A: 0,
+        a: 0,
+        ArrowRight: 0,
+        ArrowLeft: 0,
     };
     const movementMenu = {
         D: currentMenuOption + 1,
@@ -75,13 +81,17 @@ const selectMenuViaInput = (keyPressed) => {
         s: 10,
         ArrowDown: 10,
     };
+    //Checking whether the user is on the game list, or on the nav menu
     if (movement[keyPressed.key] !== undefined) {
-        if (onGameList)
+        //Game List
+        if (onGameList) {
             selectGame(movement[keyPressed.key], false);
-    }
-    if (movementMenu[keyPressed.key] !== undefined) {
-        if (onMenu)
+            return;
+        }
+        //Nav Menu
+        if (movementMenu[keyPressed.key] !== undefined) {
             selectNavOption(movementMenu[keyPressed.key]);
+        }
     }
 };
 const renderListOfGames = (array) => {
@@ -113,25 +123,28 @@ const animateGameStart = () => {
     gameTransitionScreen.style.transform = 'scale(1.2)';
 };
 const selectNavOption = (menuOption) => {
+    onMenu = true;
+    onGameList = false;
     const listOfNavOptions = document.querySelectorAll('.menuOption');
+    const navMenu = document.querySelector('.navMenu');
+    navMenu.classList.add('navMenuActive');
     if (menuOption === 0)
         menuOption = 4;
     if (menuOption === 5)
         menuOption = 1;
     //Cleaning nav selection
     listOfNavOptions.forEach(element => {
-        element.classList.remove("navMenuActive");
+        element.classList.remove("navMenuItemActive");
     });
     //Heading back to the game selection menu
     if (menuOption === 10) {
+        navMenu.classList.remove('navMenuActive');
         selectGame(1, false);
-        onMenu = false;
-        onGameList = true;
         return;
     }
     currentMenuOption = menuOption;
     const selectedOption = document.querySelector(`.menuOption${menuOption}`);
-    selectedOption.classList.add('navMenuActive');
+    selectedOption.classList.add('navMenuItemActive');
     gameInspectSound.currentTime = 0;
     gameInspectSound.volume = 0.3;
     gameInspectSound.play();
@@ -141,7 +154,7 @@ const goToLink = () => {
     const listOfNavOptions = document.querySelectorAll('.menuOption');
     listOfNavOptions.forEach(element => {
         counter++;
-        if (element.classList.contains('navMenuActive')) {
+        if (element.classList.contains('navMenuItemActive')) {
             if (counter != 4) {
                 parent.window.open(navLinkArray[counter], '_blank');
                 return;
@@ -151,6 +164,8 @@ const goToLink = () => {
     });
 };
 const selectGame = (gameId, isStartup) => {
+    onMenu = false;
+    onGameList = true;
     //Current Game Array
     const fullListOfGames = document.querySelectorAll('.game');
     //Cleaning game selection
@@ -160,8 +175,6 @@ const selectGame = (gameId, isStartup) => {
     //Going to the navigation menu
     if (gameId === 0) {
         selectNavOption(1);
-        onMenu = true;
-        onGameList = false;
         return;
     }
     //Reversing selected game to the opposite extreme of the list if the selected game is first or last.
