@@ -37,7 +37,7 @@ const gulpSound = new Audio("../../audio/gulp.mp3");
 
 window.addEventListener('load', () => {
   gameMainAudio.play()
-  gameMainAudio.volume = 0.5
+  gameMainAudio.volume = 0.3
 })
 
 //game loop

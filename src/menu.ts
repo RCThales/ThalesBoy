@@ -13,9 +13,20 @@ let gamesArray = [{
 
 ]
 
+let navLinkArray = {
+  1: 'https://github.com/RCThales/',
+  2: 'https://www.instagram.com/thalescardris/',
+  3: 'https://www.linkedin.com/in/thalesrodriguescardoso/',
+  4: '../settings.html'
+}
+
 let currentGame = 1
+let currentMenuOption = 1
 let isGameStarting = false
 let keyRepeated = true
+
+let onMenu = false
+let onGameList = true
 
 const searchInput = document.querySelector('#search') as HTMLInputElement
 
@@ -38,8 +49,9 @@ const getNumberOfGames = () => {
 document.addEventListener('keydown', (keyPressed) => {
   if(keyRepeated){
 
-    if(keyPressed.key === 'Enter' || keyPressed.key === 'k'){
-      startGame()
+    if(keyPressed.key === 'Enter' || keyPressed.key.toLowerCase() === 'k'){
+      if(onGameList) startGame()
+      if(onMenu) goToLink()
       return
     }
     selectMenuViaInput(keyPressed)
@@ -65,10 +77,32 @@ const selectMenuViaInput = (keyPressed:KeyboardEvent) => {
     ArrowDown: currentGame+1 as number,
   }
 
+  
+  const movementMenu = {
+    D: currentMenuOption+1 as number,
+    d: currentMenuOption+1 as number,
+    A: currentMenuOption-1 as number,
+    a: currentMenuOption-1 as number,
+    ArrowRight: currentMenuOption+1 as number,
+    ArrowLeft: currentMenuOption-1 as number,  
+    S: 10 as number,
+    s: 10 as number,
+    ArrowDown: 10 as number,
+  }
+
+  
 
   if(movement[keyPressed.key as keyof typeof movement] !== undefined){
-    selectGame(movement[keyPressed.key as keyof typeof movement], false) 
+
+    if(onGameList) selectGame(movement[keyPressed.key as keyof typeof movement], false) 
+
   }
+
+  if(movementMenu[keyPressed.key as keyof typeof movementMenu] !== undefined){
+ 
+    if(onMenu) selectNavOption(movementMenu[keyPressed.key as keyof typeof movementMenu]) 
+  }
+
 }
 
 const renderListOfGames = (array:object[]) => {
@@ -91,6 +125,7 @@ const renderListOfGames = (array:object[]) => {
 
 const startGame = () => {
   isGameStarting = true;
+  startGameAudio.volume = 0.3
   startGameAudio.play()
 
   setTimeout(() => {
@@ -108,19 +143,75 @@ const animateGameStart = () => {
   gameTransitionScreen.style.transform = 'scale(1.2)'
 }
 
+const selectNavOption = (menuOption:number) => {
+    const listOfNavOptions = document.querySelectorAll('.menuOption')
+
+    if(menuOption === 0) menuOption = 4
+    if(menuOption === 5) menuOption = 1
+
+    //Cleaning nav selection
+    listOfNavOptions.forEach(element => {
+      element.classList.remove("navMenuActive")
+    });
+
+    //Heading back to the game selection menu
+    if(menuOption === 10){
+      selectGame(1, false)
+      onMenu = false
+      onGameList = true
+      return
+    } 
+
+    currentMenuOption = menuOption
+
+    const selectedOption = document.querySelector(`.menuOption${menuOption}`) as HTMLElement
+    selectedOption.classList.add('navMenuActive')
+
+    gameInspectSound.currentTime = 0
+    gameInspectSound.volume = 0.3
+    gameInspectSound.play()
+}
+
+const goToLink = () => {
+
+
+    let counter = 0
+    const listOfNavOptions = document.querySelectorAll('.menuOption')
+    listOfNavOptions.forEach(element => {
+      counter++
+      if(element.classList.contains('navMenuActive')){
+        if(counter != 4){
+          parent.window.open(navLinkArray[counter as keyof typeof navLinkArray], '_blank')
+          return
+        } 
+        window.location.href = navLinkArray[counter as keyof typeof navLinkArray]    
+      }
+      
+    });
+}
+
 const selectGame = (gameId:number, isStartup:boolean) => {
+
   //Current Game Array
   const fullListOfGames = document.querySelectorAll('.game')
 
-  //Reversing selected game to the opposite extreme of the list if the selected game is first or last.
-  if(gameId === 0) gameId = fullListOfGames.length
+  //Cleaning game selection
+   fullListOfGames.forEach(element => {
+    element.classList.remove("activeGame")
+  });
+
+  //Going to the navigation menu
+  if(gameId === 0){
+    selectNavOption(1)
+    onMenu = true
+    onGameList = false
+    return
+  }
+
+    //Reversing selected game to the opposite extreme of the list if the selected game is first or last.
   if(gameId > fullListOfGames.length) gameId = 1
 
   const theSelectedGame = document.getElementById(gameId.toString()) as HTMLElement
-
-  fullListOfGames.forEach(element => {
-    element.classList.remove("activeGame")
-  });
 
   theSelectedGame.classList.add("activeGame")
   currentGame = gameId
@@ -130,9 +221,11 @@ const selectGame = (gameId:number, isStartup:boolean) => {
   if(!isStartup){
  
     gameInspectSound.currentTime = 0
+    gameInspectSound.volume = 0.3
     gameInspectSound.play()
   }
 }
+
 
 const changeGameImage = (imageId:number) => {
   const gameText = document.querySelector('.selectedGameImageText') as HTMLElement;

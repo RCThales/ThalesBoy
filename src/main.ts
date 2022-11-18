@@ -1,5 +1,7 @@
-let gameOnAudio = new Audio('../audio/thalesboyOn.mp3');
+const gameOnAudio = new Audio('../audio/thalesboyOn.mp3');
+gameOnAudio.volume = 0.3
 const toggleAudio = new Audio('../audio/toggleSound.mp3')
+toggleAudio.volume = 0.3
 let introOff:any = () => {}
 const gameIFrame = document.querySelector('.screen') as HTMLIFrameElement
 
