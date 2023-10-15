@@ -1,0 +1,15 @@
+
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-family: 'VT323', monospace !important;
+    
+}
+
+canvas{
+        font-family: 'VT323', monospace !important;
+}

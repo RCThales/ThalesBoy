@@ -1,14 +1,10 @@
 let gamesArray = [{
-  name: 'Snake',
+  name: 'Green Snake',
   id: 1,
 },
 {
-  name: 'Crazy Surfer',
+  name: 'Blue Snake',
   id: 2,
-},
-{
-  name: 'Cool Game',
-  id: 3,
 },
 
 ]
@@ -268,10 +264,10 @@ const changeGameImage = (imageId:number) => {
   const gameImgBg = document.querySelector('.selectedGameImageBg') as HTMLImageElement
   const gameImgTransition = document.querySelector('.selectedGameImageTransition') as HTMLImageElement
 
-  if(gameImg.src = `./img/game_${imageId}.png`){
-    gameImg.src = `./img/game_${imageId}.png`
-    gameImgBg.src = `./img/game_${imageId}.png`
-    gameImgTransition.src = `./img/game_${imageId}.png`
+  if(gameImg.src = `./../games/game_${imageId}/game_${imageId}.png`){
+    gameImg.src =  `./../games/game_${imageId}/game_${imageId}.png`
+    gameImgBg.src =  `./../games/game_${imageId}/game_${imageId}.png`
+    gameImgTransition.src =  `./../games/game_${imageId}/game_${imageId}.png`
 
     //Getting name of the selected game.
     gamesArray.forEach((e) => {

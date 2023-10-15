@@ -293,6 +293,26 @@ header a:nth-child(4){
     display: none;
 
   }
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #575757;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(201, 201, 201);
+}
+s
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 
 
 

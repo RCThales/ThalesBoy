@@ -1,15 +1,11 @@
 "use strict";
 let gamesArray = [{
-        name: 'Snake',
+        name: 'Green Snake',
         id: 1,
     },
     {
-        name: 'Crazy Surfer',
+        name: 'Blue Snake',
         id: 2,
-    },
-    {
-        name: 'Cool Game',
-        id: 3,
     },
 ];
 let navLinkArray = {
@@ -208,10 +204,10 @@ const changeGameImage = (imageId) => {
     const gameImg = document.querySelector('.selectedGameImage');
     const gameImgBg = document.querySelector('.selectedGameImageBg');
     const gameImgTransition = document.querySelector('.selectedGameImageTransition');
-    if (gameImg.src = `./img/game_${imageId}.png`) {
-        gameImg.src = `./img/game_${imageId}.png`;
-        gameImgBg.src = `./img/game_${imageId}.png`;
-        gameImgTransition.src = `./img/game_${imageId}.png`;
+    if (gameImg.src = `./../games/game_${imageId}/game_${imageId}.png`) {
+        gameImg.src = `./../games/game_${imageId}/game_${imageId}.png`;
+        gameImgBg.src = `./../games/game_${imageId}/game_${imageId}.png`;
+        gameImgTransition.src = `./../games/game_${imageId}/game_${imageId}.png`;
         //Getting name of the selected game.
         gamesArray.forEach((e) => {
             if (imageId === e.id)
