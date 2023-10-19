@@ -18,10 +18,6 @@ DEMO -> https://thalesboycolor.netlify.app/
     <br />
     <br />
     <a targer="_blank" href="https://thalesboycolor.netlify.app/">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
   </p>
 </div>
 
