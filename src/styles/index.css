@@ -4,8 +4,8 @@
   --secondary: #f6f3f3;
   --carving: #e1b245;
   --accent: #fcbe2b;
-  --dark: rgb(27, 27, 32);
-  --darkAccent: rgb(42, 42, 50);
+  --dark: #1b1b20;
+  --darkAccent: #2a2a32;
 
   /*SOUND ANIMATION*/
   --xMovement: 50px;
