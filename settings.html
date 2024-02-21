@@ -1,37 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
 
     <!--ICONS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="settings.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./src/styles/settings.css" />
     <script defer src="./dist/settings.js"></script>
-
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <nav>
-                <ul>
-                    <button onclick="goToSettingsLink(1)" class="menuOption" id="1">Mute Audio
-                        <i class="fa fa-volume-up mute" aria-hidden="true"></i>
-                    </button>
-                    <button onclick="goToSettingsLink(2)" class="menuOption" id="2">Contact the Developer</button>
-                    <button onclick="goToSettingsLink(3)" style="margin-top: 10px;" class="menuOption" id="3"> <-Back to menu</li>
-                </ul>
-            </nav>
-        </header>
-        <div class="settingsImg">
-            <img height="80px" src="https://cdn-icons-png.flaticon.com/512/126/126472.png" alt="" srcset="">
-        </div>   
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <button onclick="goToSettingsLink(1)" class="menuOption" id="1">
+                Mute Audio
+                <i class="fa fa-volume-up mute" aria-hidden="true"></i>
+              </button>
+            </li>
+            <li>
+              <button onclick="goToSettingsLink(2)" class="menuOption" id="2">
+                Contact the Developer
+              </button>
+            </li>
+            <li>
+              <button
+                onclick="goToSettingsLink(3)"
+                style="margin-top: 10px"
+                class="menuOption"
+                id="3"
+              >
+                &#12296;-Back to menu
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div class="settingsImg">
+        <img
+          height="80px"
+          src="https://cdn-icons-png.flaticon.com/512/126/126472.png"
+          alt=""
+          srcset=""
+        />
+      </div>
     </div>
-</body>
+  </body>
 </html>

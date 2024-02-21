@@ -1,9 +1,12 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
 
-body{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
+.gameWrapper {
+  width: 300px !important;
+  height: 300px !important;
 }

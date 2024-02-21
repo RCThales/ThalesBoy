@@ -1,249 +1,314 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" translate="no">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no"
+    />
     <title>ThalesBoy</title>
-
+    <link rel="icon" href="./src/assets/favicon.ico" type="image/x-icon" />
     <!--GOOGLE-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@700&family=Noto+Sans+Mono:wght@800;900&family=Indie+Flower&family=Reem+Kufi+Fun&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@700&family=Noto+Sans+Mono:wght@800;900&family=Indie+Flower&family=Reem+Kufi+Fun&display=swap"
+      rel="stylesheet"
+    />
 
     <!--ICONS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./src/styles/index.css" />
 
     <script defer src="./dist/main.js"></script>
-
-</head>
-<body>
-    <div style="display: none;" class="landscapeMessage">
-        <h2>Ooopsie,</h2>
-        <img height="25%" src="./img/phone.png" alt="" srcset="">
-        <h3>I am a portrait game system!
-            Please, flip your device!
-        </h3>
-        <h3></h3>
+  </head>
+  <body>
+    <div style="display: none" class="landscapeMessage">
+      <h2>Ooopsie,</h2>
+      <img height="25%" src="./src/assets/phone.png" alt="" srcset="" />
+      <h3>I am a portrait game system! Please, flip your device!</h3>
+      <h3></h3>
     </div>
 
     <div id="splash">
-        <h1>THALES BOY</h1>
-        <h2>by Thales Cardoso</h2>
-        <div class="videoGameName">
-            <div class="coloredName">
-                <span style="color:red;">C</span>
-                <span style="color:rgb(135, 67, 167);">O</span>
-                <span style="color:rgb(71, 172, 51);">L</span>
-                <span style="color:rgb(233, 198, 43);">O</span>
-                <span style="color:rgb(47, 154, 180);">R</span>
-            </div>
+      <h1>THALES BOY</h1>
+      <h2>by Thales Cardoso</h2>
+      <div class="videoGameName">
+        <div class="coloredName">
+          <span style="color: red">C</span>
+          <span style="color: rgb(135, 67, 167)">O</span>
+          <span style="color: rgb(71, 172, 51)">L</span>
+          <span style="color: rgb(233, 198, 43)">O</span>
+          <span style="color: rgb(47, 154, 180)">R</span>
         </div>
+      </div>
     </div>
 
     <div class="container">
-        <header>
-            <nav class="main_nav">
-                <button id="yellow" onclick="changeColor('yellow')" style="background-color: #f8b725;" class="color1"><span
-                        class="littleScreen"></span></button>
-                <button id="blue" onclick="changeColor('blue')" style="background-color: #008199;" class="color2"><span
-                        class="littleScreen"></span></button>
-                <button id="pink" onclick="changeColor('pink')" style="background-color: #e74254;" class="color3"><span
-                        class="littleScreen"></span></button>
-                <button id="purple" onclick="changeColor('purple')" style="background-color: #6d2fdc;" class="color4"><span
-                        class="littleScreen"></span></button>
-                <button id="green" onclick="changeColor('green')" style="background-color: #79be01;" class="color5"><span
-                        class="littleScreen"></span></button>
+      <header>
+        <nav class="main_nav">
+          <button
+            id="yellow"
+            onclick="changeColor('yellow')"
+            style="background-color: #f8b725"
+            class="color1"
+          >
+            <span class="littleScreen"></span>
+          </button>
+          <button
+            id="blue"
+            onclick="changeColor('blue')"
+            style="background-color: #008199"
+            class="color2"
+          >
+            <span class="littleScreen"></span>
+          </button>
+          <button
+            id="pink"
+            onclick="changeColor('pink')"
+            style="background-color: #e74254"
+            class="color3"
+          >
+            <span class="littleScreen"></span>
+          </button>
+          <button
+            id="purple"
+            onclick="changeColor('purple')"
+            style="background-color: #6d2fdc"
+            class="color4"
+          >
+            <span class="littleScreen"></span>
+          </button>
+          <button
+            id="green"
+            onclick="changeColor('green')"
+            style="background-color: #79be01"
+            class="color5"
+          >
+            <span class="littleScreen"></span>
+          </button>
 
-                <div class="socials">
-                    <ul>
-                        <li><a target="_blank" href="https://github.com/RCThales/">My Github
-                                <i style="padding-left:10px;" class="fa fa-github"></i></a></li>
-                        <li><a target="_blank" href="https://instagram.com/thalescardris">My Instagram
-                                <i style="padding-left:10px;" class="fa fa-instagram"></i>
-                            </a></li>
-                        <li><a target="_blank" href="https://www.linkedin.com/in/thalesrodriguescardoso/">My Linkedin
-                                <i style="padding-left:10px;" class="fa fa-linkedin"></i>
-                            </a></li>
-                    </ul>
-                </div>
+          <div class="socials">
+            <ul>
+              <li>
+                <a target="_blank" href="https://github.com/RCThales/"
+                  >My Github
+                  <i style="padding-left: 10px" class="fa fa-github"></i
+                ></a>
+              </li>
+              <li>
+                <a target="_blank" href="https://instagram.com/thalescardris"
+                  >My Instagram
+                  <i style="padding-left: 10px" class="fa fa-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/thalesrodriguescardoso/"
+                  >My Linkedin
+                  <i style="padding-left: 10px" class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
 
-                <button class="themeBtn" onpointerup="selectTheme()">
-                </button>   
-                
-            </nav>
+          <button class="themeBtn" onpointerup="selectTheme()"></button>
+        </nav>
+      </header>
 
-        </header>
+      <main class="mainContainer">
+        <div class="gameBody" id="gameBody">
+          <button
+            type="button"
+            id="powerBtn"
+            class="powerBtn"
+            onpointerdown="gamePowerOnAndOff()"
+          ></button>
+          <span id="powerText">
+            <span>◄</span><span>Click</span><span>Here</span>
+          </span>
 
-        <main class="mainContainer">
-            <div class="gameBody" id="gameBody">
-                <button type="button" id="powerBtn" class="powerBtn" onpointerup="gamePowerOnAndOff()">       
+          <div class="screenArea">
+            <div class="screenFrame">
+              <div class="toggleFrame">
+                <button
+                  type="button"
+                  id="powerBtnMobile"
+                  class="powerBtnMobile"
+                  onpointerdown="gamePowerOnAndOff()"
+                >
+                  <i class="material-icons power">power_settings_new</i>
                 </button>
-                <span id="powerText">
-                    <span>◄</span><span>Click</span><span>Here</span>
-                </span>
+              </div>
+              <span class="led"></span>
+              <span class="powerName">POWER</span>
+              <span class="ledSymbol">)))</span>
 
-                <div class="screenArea">
-                    <div class="screenFrame">
-                        <div class="toggleFrame">
-                                <button type="button" id="powerBtnMobile" class="powerBtnMobile" onpointerup="gamePowerOnAndOff()">
-                                    <i class="material-icons power">power_settings_new</i>
+              <!---------->
+              <!--SCREEN-->
+              <!---------->
 
-                                </button>
-                        </div>         
-                        <span class="led"></span>
-                        <span class="powerName">POWER</span>
-                        <span class="ledSymbol">)))</span>
+              <div class="screenIntro"></div>
+              <iframe
+                onload="this.contentWindow.focus()"
+                class="screen"
+                src=""
+                title="Game System by Thales Cardoso"
+                frameborder="0"
+                scrolling="no"
+              >
+              </iframe>
 
-                        <!---------->
-                        <!--SCREEN-->
-                        <!---------->
-                 
-                        <div class="screenIntro"></div>
-                        <iframe onload="this.contentWindow.focus()" class="screen" src="" title="Game System by Thales Cardoso" frameborder="0" scrolling="no">
-                        </iframe>
-                        
-                        <div class="videoGameName">
-                            <span class="grayName">THALES BOY</span>
-                            <div class="coloredName">
-                                <span style="color:red;">C</span>
-                                <span style="color:rgb(135, 67, 167);">O</span>
-                                <span style="color:rgb(71, 172, 51);">L</span>
-                                <span style="color:rgb(233, 198, 43);">O</span>
-                                <span style="color:rgb(47, 154, 180);">R</span>
-                            </div>
-                        </div>
-                        <div id="brand" class="brand">HIRE MEº</div>
-                    </div>
-
-   
-
-                    <div class="gameBtns">
-                        <div class="leftBtns">
-                            <button onpointerdown="move('w')" class="gameBtn up">▲</button>
-                            <button onpointerdown="move('d')" class="gameBtn right">►</button>
-                            <button onpointerdown="move('s')" class="gameBtn down">▼</button>
-                            <button onpointerdown="move('a')" class="gameBtn left">◄</button>
-                            <button class="gameBtn center">◉</button>
-                        </div>
-                        <div class="rightBtns">
-                            <button onpointerdown="move('k')" class="gameBtn a">A</button>
-                            <button onpointerdown="move('l')" class="gameBtn b">B</button>
-                        </div>
-                    </div>
-
-                    <div class="startSelectBtns">
-                        <div class="selectBtn">
-                            <button onpointerdown="move('Space')" class="menuBtn select"><span>SELECT</span></button>            
-                        </div>
-                        <div class="startBtn">
-                            <button onpointerdown="move('Enter')" class="menuBtn start"><span>START</span></button>
-                        </div>            
-                    </div>
-
-                    <div class="bodyShadow"></div>
-                    
-                    <div class="speakers">
-
-                        <div class="musicalNotes soundOff musicalNote1">♪</div>
-                        <div class="musicalNotes soundOff musicalNote2">♫</div>
-                        <div class="musicalNotes soundOff musicalNote3">𝄞</div>
-
-                        <div class="speaker">
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                        </div>
-                        
-                        <div class="speaker2">
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                        </div>
-                        
-                        <div class="speaker2">
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                        </div>
-                        
-                        <div class="speaker2">
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                        </div>
-                        
-                        <div class="speaker2">
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                        </div>
-                        
-                        <div class="speaker2">
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                        </div>
-                        
-                        <div class="speaker2">
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                        </div>
-                        
-                        <div class="speaker">
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                            <span class="speakerBlack">.</span>
-                            <span class="speakerColored">.</span>
-                        </div>
-
-                    </div>
-                   
+              <div class="videoGameName">
+                <span class="grayName">THALES BOY</span>
+                <div class="coloredName">
+                  <span style="color: red">C</span>
+                  <span style="color: rgb(135, 67, 167)">O</span>
+                  <span style="color: rgb(71, 172, 51)">L</span>
+                  <span style="color: rgb(233, 198, 43)">O</span>
+                  <span style="color: rgb(47, 154, 180)">R</span>
                 </div>
+              </div>
+              <div id="brand" class="brand">HIRE MEº</div>
             </div>
-        </main>
-        <!--END OF SCREEN CONTAINER-->
+
+            <div class="gameBtns">
+              <div class="leftBtns">
+                <button onpointerdown="move('w')" class="gameBtn up">▲</button>
+                <button onpointerdown="move('d')" class="gameBtn right">
+                  ►
+                </button>
+                <button onpointerdown="move('s')" class="gameBtn down">
+                  ▼
+                </button>
+                <button onpointerdown="move('a')" class="gameBtn left">
+                  ◄
+                </button>
+                <button class="gameBtn center">◉</button>
+              </div>
+              <div class="rightBtns">
+                <button onpointerdown="move('k')" class="gameBtn a">A</button>
+                <button onpointerdown="move('l')" class="gameBtn b">B</button>
+              </div>
+            </div>
+
+            <div class="startSelectBtns">
+              <div class="selectBtn">
+                <button onpointerdown="move('Space')" class="menuBtn select">
+                  <span>SELECT</span>
+                </button>
+              </div>
+              <div class="startBtn">
+                <button onpointerdown="move('Enter')" class="menuBtn start">
+                  <span>START</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="bodyShadow"></div>
+
+            <div class="speakers">
+              <div class="musicalNotes soundOff musicalNote1">♪</div>
+              <div class="musicalNotes soundOff musicalNote2">♫</div>
+              <div class="musicalNotes soundOff musicalNote3">𝄞</div>
+
+              <div class="speaker">
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+              </div>
+
+              <div class="speaker2">
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+              </div>
+
+              <div class="speaker2">
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+              </div>
+
+              <div class="speaker2">
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+              </div>
+
+              <div class="speaker2">
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+              </div>
+
+              <div class="speaker2">
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+              </div>
+
+              <div class="speaker2">
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+              </div>
+
+              <div class="speaker">
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+                <span class="speakerBlack">.</span>
+                <span class="speakerColored">.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!--END OF SCREEN CONTAINER-->
     </div>
-    
-</body>
+  </body>
 </html>

@@ -1,0 +1,101 @@
+body {
+  background-color: antiquewhite;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: rgb(143, 169, 173);
+  background-image: repeating-linear-gradient(
+    36deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.2) 1px,
+    transparent 0px,
+    transparent 2px
+  );
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header {
+  background-color: rgb(31, 31, 31);
+  height: 40%;
+  width: 100%;
+  opacity: 0.8;
+  line-height: 30px;
+}
+
+.menuOption {
+  background: none;
+  list-style: none;
+  width: 100%;
+  color: white;
+  font-family: "VT323", monospace;
+  font-weight: bold;
+  font-size: 1.5rem;
+  z-index: 1;
+  transition: all ease 0.1s;
+  height: 25px;
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+  transition: all ease 0.2s;
+  outline: none;
+  border: none;
+}
+
+.menuOption:hover {
+  text-align: left;
+  border: none;
+  background: rgb(48, 48, 48) !important;
+  cursor: pointer;
+}
+
+header ul {
+  padding: 0;
+  text-decoration: none;
+}
+
+.mute {
+  position: absolute;
+  right: 20px;
+}
+
+.settingsImg {
+  background-color: rgb(31, 31, 31);
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.settingsImg img {
+  animation: spin 8s infinite;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+.activeOption {
+  background: #303030 !important;
+  max-width: 100%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
