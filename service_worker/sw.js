@@ -51,7 +51,7 @@ define(["./workbox-aef459b6"], function (e) {
           revision: "7ad17ae8901bb65bd51d2b3afad7f863",
         },
         {
-          url: "dist/games_list.js",
+          url: "dist/games.js",
           revision: "28d0c83d65a3f9d47838f6c03c9cae98",
         },
         { url: "dist/main.js", revision: "25641e65eaa30ce5fddcc48a3fa947a8" },
