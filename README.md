@@ -22,7 +22,7 @@ npm install
 
 ## Running the Application
 
-To run ThalesBoy, use the following command:
+To run Typescript `watch` script, use the following command:
 
 ```bash
 npm start
