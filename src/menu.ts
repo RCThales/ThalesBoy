@@ -1,18 +1,4 @@
-interface Game {
-  name: string;
-  id: number;
-}
-
-let gamesList = [
-  {
-    name: "Green Snake",
-    id: 1,
-  },
-  {
-    name: "Blue Snake",
-    id: 2,
-  },
-];
+import games from "../dist/games.js";
 
 let navLinkArray = {
   1: "https://github.com/RCThales/",
@@ -35,7 +21,7 @@ let startGameAudio = new Audio("./audio/startgame.wav");
 let gameInspectSound = new Audio("./audio/inspect.wav");
 
 window.addEventListener("load", () => {
-  renderListOfGames(gamesList);
+  renderListOfGames(games);
   selectGame(1, true);
   getNumberOfGames();
 
@@ -65,7 +51,7 @@ const getNumberOfGames = () => {
   const availableGames = document.querySelector(
     ".availableGamesNumber",
   ) as HTMLElement;
-  availableGames.textContent = gamesList.length.toString();
+  availableGames.textContent = games.length.toString();
 };
 
 document.addEventListener("keydown", (keyPressed) => {
@@ -282,7 +268,7 @@ const changeGameImage = (imageId: number) => {
     gameImgTransition.src = `./../games/game_${imageId}/game_${imageId}.png`;
 
     //Getting name of the selected game.
-    gamesList.forEach((e: Game) => {
+    games.forEach((e: Game) => {
       if (imageId === e.id) gameText.textContent = e.name;
     });
     return;
@@ -295,7 +281,7 @@ const changeGameImage = (imageId: number) => {
 };
 
 searchInput?.addEventListener("input", () => {
-  filterGames(gamesList);
+  filterGames(games);
 });
 
 const filterGames = (array: any[]) => {
