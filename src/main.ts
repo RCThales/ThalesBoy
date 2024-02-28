@@ -1,5 +1,5 @@
-const gameOnAudio = new Audio("../audio/thalesboyOn.mp3");
-const toggleAudio = new Audio("../audio/toggleSound.mp3");
+const gameOnAudio = new Audio("./audio/thalesboyOn.mp3");
+const toggleAudio = new Audio("./audio/toggleSound.mp3");
 
 let introOff: any = () => {};
 const gameIFrame = document.querySelector(".screen") as HTMLIFrameElement;
@@ -10,14 +10,8 @@ onselectstart = (e) => {
 
 window.addEventListener("load", () => {
   loadSplashScreen();
-
-  //Setting Color mode on startup
-  if (localStorage.getItem("theme") === null) {
-    localStorage.setItem("theme", "day");
-  }
-
-  setColorOnStartUp();
   setThemeOnStartup();
+  setConsoleColorOnStartUp();
 
   gameOnAudio.volume = 0.3;
   toggleAudio.volume = 0.3;
@@ -31,79 +25,7 @@ window.addEventListener("load", () => {
   toggleAudio.muted = false;
 });
 
-const getMutedMain = () => {
-  if (localStorage.getItem("isMuted") !== null) {
-    return localStorage.getItem("isMuted");
-  }
-  return "false";
-};
-
-const loadSplashScreen = () => {
-  //Splash gameIFrame
-  const splash = document.querySelector("#splash") as HTMLElement;
-  const container = document.querySelector(".container") as HTMLElement;
-  setTimeout(function () {
-    container.style.display = "flex";
-  }, 500);
-  setTimeout(function () {
-    splash.style.display = "none";
-  }, 1500);
-};
-
-/* CONTROLLERS */
-const move = (button: string) => {
-  gameIFrame.contentDocument?.dispatchEvent(
-    new KeyboardEvent("keydown", { key: button }),
-  );
-  gameIFrame.contentDocument?.dispatchEvent(
-    new KeyboardEvent("keyup", { key: button }),
-  );
-};
-
-//Sending Focus to the screen
-window.addEventListener("click", () => {
-  gameIFrame?.focus();
-});
-
-const setThemeOnStartup = () => {
-  const container = document.querySelector(".container") as HTMLElement;
-  const button = document.querySelector(".themeBtn") as HTMLButtonElement;
-  const theme = localStorage.getItem("theme");
-
-  //Night Mode
-  if (theme === "day") {
-    button.textContent = "🌚";
-    container.style.background = "var(--secondary)";
-    localStorage.setItem("theme", "day");
-    return;
-  }
-
-  //Day Mode
-  button.textContent = "🌞";
-  localStorage.setItem("theme", "night");
-  container.style.background = "var(--darkAccent)";
-};
-
-const selectTheme = () => {
-  const container = document.querySelector(".container") as HTMLElement;
-  const button = document.querySelector(".themeBtn") as HTMLButtonElement;
-  const theme = localStorage.getItem("theme");
-
-  //Night Mode
-  if (theme === "night") {
-    button.textContent = "🌚";
-    container.style.background = "var(--secondary)";
-    localStorage.setItem("theme", "day");
-    return;
-  }
-
-  //Day Mode
-  button.textContent = "🌞";
-  localStorage.setItem("theme", "night");
-  container.style.background = "var(--darkAccent)";
-};
-
-const setColorOnStartUp = () => {
+const setConsoleColorOnStartUp = () => {
   //Colors
   const yellow = document.getElementById("yellow") as HTMLButtonElement;
   const blue = document.getElementById("blue") as HTMLButtonElement;
@@ -139,6 +61,105 @@ const setColorOnStartUp = () => {
 
   const brand = document.getElementById("brand") as HTMLElement;
   brand.style.transition = "background 0s";
+};
+
+const setThemeOnStartup = () => {
+  const wholePageContainer = document.querySelector(
+    ".container",
+  ) as HTMLElement;
+  const themeSelectingButton = document.querySelector(
+    ".themeBtn",
+  ) as HTMLButtonElement;
+  const themeSelectedByUser = localStorage.getItem("theme");
+
+  if (themeSelectedByUser === "night") {
+    setThemeAsNight(themeSelectingButton, wholePageContainer);
+  } else if (themeSelectedByUser === "day") {
+    setThemeAsDay(themeSelectingButton, wholePageContainer);
+  } else {
+    setThemeAsUserPreferred(themeSelectingButton, wholePageContainer);
+  }
+};
+const setThemeAsNight = (
+  themeSelectingButton: HTMLButtonElement,
+  wholePageContainer: HTMLElement,
+) => {
+  themeSelectingButton.textContent = "🌞";
+  localStorage.setItem("theme", "night");
+  wholePageContainer.style.background = "var(--darkAccent)";
+};
+
+const setThemeAsDay = (
+  themeSelectingButton: HTMLButtonElement,
+  wholePageContainer: HTMLElement,
+) => {
+  themeSelectingButton.textContent = "🌚";
+  wholePageContainer.style.background = "var(--secondary)";
+  localStorage.setItem("theme", "day");
+};
+
+const setThemeAsUserPreferred = (
+  themeSelectingButton: HTMLButtonElement,
+  wholePageContainer: HTMLElement,
+) => {
+  if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+    setThemeAsDay(themeSelectingButton, wholePageContainer);
+  } else {
+    setThemeAsNight(themeSelectingButton, wholePageContainer);
+  }
+};
+
+const getMutedMain = () => {
+  if (localStorage.getItem("isMuted") !== null) {
+    return localStorage.getItem("isMuted");
+  }
+  return "false";
+};
+
+const loadSplashScreen = () => {
+  //Splash gameIFrame
+  const splash = document.querySelector("#splash") as HTMLElement;
+  const container = document.querySelector(".container") as HTMLElement;
+  setTimeout(function () {
+    container.style.display = "flex";
+  }, 500);
+  setTimeout(function () {
+    splash.style.display = "none";
+  }, 1500);
+};
+
+/* CONTROLLERS */
+const move = (button: string) => {
+  gameIFrame.contentDocument?.dispatchEvent(
+    new KeyboardEvent("keydown", { key: button }),
+  );
+  gameIFrame.contentDocument?.dispatchEvent(
+    new KeyboardEvent("keyup", { key: button }),
+  );
+};
+
+//Sending Focus to the screen
+window.addEventListener("click", () => {
+  gameIFrame?.focus();
+});
+
+const selectTheme = () => {
+  const container = document.querySelector(".container") as HTMLElement;
+  const button = document.querySelector(".themeBtn") as HTMLButtonElement;
+  const theme = localStorage.getItem("theme");
+
+  //Night Mode
+  if (theme === "night") {
+    button.textContent = "🌚";
+    container.style.background = "var(--secondary)";
+    localStorage.setItem("theme", "day");
+    return;
+  }
+
+  //Day Mode
+  button.textContent = "🌞";
+  localStorage.setItem("theme", "night");
+  container.style.background = "var(--darkAccent)";
 };
 
 const changeColor = (color: string) => {
