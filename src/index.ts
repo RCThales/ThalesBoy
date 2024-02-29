@@ -6,60 +6,12 @@ import {
   MUSICAL_NOTES,
   THEME_BUTTON,
   WHOLE_PAGE_CONTAINER,
+  YELLOW_BUTTON,
 } from "./clickable_elements.js";
 
 import { colors, currentConsoleColor } from "./console_colors.js";
 
 export let isConsoleOn = false;
-
-class ConsoleAudio {
-  private consoleOnAudio = new Audio("../src/audio/thalesboyOn.mp3");
-  private powerButonAudio = new Audio("../src/audio/toggleSound.mp3");
-
-  public playConsoleOnAudio = () => {
-    this.playPowerButtonAudio();
-    this.playConsoleIntroAudio();
-  };
-
-  public playConsoleOffAudio = () => {
-    this.playPowerButtonAudio();
-  };
-
-  private playPowerButtonAudio = () => {
-    this.powerButonAudio.play();
-    setTimeout(() => {
-      this.powerButonAudio.currentTime = 0;
-    }, 1000);
-  };
-
-  private playConsoleIntroAudio = () => {
-    this.consoleOnAudio.play();
-    setTimeout(() => {
-      this.consoleOnAudio.currentTime = 0;
-    }, 1000);
-  };
-
-  public muteConsole = () => {
-    this.consoleOnAudio.muted = true;
-    this.powerButonAudio.muted = true;
-  };
-
-  public unmuteConsole = () => {
-    this.consoleOnAudio.muted = false;
-    this.powerButonAudio.muted = false;
-  };
-
-  public setConsoleVolume = (volume = 1) => {
-    this.consoleOnAudio.volume = volume;
-    this.powerButonAudio.volume = volume;
-  };
-}
-
-const audioManager = new ConsoleAudio();
-
-onselectstart = (e) => {
-  e.preventDefault();
-};
 
 window.addEventListener("load", () => {
   loadSplashScreen();
@@ -98,7 +50,7 @@ const setConsoleColorOnStartUp = () => {
 
 const setDefaultConsoleColorAsYellow = () => {
   localStorage.setItem("gameColor", "yellow");
-  colors.YELLOW_BUTTON.style.display = "none";
+  YELLOW_BUTTON.style.display = "none";
   return;
 };
 const disableColorTransitionAnimation = () => {
@@ -160,39 +112,22 @@ const setThemeAsUserBrowserDefault = (
   }
 };
 
+//TODO Fix AUDIO Trigger
 const setGeneralAudioState = () => {
   const isAudioMutedInLocalStorage = localStorage.getItem("isMuted");
 
   if (isAudioMutedInLocalStorage) {
-    audioManager.muteConsole();
+    //MUTE CONSOLE
   } else {
     setInitialAudioVolumes();
-    audioManager.unmuteConsole();
+    //UNMUTE CONSOLE
   }
 };
 
+//TODO Fix AUDIO Trigger
 const setInitialAudioVolumes = () => {
   const INITIAL_VOLUME = 0.3;
-  audioManager.setConsoleVolume(INITIAL_VOLUME);
-};
-
-export const selectTheme = () => {
-  const container = document.querySelector(".container") as HTMLElement;
-  const button = document.querySelector(".themeBtn") as HTMLButtonElement;
-  const theme = localStorage.getItem("theme");
-
-  //Night Mode
-  if (theme === "night") {
-    button.textContent = "🌚";
-    container.style.background = "var(--secondary)";
-    localStorage.setItem("theme", "day");
-    return;
-  }
-
-  //Day Mode
-  button.textContent = "🌞";
-  localStorage.setItem("theme", "night");
-  container.style.background = "var(--darkAccent)";
+  //audioManager.setConsoleVolume(INITIAL_VOLUME);
 };
 
 export const changeConsoleColor = (colorName: string) => {
@@ -210,15 +145,15 @@ export const changeConsoleColor = (colorName: string) => {
 const updateCssColorsToChosenConsoleColor = (colorClicked: string) => {
   document.documentElement.style.setProperty(
     "--primary",
-    colors[colorClicked].primary,
+    colors[colorClicked as keyof ColorLib].primary,
   );
   document.documentElement.style.setProperty(
     "--accent",
-    colors[colorClicked].accent,
+    colors[colorClicked as keyof ColorLib].accent,
   );
   document.documentElement.style.setProperty(
     "--carving",
-    colors[colorClicked].carving,
+    colors[colorClicked as keyof ColorLib].carving,
   );
 };
 
@@ -242,6 +177,7 @@ const makeCurrentColorButtonInvisible = () => {
   currentColorButton.buttonElement.style.display = "none";
 };
 
+//TODO Fix AUDIO Trigger
 export const turnConsoleOn = () => {
   const MENU_URL = "../menu.html";
   const INTRO_GIF_DURATION = 4;
@@ -253,9 +189,10 @@ export const turnConsoleOn = () => {
   turnOnScreen(MENU_URL, MENU_PAGE_LOAD_DELAY);
   setAnimatedHelperTextOff();
   setAudioOnAnimationOn();
-  audioManager.playConsoleOnAudio();
+  //audioManager.playConsoleOnAudio();
 };
 
+//TODO Fix AUDIO Trigger
 export const turnConsoleOff = () => {
   isConsoleOn = false;
   turnConsoleLedOff();
@@ -263,7 +200,7 @@ export const turnConsoleOff = () => {
   turnOffScreen();
   setAnimatedHelperTextOn();
   setAudioOnAnimationOff();
-  audioManager.playConsoleOffAudio();
+  //audioManager.playConsoleOffAudio();
 };
 
 const playConsoleIntroGif = (durationInSeconds: number) => {
@@ -366,7 +303,7 @@ const setAnimatedHelperTextOff = () => {
   });
 };
 
-const dispacthClickEventsToConsoleScreenIFrame = (key: string) => {
+export const dispacthClickEventsToConsoleScreenIFrame = (key: string) => {
   CONSOLE_SCREEN.contentDocument?.dispatchEvent(
     new KeyboardEvent("keydown", { key }),
   );

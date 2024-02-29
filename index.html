@@ -114,18 +114,13 @@
             </ul>
           </div>
 
-          <button class="themeBtn" onpointerup="selectTheme()"></button>
+          <button class="themeBtn"></button>
         </nav>
       </header>
 
       <main class="mainContainer">
         <div class="gameBody" id="gameBody">
-          <button
-            type="button"
-            id="powerBtn"
-            class="powerBtn"
-            onpointerdown="toggleConsolePowerButton()"
-          ></button>
+          <button type="button" id="powerBtn" class="powerBtn"></button>
           <span id="powerText">
             <span>◄</span><span>Click</span><span>Here</span>
           </span>
@@ -138,7 +133,6 @@
                   type="button"
                   id="powerBtnMobile"
                   class="powerBtnMobile"
-                  onpointerdown="toggleConsolePowerButton()"
                 >
                   <i class="material-icons power">power_settings_new</i>
                 </button>
@@ -177,62 +171,26 @@
 
             <div class="gameBtns">
               <div class="leftBtns">
-                <button
-                  onpointerdown="dispacthClickEventsToConsoleScreenIFrame('w')"
-                  class="gameBtn up"
-                >
-                  ▲
-                </button>
-                <button
-                  onpointerdown="dispacthClickEventsToConsoleScreenIFrame('d')"
-                  class="gameBtn right"
-                >
-                  ►
-                </button>
-                <button
-                  onpointerdown="dispacthClickEventsToConsoleScreenIFrame('s')"
-                  class="gameBtn down"
-                >
-                  ▼
-                </button>
-                <button
-                  onpointerdown="dispacthClickEventsToConsoleScreenIFrame('a')"
-                  class="gameBtn left"
-                >
-                  ◄
-                </button>
+                <button class="gameBtn up">▲</button>
+                <button class="gameBtn right">►</button>
+                <button class="gameBtn down">▼</button>
+                <button class="gameBtn left">◄</button>
                 <button class="gameBtn center">◉</button>
               </div>
               <div class="rightBtns">
-                <button
-                  onpointerdown="dispacthClickEventsToConsoleScreenIFrame('k')"
-                  class="gameBtn a"
-                >
-                  A
-                </button>
-                <button
-                  onpointerdown="dispacthClickEventsToConsoleScreenIFrame('l')"
-                  class="gameBtn b"
-                >
-                  B
-                </button>
+                <button class="gameBtn a">A</button>
+                <button class="gameBtn b">B</button>
               </div>
             </div>
 
             <div class="startSelectBtns">
               <div class="selectBtn">
-                <button
-                  onpointerdown="dispacthClickEventsToConsoleScreenIFrame('Space')"
-                  class="menuBtn select"
-                >
+                <button class="menuBtn select">
                   <span>SELECT</span>
                 </button>
               </div>
               <div class="startBtn">
-                <button
-                  onpointerdown="dispacthClickEventsToConsoleScreenIFrame('Enter')"
-                  class="menuBtn start"
-                >
+                <button class="menuBtn start">
                   <span>START</span>
                 </button>
               </div>

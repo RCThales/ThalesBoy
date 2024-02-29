@@ -4,14 +4,22 @@ interface Games {
 }
 
 interface Color {
-  yellow: ColorDetails;
-  blue: ColorDetails;
-  pink: ColorDetails;
-  purple: ColorDetails;
-  green: ColorDetails;
+  YELLOW_BUTTON: HTMLButtonElement;
+  BLUE_BUTTON: HTMLButtonElement;
+  PINK_BUTTON: HTMLButtonElement;
+  PURPLE_BUTTON: HTMLButtonElement;
+  GREEN_BUTTON: HTMLButtonElement;
 }
 
-interface ColorDetails {
+interface ColorLib {
+  yellow: ColorLibDetails;
+  blue: ColorLibDetails;
+  pink: ColorLibDetails;
+  purple: ColorLibDetails;
+  green: ColorLibDetails;
+}
+
+interface ColorLibDetails {
   buttonElement: HTMLButtonElement;
   primary: string;
   accent: string;

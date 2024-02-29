@@ -6,9 +6,9 @@ import {
   PURPLE_BUTTON,
 } from "./clickable_elements.js";
 
-export const colors: Color = {
+export const colors: ColorLib = {
   yellow: {
-    buttonElement: YELLOW_BUTTON,
+    buttonElement: YELLOW_BUTTON as HTMLButtonElement,
     primary: "#f8b725",
     accent: "#fcbe2b",
     carving: "#e1b245",
@@ -39,4 +39,4 @@ export const colors: Color = {
   },
 };
 
-export const currentConsoleColor = localStorage.getItem("gameColor");
+export const currentConsoleColor = localStorage.getItem("gameColor") as string;
