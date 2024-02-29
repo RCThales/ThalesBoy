@@ -1,4 +1,4 @@
-const games = [
+const games: object[] = [
   {
     name: "Green Snake",
     id: 1,

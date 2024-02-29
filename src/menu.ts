@@ -1,3 +1,4 @@
+// @ts-ignore
 import games from "../dist/games.js";
 
 let navLinkArray = {
@@ -268,7 +269,7 @@ const changeGameImage = (imageId: number) => {
     gameImgTransition.src = `./../games/game_${imageId}/game_${imageId}.png`;
 
     //Getting name of the selected game.
-    games.forEach((e: Game) => {
+    games.forEach((e: Games) => {
       if (imageId === e.id) gameText.textContent = e.name;
     });
     return;

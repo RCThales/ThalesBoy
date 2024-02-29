@@ -121,7 +121,7 @@ define(["./workbox-aef459b6"], function (e) {
           url: "src/assets/thalesboygif.gif",
           revision: "7b43c8f3e6b77c138b3c1c8352dea577",
         },
-        { url: "src/main.ts", revision: "e4d0a7aa036878905e8915f9ffeb89f6" },
+        { url: "src/index.ts", revision: "e4d0a7aa036878905e8915f9ffeb89f6" },
         { url: "src/menu.ts", revision: "7f75df0fa54bc3f07180fdf4938b69a6" },
         {
           url: "src/settings.ts",

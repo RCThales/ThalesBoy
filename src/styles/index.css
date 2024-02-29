@@ -345,6 +345,7 @@ button {
   transform: translateY(-20px);
   border: none !important;
   outline: none !important;
+  position: relative;
 }
 
 .screen:hover {
