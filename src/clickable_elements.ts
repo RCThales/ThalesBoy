@@ -20,6 +20,10 @@ export const POWER_BTN_MOBILE = document.getElementById(
 
 export const MUSICAL_NOTES = document.querySelectorAll(".MUSICAL_NOTES");
 
+export const CONSOLE_COLOR_BUTTONS = document.querySelector(
+  ".console_color_btns",
+) as HTMLDivElement;
+
 export const YELLOW_BUTTON = document.querySelector(
   "#yellow",
 ) as HTMLButtonElement;
