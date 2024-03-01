@@ -6,6 +6,14 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-family: "VT323", monospace;
+}
+
+h1 {
+  color: white;
+  font-size: 2rem;
+  padding: 0 5px;
+  margin: 3px;
 }
 
 .container {
@@ -28,7 +36,7 @@ body {
 
 header {
   background-color: rgb(31, 31, 31);
-  height: 40%;
+  height: 100%;
   width: 100%;
   opacity: 0.8;
   line-height: 30px;
@@ -51,6 +59,7 @@ header {
   transition: all ease 0.2s;
   outline: none;
   border: none;
+  text-decoration: none;
 }
 
 .menuOption:hover {
@@ -89,6 +98,39 @@ header ul {
 .activeOption {
   background: #303030 !important;
   max-width: 100%;
+}
+
+.color_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.color_btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.colorBtn {
+  width: 20px;
+  height: 20px;
+}
+
+#yellow {
+  background: #f8b725;
+}
+#blue {
+  background: #008199;
+}
+#pink {
+  background: #e74254;
+}
+#purple {
+  background: #6d2fdc;
+}
+#green {
+  background: #79be01;
 }
 
 @keyframes spin {
