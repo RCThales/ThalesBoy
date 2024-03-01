@@ -25,6 +25,7 @@
     <div class="container">
       <header>
         <nav>
+          <h1>Settings</h1>
           <ul>
             <li>
               <button onclick="goToSettingsLink(1)" class="menuOption" id="1">
@@ -32,11 +33,31 @@
                 <i class="fa fa-volume-up mute" aria-hidden="true"></i>
               </button>
             </li>
-            <li>
+            <li class="color_list">
               <button onclick="goToSettingsLink(2)" class="menuOption" id="2">
-                Contact the Developer
+                Color
               </button>
+
+              <div class="color_btns">
+                <button id="yellow" class="colorBtn"></button>
+                <button id="blue" class="colorBtn"></button>
+                <button id="pink" class="colorBtn"></button>
+                <button id="purple" class="colorBtn"></button>
+                <button id="green" class="colorBtn"></button>
+              </div>
             </li>
+            <hr />
+            <li>
+              <a
+                target="_blank"
+                href="mailto:thalescardris@gmail.com"
+                class="menuOption"
+                id="2"
+              >
+                Contact the Developer
+              </a>
+            </li>
+
             <li>
               <button
                 onclick="goToSettingsLink(3)"
@@ -54,8 +75,7 @@
         <img
           height="80px"
           src="https://cdn-icons-png.flaticon.com/512/126/126472.png"
-          alt=""
-          srcset=""
+          alt="Spinning settings wheel"
         />
       </div>
     </div>
