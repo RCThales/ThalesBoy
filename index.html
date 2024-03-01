@@ -27,11 +27,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="./src/styles/index.css" />
+    <script type="module" src="./dist/event_triggers.js"></script>
+
+    <!--
     <link rel="manifest" href="./manifest.json" />
-
-    <script type="module" defer src="./dist/events.js"></script>
-    <script type="module" defer src="./dist/index.js"></script>
-
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
@@ -39,6 +38,7 @@
         });
       }
     </script>
+    -->
   </head>
   <body>
     <div style="display: none" class="landscapeMessage">
@@ -65,30 +65,43 @@
     <div class="container">
       <header>
         <nav class="main_nav">
-          <button
-            id="yellow"
-            style="background-color: #f8b725"
-            class="colorBtn"
-          >
-            <span class="littleScreen"></span>
-          </button>
-          <button id="blue" style="background-color: #008199" class="colorBtn">
-            <span class="littleScreen"></span>
-          </button>
-          <button id="pink" style="background-color: #e74254" class="colorBtn">
-            <span class="littleScreen"></span>
-          </button>
-          <button
-            id="purple"
-            style="background-color: #6d2fdc"
-            class="colorBtn"
-          >
-            <span class="littleScreen"></span>
-          </button>
-          <button id="green" style="background-color: #79be01" class="colorBtn">
-            <span class="littleScreen"></span>
-          </button>
-
+          <div class="console_color_btns">
+            <button
+              id="yellow"
+              style="background-color: #f8b725"
+              class="colorBtn"
+            >
+              <span class="littleScreen"></span>
+            </button>
+            <button
+              id="blue"
+              style="background-color: #008199"
+              class="colorBtn"
+            >
+              <span class="littleScreen"></span>
+            </button>
+            <button
+              id="pink"
+              style="background-color: #e74254"
+              class="colorBtn"
+            >
+              <span class="littleScreen"></span>
+            </button>
+            <button
+              id="purple"
+              style="background-color: #6d2fdc"
+              class="colorBtn"
+            >
+              <span class="littleScreen"></span>
+            </button>
+            <button
+              id="green"
+              style="background-color: #79be01"
+              class="colorBtn"
+            >
+              <span class="littleScreen"></span>
+            </button>
+          </div>
           <div class="socials">
             <ul>
               <li>
