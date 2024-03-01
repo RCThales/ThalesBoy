@@ -6,6 +6,8 @@
   --accent: #fcbe2b;
   --dark: #1b1b20;
   --darkAccent: #2a2a32;
+  --day: #f6f3f3;
+  --night: #2a2a32;
 
   /*SOUND ANIMATION*/
   --xMovement: 50px;
@@ -122,11 +124,6 @@ body {
   transition: all ease 0.2s;
 }
 
-header {
-  width: 100vw;
-  background-color: var(--dark);
-}
-
 .main_nav {
   position: relative;
   display: flex;
@@ -152,7 +149,23 @@ button {
   justify-content: center;
 }
 
+.console_color_btns {
+  display: flex;
+  gap: 30px;
+  pointer-events: none;
+}
+
+.colorBtn {
+  pointer-events: all;
+}
+
+header {
+  width: 100vw;
+  background-color: var(--dark);
+}
+
 .littleScreen {
+  pointer-events: none;
   transform: translateY(5px);
   border-radius: 5px;
   width: 25px;
