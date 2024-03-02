@@ -1,9 +1,9 @@
-interface Games {
+export interface Games {
   name: string;
   id: number;
 }
 
-interface ColorLib {
+export interface ColorLib {
   yellow: ColorLibDetails;
   blue: ColorLibDetails;
   pink: ColorLibDetails;
@@ -11,7 +11,7 @@ interface ColorLib {
   green: ColorLibDetails;
 }
 
-interface ColorLibDetails {
+export interface ColorLibDetails {
   buttonElement: HTMLButtonElement;
   primary: string;
   accent: string;
