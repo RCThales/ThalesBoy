@@ -1,5 +1,5 @@
-// @ts-ignore
-import games from "../dist/games.js";
+import { GAMES_LIST } from "./clickable_elements.js";
+import { Game, GamesList } from "./games.js";
 
 let navLinkArray = {
   1: "https://github.com/RCThales/",
@@ -20,9 +20,10 @@ const searchInput = document.querySelector("#search") as HTMLInputElement;
 
 let startGameAudio = new Audio("./audio/startgame.wav");
 let gameInspectSound = new Audio("./audio/inspect.wav");
+let gamesList: GamesList = new GamesList();
 
 window.addEventListener("load", () => {
-  renderListOfGames(games);
+  renderListOfGames();
   selectGame(1, true);
   getNumberOfGames();
 
@@ -121,20 +122,19 @@ const selectMenuViaInput = (keyPressed: KeyboardEvent) => {
   }
 };
 
-const renderListOfGames = (array: object[]) => {
-  let gameList = document.querySelector(".gameList") as HTMLElement;
-  gameList.textContent = "";
-  let counter = 1;
+const renderListOfGames = () => {
+  populateGamesList();
+};
 
-  array.forEach((element: any) => {
+const populateGamesList = () => {
+  games.forEach((game: Games) => {
     let gameListButton = document.createElement("button");
     gameListButton.className = "game";
-    gameListButton.id = `${counter++}`;
-    gameListButton.textContent = element.name;
+    gameListButton.id = `${game.id}`;
+    gameListButton.textContent = game.name;
     gameListButton.onclick = function () {
       selectGame(parseInt(gameListButton.id), false);
     };
-    gameList.appendChild(gameListButton);
   });
 };
 
@@ -279,19 +279,4 @@ const changeGameImage = (imageId: number) => {
   gameImgBg.src = `./img/game_1.png`;
   gameImgTransition.src = `./img/game_1.png`;
   gameText.textContent = `Snake`;
-};
-
-searchInput?.addEventListener("input", () => {
-  filterGames(games);
-});
-
-const filterGames = (array: any[]) => {
-  const filteredArray = array.filter((game) => {
-    const gameName = game.name.toLowerCase();
-    const inputValue = searchInput?.value.toLowerCase();
-
-    return gameName.includes(inputValue);
-  });
-
-  renderListOfGames(filteredArray);
 };

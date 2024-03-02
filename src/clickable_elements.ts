@@ -6,13 +6,9 @@ export const CONSOLE_SCREEN = document.querySelector(
   ".screen",
 ) as HTMLIFrameElement;
 
-export const CONSOLE_BODY = document.querySelector(
-  "#gameBody",
-) as HTMLElement;
+export const CONSOLE_BODY = document.querySelector("#gameBody") as HTMLElement;
 
-export const HIREME_TEXT = document.querySelector(
-  "#brand",
-) as HTMLElement;
+export const HIREME_TEXT = document.querySelector("#brand") as HTMLElement;
 
 export const GIF_CONTAINER = document.querySelector(
   ".screenIntro",
@@ -77,3 +73,4 @@ export const GAME_PAD_START_BUTTON = document.querySelector(
 export const GAME_PAD_SELECT_BUTTON = document.querySelector(
   ".select",
 ) as HTMLButtonElement;
+export const GAMES_LIST = document.querySelector(".gameList") as HTMLDivElement;
