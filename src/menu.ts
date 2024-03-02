@@ -269,7 +269,7 @@ const changeGameImage = (imageId: number) => {
     gameImgTransition.src = `./../games/game_${imageId}/game_${imageId}.png`;
 
     //Getting name of the selected game.
-    games.forEach((e: Games) => {
+    games.forEach((e: any) => {
       if (imageId === e.id) gameText.textContent = e.name;
     });
     return;
