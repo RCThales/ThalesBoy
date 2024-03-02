@@ -1,7 +1,9 @@
 import ConsoleAudio from "./audios.js";
 import {
+  CONSOLE_BODY,
   CONSOLE_SCREEN,
   GIF_CONTAINER,
+  HIREME_TEXT,
   MUSICAL_NOTES,
   POWER_BTN_DESKTOP,
   POWER_BTN_MOBILE,
@@ -13,6 +15,7 @@ import {
   setClickHereTextOn,
   setClickHereTextOff,
 } from "./index.js";
+import { ColorLib } from "./types/games.type.js"
 
 class Console {
   static instance: Console | null = null;
@@ -176,19 +179,13 @@ class Console {
   };
 
   private animateColorChangeTransition = () => {
-    //Adding the transition for the coloring effect
-    const gameBody = document.getElementById("gameBody") as HTMLButtonElement;
-    gameBody.style.transition = "background 1s ease";
-    const brand = document.getElementById("brand") as HTMLElement;
-    brand.style.transition = "background 0.5s ease";
+    CONSOLE_BODY.style.transition = "background 1s ease";
+    HIREME_TEXT.style.transition = "background 0.5s ease";
   };
 
   private disableColorTransitionAnimation = () => {
-    const gameBody = document.getElementById("gameBody") as HTMLButtonElement;
-    gameBody.style.transition = "background 0s";
-
-    const brand = document.getElementById("brand") as HTMLElement;
-    brand.style.transition = "background 0s";
+    CONSOLE_BODY.style.transition = "background 0s";
+    HIREME_TEXT.style.transition = "background 0s";
   };
 
   public dispacthClickEventsToConsoleScreenIFrame = (key: string) => {
