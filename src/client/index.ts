@@ -4,7 +4,7 @@ import {
   WHOLE_PAGE_CONTAINER,
 } from "./clickable_elements.js";
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   loadSplashScreen();
   setActiveThemeOnStartup();
 });

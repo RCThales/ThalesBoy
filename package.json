@@ -2,15 +2,17 @@
   "name": "gameboy",
   "version": "1.1.0",
   "description": "A gameboy clone made by Thales Cardoso using typescript and css.",
-  "main": "main.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc --watch",
+    "start": "npx tsc --watch",
+    "serve": "node dist/server/index.cjs",
+    "dev": "nodemon dist/server/index.cjs",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "live": "live-server",
-    "build": "tsc"
+    "build": "npx tsc"
   },
   "repository": {
     "type": "git",
@@ -26,9 +28,16 @@
   },
   "homepage": "https://github.com/RCThales/thalesboy#readme",
   "devDependencies": {
-    "@types/node": "^20.11.19",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.24",
     "live-server": "^1.2.2",
     "prettier": "^3.2.5",
     "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "node": "^21.6.2",
+    "nodemon": "^3.1.0"
   }
 }

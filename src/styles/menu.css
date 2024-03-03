@@ -1,5 +1,4 @@
 :root {
-  /*COLORS*/
   --primary: #f1f1f1;
 }
 
@@ -131,7 +130,33 @@ header a:nth-child(4) {
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow-y: auto;
   gap: 5px;
+}
+
+.gameListLoad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loader {
+  border: 5px dotted var(--primary);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .gameList button {

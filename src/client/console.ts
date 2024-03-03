@@ -15,7 +15,7 @@ import {
   setClickHereTextOn,
   setClickHereTextOff,
 } from "./index.js";
-import { ColorLib } from "./types/games.type.js"
+import { ColorLib } from "./types/games.type.js";
 
 class Console {
   static instance: Console | null = null;
@@ -69,7 +69,7 @@ class Console {
 
   private getGif = () => {
     const gif = document.createElement("img") as HTMLImageElement;
-    gif.src = "../src/assets/thalesboygif.gif";
+    gif.src = "../public/assets/thalesboygif.gif";
     gif.className = "gameIntro";
     return gif;
   };

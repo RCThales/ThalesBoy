@@ -1,3 +1,5 @@
+import Console from "./console.js";
+
 let settingsInspectSound = new Audio("./audio/inspect.wav");
 settingsInspectSound.volume = 0.3;
 
@@ -18,6 +20,11 @@ window.addEventListener("load", () => {
   muteOrUnmuteAudio();
 });
 
+const consoleInstance = new Console();
+window.addEventListener("load", () => {
+  consoleInstance.setConsoleColorOnStartUp();
+});
+
 const getMutedSettings = () => {
   if (localStorage.getItem("isMuted") !== null) {
     return localStorage.getItem("isMuted");
@@ -32,8 +39,7 @@ document.addEventListener("keyup", (keyPressed) => {
 document.addEventListener("keydown", (keyPressed) => {
   if (keyRepeatedSettings) {
     if (keyPressed.key === "Enter" || keyPressed.key.toLowerCase() === "k") {
-      settingsInspectSound.currentTime = 0;
-      settingsInspectSound.play();
+      consoleInstance.audioEngine.playInspectAudio();
       goToSettingsLink(currentOption);
     }
     selectSettingsMenuViaInput(keyPressed);

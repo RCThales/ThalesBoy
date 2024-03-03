@@ -1,4 +1,4 @@
-import { GAMES_LIST } from "./clickable_elements.js";
+import { GAMES_LIST, GAME_LIST_LOADER } from "./clickable_elements.js";
 import { Game, GamesList } from "./games.js";
 
 let navLinkArray = {
@@ -22,7 +22,9 @@ let startGameAudio = new Audio("./audio/startgame.wav");
 let gameInspectSound = new Audio("./audio/inspect.wav");
 let gamesList: GamesList = new GamesList();
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
+  await gamesList.fetchGames();
+  substituteLoaderForGameList();
   renderListOfGames();
   selectGame(1, true);
   getNumberOfGames();
@@ -50,10 +52,7 @@ const getMutedMenu = () => {
 };
 
 const getNumberOfGames = () => {
-  const availableGames = document.querySelector(
-    ".availableGamesNumber",
-  ) as HTMLElement;
-  availableGames.textContent = games.length.toString();
+  return gamesList.games.length;
 };
 
 document.addEventListener("keydown", (keyPressed) => {
@@ -122,12 +121,12 @@ const selectMenuViaInput = (keyPressed: KeyboardEvent) => {
   }
 };
 
-const renderListOfGames = () => {
-  populateGamesList();
+const renderListOfGames = async () => {
+  createListOfHtmlGameButtons(gamesList.games);
 };
 
-const populateGamesList = () => {
-  games.forEach((game: Games) => {
+const createListOfHtmlGameButtons = (games: Game[]) => {
+  games.forEach((game) => {
     let gameListButton = document.createElement("button");
     gameListButton.className = "game";
     gameListButton.id = `${game.id}`;
@@ -135,7 +134,13 @@ const populateGamesList = () => {
     gameListButton.onclick = function () {
       selectGame(parseInt(gameListButton.id), false);
     };
+    GAMES_LIST.append(gameListButton);
   });
+};
+
+const substituteLoaderForGameList = () => {
+  GAME_LIST_LOADER.style.display = "none";
+  GAMES_LIST.style.display = "flex";
 };
 
 const startGame = () => {
@@ -144,7 +149,7 @@ const startGame = () => {
   startGameAudio.play();
 
   setTimeout(() => {
-    window.location.href = `./games/game_${currentGame}/game_${currentGame}.html`;
+    window.location.href = `../../src/games/game_${currentGame}/game_${currentGame}.html`;
   }, 3000);
 
   animateGameStart();
@@ -263,15 +268,16 @@ const changeGameImage = (imageId: number) => {
     ".selectedGameImageTransition",
   ) as HTMLImageElement;
 
-  if ((gameImg.src = `./../games/game_${imageId}/game_${imageId}.png`)) {
-    gameImg.src = `./../games/game_${imageId}/game_${imageId}.png`;
-    gameImgBg.src = `./../games/game_${imageId}/game_${imageId}.png`;
-    gameImgTransition.src = `./../games/game_${imageId}/game_${imageId}.png`;
+  if ((gameImg.src = `../../src/games/game_${imageId}/game_${imageId}.png`)) {
+    gameImg.src = `../../src/games/game_${imageId}/game_${imageId}.png`;
+    gameImgBg.src = `../../src/games/game_${imageId}/game_${imageId}.png`;
+    gameImgTransition.src = `../../src/games/game_${imageId}/game_${imageId}.png`;
 
     //Getting name of the selected game.
-    games.forEach((e: any) => {
+    gamesList.games.forEach((e: any) => {
       if (imageId === e.id) gameText.textContent = e.name;
     });
+
     return;
   }
 

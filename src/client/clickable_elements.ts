@@ -74,3 +74,7 @@ export const GAME_PAD_SELECT_BUTTON = document.querySelector(
   ".select",
 ) as HTMLButtonElement;
 export const GAMES_LIST = document.querySelector(".gameList") as HTMLDivElement;
+
+export const GAME_LIST_LOADER = document.querySelector(
+  ".gameListLoad",
+) as HTMLDivElement;

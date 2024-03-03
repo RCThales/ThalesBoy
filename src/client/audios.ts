@@ -1,8 +1,8 @@
 class ConsoleAudio {
   static instance: ConsoleAudio | null = null;
-  private consoleOnAudio = new Audio("../src/audio/consoleOnAudio.mp3");
-  private powerButonAudio = new Audio("../src/audio/powerButtonAudio.mp3");
-  private settingsInspectAudio = new Audio("../src/audio/inspect.wav");
+  private consoleOnAudio = new Audio("../public/audio/consoleOnAudio.mp3");
+  private powerButonAudio = new Audio("../public/audio/powerButtonAudio.mp3");
+  private settingsInspectAudio = new Audio("../public/audio/inspect.wav");
   constructor() {
     if (ConsoleAudio.instance) {
       return ConsoleAudio.instance;
@@ -25,16 +25,10 @@ class ConsoleAudio {
 
   private playPowerButtonAudio = () => {
     this.powerButonAudio.play();
-    setTimeout(() => {
-      this.powerButonAudio.currentTime = 0;
-    }, 4000);
   };
 
   private playConsoleIntroAudio = () => {
     this.consoleOnAudio.play();
-    setTimeout(() => {
-      this.consoleOnAudio.currentTime = 0;
-    }, 4000);
   };
 
   public muteConsole = () => {
