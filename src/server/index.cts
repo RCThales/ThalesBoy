@@ -13,7 +13,7 @@ const games = [
   {
     id: 1,
     name: "Green Snake",
-    gameUrl: "http://127.0.0.1:5500",
+    gameUrl: "https://snakecardris.netlify.app/",
     imageUrl: "https://snakecardris.netlify.app/index.png",
   },
   {
