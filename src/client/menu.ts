@@ -1,5 +1,7 @@
+import Console from "./console.js";
 import { GAMES_LIST, GAME_LIST_LOADER } from "./clickable_elements.js";
-import { Game, GamesList } from "./games.js";
+import { GamesList } from "./games.js";
+import { Games } from "./types/games.type.js";
 
 let navLinkArray = {
   1: "https://github.com/RCThales/",
@@ -7,6 +9,7 @@ let navLinkArray = {
   3: "https://www.linkedin.com/in/thalesrodriguescardoso/",
   4: "../settings.html",
 };
+const consoleInstance = new Console();
 
 let currentGame = 1;
 let currentMenuOption = 1;
@@ -18,8 +21,8 @@ let onGameList = true;
 
 const searchInput = document.querySelector("#search") as HTMLInputElement;
 
-let startGameAudio = new Audio("./audio/startgame.wav");
-let gameInspectSound = new Audio("./audio/inspect.wav");
+let startGameAudio = new Audio("../public/audio/startgame.wav");
+let gameInspectSound = new Audio("../public/audio/inspect.wav");
 let gamesList: GamesList = new GamesList();
 
 window.addEventListener("load", async () => {
@@ -125,7 +128,7 @@ const renderListOfGames = async () => {
   createListOfHtmlGameButtons(gamesList.games);
 };
 
-const createListOfHtmlGameButtons = (games: Game[]) => {
+const createListOfHtmlGameButtons = (games: Games[]) => {
   games.forEach((game) => {
     let gameListButton = document.createElement("button");
     gameListButton.className = "game";
@@ -147,9 +150,10 @@ const startGame = () => {
   isGameStarting = true;
 
   startGameAudio.play();
+  let gameUrl = gamesList.games[currentGame - 1].gameUrl;
 
   setTimeout(() => {
-    window.location.href = `../../src/games/game_${currentGame}/game_${currentGame}.html`;
+    consoleInstance.startSelectedGame(gameUrl);
   }, 3000);
 
   animateGameStart();
@@ -255,34 +259,18 @@ const selectGame = (gameId: number, isStartup: boolean) => {
 };
 
 const changeGameImage = (imageId: number) => {
-  const gameText = document.querySelector(
+  const gameNameElement = document.querySelector(
     ".selectedGameImageText",
   ) as HTMLElement;
-  const gameImg = document.querySelector(
-    ".selectedGameImage",
-  ) as HTMLImageElement;
-  const gameImgBg = document.querySelector(
-    ".selectedGameImageBg",
-  ) as HTMLImageElement;
-  const gameImgTransition = document.querySelector(
-    ".selectedGameImageTransition",
-  ) as HTMLImageElement;
+  const selectedGameImageElements = document.querySelectorAll(
+    ".gameImage",
+  ) as NodeListOf<HTMLImageElement>;
 
-  if ((gameImg.src = `../../src/games/game_${imageId}/game_${imageId}.png`)) {
-    gameImg.src = `../../src/games/game_${imageId}/game_${imageId}.png`;
-    gameImgBg.src = `../../src/games/game_${imageId}/game_${imageId}.png`;
-    gameImgTransition.src = `../../src/games/game_${imageId}/game_${imageId}.png`;
+  const selectedGameName = gamesList.games[imageId - 1].name;
+  const selectedGameImage = gamesList.games[imageId - 1].imageUrl;
 
-    //Getting name of the selected game.
-    gamesList.games.forEach((e: any) => {
-      if (imageId === e.id) gameText.textContent = e.name;
-    });
-
-    return;
-  }
-
-  gameImg.src = `./img/game_1.png`;
-  gameImgBg.src = `./img/game_1.png`;
-  gameImgTransition.src = `./img/game_1.png`;
-  gameText.textContent = `Snake`;
+  selectedGameImageElements.forEach((element: HTMLImageElement) => {
+    element.src = selectedGameImage;
+  });
+  gameNameElement.textContent = selectedGameName;
 };
