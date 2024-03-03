@@ -18,7 +18,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script type="module" defer src="./dist/menu.js"></script>
+    <script type="module" defer src="./dist/client/menu.js"></script>
     <link rel="stylesheet" href="./src/styles/menu.css" />
   </head>
   <body>
@@ -69,15 +69,19 @@
           placeholder="Search Game"
         />
         <div class="gameListWrapper">
-          <div class="gameList"></div>
-          <img class="selectedGameImageBg" src="./img/game_1.png" alt="" />
-          <div class="gameImageWrapper">
-            <img
-              id="selectedGameImage"
-              class="selectedGameImage"
-              src="./img/game_1.png"
-              alt=""
-            />
+          <div class="gameListLoad">
+            <div class="loader"></div>
+          </div>
+          <div class="gameList">
+            <img class="selectedGameImageBg" src="./img/game_1.png" alt="" />
+            <div class="gameImageWrapper">
+              <img
+                id="selectedGameImage"
+                class="selectedGameImage"
+                src="./img/game_1.png"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>
