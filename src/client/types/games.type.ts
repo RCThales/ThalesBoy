@@ -1,6 +1,8 @@
 export interface Games {
   name: string;
   id: number;
+  imageUrl: string;
+  gameUrl: string;
 }
 
 export interface ColorLib {

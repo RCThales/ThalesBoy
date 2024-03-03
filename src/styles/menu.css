@@ -204,6 +204,22 @@ header a:nth-child(4) {
   transition: all ease 0.2s;
 }
 
+.game_screen {
+  position: absolute;
+  background-color: rgb(143, 169, 173);
+  background-image: repeating-linear-gradient(
+    36deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.2) 1px,
+    transparent 0px,
+    transparent 2px
+  );
+  aspect-ratio: 1;
+  width: 300px !important;
+  height: 300px !important;
+  z-index: 999999;
+}
+
 .gameImageWrapper {
   width: 80px;
   height: 80px;

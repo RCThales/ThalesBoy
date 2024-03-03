@@ -189,12 +189,20 @@ class Console {
   };
 
   public dispacthClickEventsToConsoleScreenIFrame = (key: string) => {
+    CONSOLE_SCREEN.contentWindow?.window.postMessage({ keycode: key }, "*");
     CONSOLE_SCREEN.contentDocument?.dispatchEvent(
       new KeyboardEvent("keydown", { key }),
     );
     CONSOLE_SCREEN.contentDocument?.dispatchEvent(
       new KeyboardEvent("keyup", { key }),
     );
+  };
+
+  public startSelectedGame = (gameUrl: string) => {
+    const parentIframe = window.parent.document.querySelector(
+      ".screen",
+    ) as HTMLIFrameElement;
+    parentIframe.src = gameUrl;
   };
 }
 

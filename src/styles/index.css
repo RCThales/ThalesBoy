@@ -355,7 +355,7 @@ header {
   );
   opacity: 0.8;
   aspect-ratio: 1;
-  width: 300px !important; /*Setting a smaller size than 300px because some fragments are appearing on the borders*/
+  width: 300px !important;
   height: 300px !important;
   transform: translateY(-20px);
   border: none !important;

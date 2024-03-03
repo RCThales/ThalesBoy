@@ -26,9 +26,9 @@
       <div class="gameTransitionWrapper">
         <h2 class="selectedGameImageText">Game Name</h2>
         <img
-          class="selectedGameImageTransition"
-          src="./img/game_1.png"
-          alt=""
+          class="gameImage selectedGameImageTransition"
+          src=""
+          alt="Selected Game Image"
         />
       </div>
     </div>
@@ -62,23 +62,21 @@
       </header>
 
       <div class="menuWrapper" id="menuWrapper">
-        <input
-          type="Search Game"
-          name="search"
-          id="search"
-          placeholder="Search Game"
-        />
         <div class="gameListWrapper">
           <div class="gameListLoad">
             <div class="loader"></div>
           </div>
           <div class="gameList">
-            <img class="selectedGameImageBg" src="./img/game_1.png" alt="" />
+            <img
+              class="gameImage selectedGameImageBg"
+              src=""
+              alt="Game Background Image"
+            />
             <div class="gameImageWrapper">
               <img
                 id="selectedGameImage"
-                class="selectedGameImage"
-                src="./img/game_1.png"
+                class="gameImage selectedGameImage"
+                src=""
                 alt=""
               />
             </div>
@@ -89,5 +87,15 @@
         Available Games: <span class="availableGamesNumber"></span>
       </div>
     </div>
+    <!--
+    <iframe
+      onload="this.contentWindow.focus()"
+      class="game_screen"
+      src="https://snakecardris.netlify.app/"
+      title="Game"
+      frameborder="0"
+      scrolling="no"
+    >
+    </iframe>-->
   </body>
 </html>

@@ -8,14 +8,19 @@ app.use(express.json());
 app.use(cors());
 
 const port = process.env.PORT || 5000;
+
 const games = [
   {
     id: 1,
     name: "Green Snake",
+    gameUrl: "http://127.0.0.1:5500",
+    imageUrl: "https://snakecardris.netlify.app/index.png",
   },
   {
     id: 2,
     name: "Blue Snake",
+    gameUrl: "https://snakecardris.netlify.app/",
+    imageUrl: "https://snakecardris.netlify.app/index.png",
   },
 ];
 

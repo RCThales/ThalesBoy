@@ -51,14 +51,14 @@ const setActiveThemeOnStartup = () => {
 export const setThemeAsNight = () => {
   localStorage.setItem("theme", "night");
   const SUN_EMOJI = "🌞";
-  THEME_BUTTON.textContent = SUN_EMOJI;
+  THEME_BUTTON.textContent = SUN_EMOJI || "🌞";
   WHOLE_PAGE_CONTAINER.style.background = "var(--night)";
 };
 
 export const setThemeAsDay = () => {
   localStorage.setItem("theme", "day");
   const MOON_EMOJI = "🌚";
-  THEME_BUTTON.textContent = MOON_EMOJI;
+  THEME_BUTTON.textContent = MOON_EMOJI || "🌚";
   WHOLE_PAGE_CONTAINER.style.background = "var(--day)";
 };
 
