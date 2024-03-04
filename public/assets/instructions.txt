@@ -1,0 +1,68 @@
+// THIS LISTENER IS REQUIRED so THALESBOY can recognize your inputs through it's gamepad
+window.addEventListener("message", (event) => {
+    // Check the origin of the message
+    if (event.origin !== "https://thalesboycolor.netlify.app") {
+        return;
+    }
+
+    // Create a new KeyboardEvent
+    const keydownEvent = new KeyboardEvent("keydown", {
+        key: event.data.keycode,
+        bubbles: true,
+        cancelable: true,
+    });
+
+    // Dispatch the event
+    window.dispatchEvent(keydownEvent);
+});
+
+/*
+// Listener for keydown events - Suggestion for ThalesBoy input implementation
+window.addEventListener("keydown", (event) => {
+    const key = event.key.toLowerCase();
+
+    // Check for UP button (ThalesBoy)
+    if (key === "w" || key === "ArrowUp") {
+        // YOUR IMPLEMENTATION FOR THE UP THALESBOY BUTTON
+    }
+
+    // Check for DOWN button (ThalesBoy)
+    if (key === "s" || key === "ArrowDown") {
+        // YOUR IMPLEMENTATION FOR THE DOWN THALESBOY BUTTON
+    }
+
+    // Check for LEFT button (ThalesBoy)
+    if (key === "a" || key === "ArrowLeft") {
+        // YOUR IMPLEMENTATION FOR THE LEFT THALESBOY BUTTON
+    }
+
+    // Check for RIGHT button (ThalesBoy)
+    if (key === "d" || key === "ArrowRight") {
+        // YOUR IMPLEMENTATION FOR THE RIGHT THALESBOY BUTTON
+    }
+
+    // Check for POSITIVE button (ThalesBoy)
+    if (key === "k") {
+        // YOUR IMPLEMENTATION FOR THE POSITIVE THALESBOY BUTTON
+    }
+
+    // Check for START button (ThalesBoy)
+    if (key === "Enter") {
+        // YOUR IMPLEMENTATION FOR THE START THALESBOY BUTTON
+    }
+
+    // Check for SELECT button (ThalesBoy)
+    if (key === "Space") {
+        // YOUR IMPLEMENTATION FOR THE SELECT THALESBOY BUTTON
+    }
+
+    // Check for NEGATIVE button (ThalesBoy)
+    if (key === "l" || key === "Esc") {
+        // YOUR IMPLEMENTATION FOR THE NEGATIVE THALESBOY BUTTON
+    }
+});
+*/
+
+// Note: The above commented section is a suggested implementation for handling 
+// keydown events specific to ThalesBoy inputs. You can uncomment and modify it 
+// according to your game's specific requirements.
