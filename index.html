@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="./src/styles/index.css" />
     <script type="module" defer src="./dist/client/event_triggers.js"></script>
 
-    <!--
     <link rel="manifest" href="./manifest.json" />
     <script>
       if ("serviceWorker" in navigator) {
@@ -38,7 +37,6 @@
         });
       }
     </script>
-    -->
   </head>
   <body>
     <div style="display: none" class="landscapeMessage">
@@ -101,6 +99,11 @@
             >
               <span class="littleScreen"></span>
             </button>
+          </div>
+          <br />
+          <div class="addGameBtnWrapper">
+            <button class="addGameBtn">➕</button>
+            <p class="addGameBtnToolTip">ADD NEW GAME</p>
           </div>
           <div class="socials">
             <ul>
@@ -304,6 +307,133 @@
         </div>
       </main>
       <!--END OF SCREEN CONTAINER-->
+    </div>
+
+    <div class="addGameModalWrapper">
+      <div class="addGameModalOverlay"></div>
+      <div class="addGameModal">
+        <button class="addGameModalCloseBtn">&#x2715;</button>
+        <div class="addGameModalInner">
+          <div class="addGameModalInner_Left">
+            <h2>📚Instructions</h2>
+            <h4>*READ THESE SO YOUR GAME WORKS*</h4>
+            <span
+              >The game will be verified, if the instructions are not followed
+              properly, it will be removed.</span
+            >
+            <br />
+            <!--GENERAL GUIDELINES-->
+            <details>
+              <summary>
+                GENERAL GUIDELINES
+                <span class="icon">👇</span>
+              </summary>
+              <ul>
+                <li>
+                  The game MUST be able to work within an html context using the
+                  following keyboard keys
+                  <ol>
+                    <li>W,A,S,D</li>
+                    <li>ARROW KEYS</li>
+                    <li>K</li>
+                    <li>L</li>
+                    <li>Enter</li>
+                    <li>Space</li>
+                  </ol>
+                </li>
+                <li>It must have an aspect ratio of 1:1 (Square)</li>
+                <li>
+                  It must have at least one user action (like clicking a menu
+                  button and etc) before triggering any sound (browser rules)
+                </li>
+              </ul>
+            </details>
+            <!--GAME RESOLUTION-->
+            <details>
+              <summary>
+                GAME RESOLUTION
+                <span class="icon">👇</span>
+              </summary>
+              <p>The game MUST be a 300x300 to fit properly</p>
+            </details>
+            <!--GAME IMAGE-->
+            <details>
+              <summary>
+                GAME IMAGE
+                <span class="icon">👇</span>
+              </summary>
+              <ul>
+                <li>
+                  The game image MUST be named with the same name as the game
+                </li>
+                <li>
+                  The image MUST be in the root folder where your index.html
+                  file is
+                </li>
+                <li>It must be a PNG file</li>
+              </ul>
+            </details>
+            <!--GAME CONTROLS-->
+            <details>
+              <summary>
+                GAME CONTROLS
+                <span class="icon">👇</span>
+              </summary>
+              <p>Your game must follow the classic game boy control pattern</p>
+              <ul>
+                <li>UP, LEFT, DOWN, RIGHT for movement</li>
+                <li>A for positive actions</li>
+                <li>B for negative actions</li>
+                <li>START for START actions</li>
+                <li>SELECT for SELECT actions</li>
+              </ul>
+              <p>
+                Help with mapping the keys so it works with the gamepad are
+                provided on the next step below
+              </p>
+            </details>
+            <!--CONTOLLER MAPPING-->
+            <details>
+              <summary>
+                CONTROLLER MAPPING SCRIPT
+                <span class="icon">👇</span>
+              </summary>
+              <p>
+                Click below to copy the control mapping script and paste it to
+                your game's main script (ex: index.js) file (where you listen to
+                your inputs)
+              </p>
+              <button>
+                <a target="_blank" href="./public/assets/instructions.txt"
+                  >Download</a
+                >
+              </button>
+            </details>
+            <a class="helpEmail" href="mailto:thalescardris@gmail.com"
+              >EMAIL me if you need help</a
+            >
+          </div>
+          <form class="addGameModalInner_Right">
+            <h2>🎮Add your own game</h2>
+            <div>
+              <label for="game_name">Game Name</label>
+              <input required type="text" name="game_name" id="game_name" />
+            </div>
+            <div>
+              <label for="game_url">Game URL</label>
+              <input required type="text" name="game_url" id="game_url" />
+            </div>
+            <div class="instructions_check_wrapper">
+              <input required id="instructions_check" type="checkbox" />
+              <label for="instructions_check"
+                >I READ the instructions on the left <br />
+                before submiting my game!</label
+              >
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
