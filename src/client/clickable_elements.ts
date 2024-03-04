@@ -78,3 +78,14 @@ export const GAMES_LIST = document.querySelector(".gameList") as HTMLDivElement;
 export const GAME_LIST_LOADER = document.querySelector(
   ".gameListLoad",
 ) as HTMLDivElement;
+
+export const ADD_GAME_MODAL_OVERLAY = document.querySelector(
+  ".addGameModalOverlay",
+) as HTMLDivElement;
+
+export const ADD_GAME_MODAL_CLOSE_BUTTON = document.querySelector(
+  ".addGameModalCloseBtn",
+) as HTMLButtonElement;
+export const ADD_GAME_OPEN_BUTTON = document.querySelector(
+  ".addGameBtn",
+) as HTMLButtonElement;

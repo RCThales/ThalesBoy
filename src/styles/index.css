@@ -289,6 +289,46 @@ header {
   width: 100%;
 }
 
+.addGameBtnWrapper {
+  position: relative;
+}
+
+.addGameBtn {
+  margin-left: auto;
+  cursor: pointer;
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  border: none;
+  font-size: 1.8em;
+  transition: all ease 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addGameBtnToolTip {
+  background-color: var(--primary);
+  font-size: 1rem;
+  position: absolute;
+  top: 60px;
+  right: 50%;
+  transform: translateX(50%);
+  border: #333834 1px dotted;
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--secondary);
+  min-width: 100px;
+  text-align: center;
+  font-family: "Reem Kufi Fun", sans-serif;
+  display: none;
+}
+
+.addGameBtnWrapper:hover .addGameBtnToolTip {
+  display: flex !important;
+}
+
 .themeBtn {
   margin-left: auto;
   cursor: pointer;
@@ -819,7 +859,6 @@ header {
 }
 
 /*Canceling highlight color*/
-input,
 textarea,
 button,
 select,
@@ -827,8 +866,214 @@ a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+input {
+  -webkit-tap-highlight-color: var(--carving);
+}
+
+.addGameModalWrapper {
+  position: fixed;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  display: none;
+}
+
+.addGameModalOverlay {
+  background-color: #1b1b20;
+  position: fixed;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.addGameModal {
+  background-color: var(--primary);
+  width: 800px;
+  max-width: 60vw;
+  height: auto;
+  min-height: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  color: var(--secondary);
+  font-family: "Reem Kufi Fun", sans-serif;
+  z-index: 99999;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.addGameModalInner {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.addGameModalInner_Left,
+.addGameModalInner_Right {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 30px;
+  text-align: center;
+}
+.helpEmail {
+  padding-top: 15px;
+  color: var(--secondary);
+}
+.addGameModalInner_Left {
+  border-right: dotted rgba(0, 0, 0, 0.589) 1px;
+}
+
+.instructions_check_wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row !important;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.instructions_check_wrapper label {
+  font-size: 0.8rem;
+}
+
+.addGameModal details summary {
+  cursor: pointer;
+}
+
+.addGameModal details[open] {
+  background-color: var(--carving);
+  border-radius: 5px;
+  padding: 10px;
+  transition: all ease 0.1s;
+  margin-bottom: 10px;
+}
+
+.addGameModal details[open] button {
+  width: 150px;
+  height: 40px;
+  max-width: 80%;
+  margin: 10px;
+  background-color: var(--darkAccent);
+  border: none;
+  cursor: pointer;
+  transition: all ease 0.1s;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: "Reem Kufi Fun", sans-serif;
+  text-decoration: none;
+}
+
+.addGameModal details[open] button a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.addGameModal details[open] button:hover {
+  transition: all ease 0.2s;
+  transform: scale(1.05);
+}
+
+.addGameModal form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1.3rem;
+}
+
+.addGameModal h2 {
+  margin-bottom: 30px;
+  padding: 0;
+  font-size: 1.8rem;
+}
+
+.addGameModal form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.addGameModal form input[type="text"] {
+  width: 300px;
+  height: 20px;
+  max-width: 20vw;
+  border-radius: 5px;
+  border: none;
+  padding: 0 8px;
+}
+
+.addGameModal form button {
+  width: 200px;
+  height: 40px;
+  max-width: 80%;
+  margin: 10px;
+  background-color: var(--carving);
+  color: var(--secondary);
+  border: none;
+  cursor: pointer;
+  transition: all ease 0.1s;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-family: "Reem Kufi Fun", sans-serif;
+}
+
+.addGameModal form button:hover {
+  transform: scale(1.05);
+}
+
+.addGameModalCloseBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  font-size: 1.5rem;
+  border: none;
+  color: var(--secondary);
+  font-weight: bold;
+  transition: all ease 0.1s;
+  cursor: pointer;
+}
+.addGameModalCloseBtn:hover {
+  transform: scale(1.05);
+}
+/* ------------------------------- */
+/*          MEDIA QUERIES          */
+/* ------------------------------- */
+
 /*MOBILE*/
-@media screen and (max-width: 910px) and (orientation: portrait) {
+@media screen and (max-width: 800px) and (orientation: portrait) {
   header {
     display: none;
   }
@@ -911,11 +1156,11 @@ a {
 
   .leftBtns {
     z-index: 100;
-    transform: translate(-10px, -40px) scale(0.9);
+    transform: translate(-10px, -60px);
   }
   .rightBtns {
     z-index: 100;
-    transform: translate(10px, -40px) scale(0.9);
+    transform: translate(10px, -60px);
   }
   .startSelectBtns {
     z-index: 100;
@@ -945,17 +1190,43 @@ a {
 /* SHORT SCREENS*/
 @media screen and (max-height: 667px) and (orientation: portrait) {
   .screenFrame {
-    transform: scale(0.7) translateY(-80px);
+    transform: scale(0.75) translateY(-80px);
   }
 
   .leftBtns {
     z-index: 100;
-    transform: translate(-15px, -30px) scale(0.8);
+    transform: translate(-15px, -40px) scale(0.9);
   }
 
   .rightBtns {
     z-index: 100;
-    transform: translate(15px, -30px) scale(0.8);
+    transform: translate(15px, -40px) scale(0.9);
+  }
+
+  .startSelectBtns {
+    z-index: 100;
+    transform: translateY(-40px) scale(0.8);
+  }
+
+  .speakers {
+    transform: translateY(-40px);
+  }
+}
+
+/* SHORT SCREENS WITH LESS THAN 400PX WIDTH */
+@media screen and (max-width: 400px) and (orientation: portrait) {
+  .screenFrame {
+    transform: scale(0.8) translateY(-80px);
+  }
+
+  .leftBtns {
+    z-index: 100;
+    transform: translate(-15px, -60px) scale(0.9);
+  }
+
+  .rightBtns {
+    z-index: 100;
+    transform: translate(15px, -60px) scale(0.9);
   }
 
   .startSelectBtns {
@@ -982,7 +1253,7 @@ a {
   }
 }
 
-@media (min-aspect-ratio: 13/9) and (pointer: coarse) and (max-width: 1000px) {
+@media (min-aspect-ratio: 13/9) and (pointer: coarse) and (max-width: 1024px) {
   .landscapeMessage {
     position: absolute;
     display: flex !important;
@@ -997,7 +1268,7 @@ a {
   }
 }
 
-@media (min-aspect-ratio: 13/9) and (pointer: none) and (max-width: 1000px) {
+@media (min-aspect-ratio: 13/9) and (pointer: none) and (max-width: 1024px) {
   .landscapeMessage {
     position: absolute;
     display: flex !important;

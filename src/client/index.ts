@@ -109,3 +109,18 @@ export const setClickHereTextOff = () => {
 const getClickHereTextElement = () => {
   return document.querySelector("#powerText") as HTMLSpanElement;
 };
+
+export const openAddGameModal = () => {
+  const addGameModal = document.querySelector(
+    ".addGameModalWrapper",
+  ) as HTMLElement;
+  addGameModal.style.display = "flex";
+};
+
+export const closeAddGameModal = () => {
+  console.log("test");
+  const addGameModal = document.querySelector(
+    ".addGameModalWrapper",
+  ) as HTMLElement;
+  addGameModal.style.display = "none";
+};

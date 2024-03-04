@@ -2,6 +2,8 @@ import {
   toggleBetweenDayAndNightTheme,
   makeCurrentColorButtonInvisible,
   makePreviousColorButtonVisible,
+  closeAddGameModal,
+  openAddGameModal,
 } from "./index.js";
 
 import keys from "./key_codes.js";
@@ -19,10 +21,15 @@ import {
   GAME_PAD_START_BUTTON,
   GAME_PAD_SELECT_BUTTON,
   CONSOLE_COLOR_BUTTONS,
+  ADD_GAME_MODAL_OVERLAY,
+  ADD_GAME_MODAL_CLOSE_BUTTON,
+  ADD_GAME_OPEN_BUTTON,
 } from "./clickable_elements.js";
+
 import Console from "./console.js";
 
 const consoleInstance = new Console();
+
 window.addEventListener("load", () => {
   consoleInstance.setConsoleColorOnStartUp();
 });
@@ -53,6 +60,17 @@ POWER_BTN_MOBILE.addEventListener("pointerdown", () => {
 
 THEME_BUTTON.addEventListener("pointerup", () => {
   toggleBetweenDayAndNightTheme();
+});
+
+ADD_GAME_MODAL_OVERLAY.addEventListener("pointerup", () => {
+  closeAddGameModal();
+});
+
+ADD_GAME_MODAL_CLOSE_BUTTON.addEventListener("pointerup", () => {
+  closeAddGameModal();
+});
+ADD_GAME_OPEN_BUTTON.addEventListener("pointerup", () => {
+  openAddGameModal();
 });
 
 const { up, left, right, down, select, start, positive, negative } = keys;
