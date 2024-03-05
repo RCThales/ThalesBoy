@@ -315,7 +315,7 @@ const changeGameImageToNavOption = () => {
 
   const selectedNavOptionImage = `../../public/assets/navOption_${currentActiveNavOption}.png`;
   selectedMenuOptionElement.src = selectedNavOptionImage;
-  selectedMenuOptionElement.style.transform = "translate(-95px, 10px)";
+  selectedMenuOptionElement.style.transform = "translate(-100px, 10px)";
 };
 
 const getNumberOfGames = (): number => {
@@ -324,7 +324,7 @@ const getNumberOfGames = (): number => {
 
 const activateNavMenuOverlay = () => {
   const overlay = document.querySelector(".navMenuOverlay") as HTMLDivElement;
-  overlay.style.opacity = "0.9";
+  overlay.style.opacity = "0.7";
 };
 
 const deactivateNavMenuOverlay = () => {
