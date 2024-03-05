@@ -80,7 +80,7 @@ class Console {
   ) => {
     const stopGifAfterDurationIsElapsed = setTimeout(() => {
       GIF_CONTAINER.style.display = "none";
-      gif.src = "";
+      gif.remove();
       clearTimeout(stopGifAfterDurationIsElapsed);
     }, durationInMiliseconds);
   };
