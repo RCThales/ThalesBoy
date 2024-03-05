@@ -89,3 +89,10 @@ export const ADD_GAME_MODAL_CLOSE_BUTTON = document.querySelector(
 export const ADD_GAME_OPEN_BUTTON = document.querySelector(
   ".addGameBtn",
 ) as HTMLButtonElement;
+export const SUBMIT_GAME_BUTTON = document.querySelector(
+  ".submitGameButton",
+) as HTMLButtonElement;
+
+export const SUBMIT_GAME_FORM = document.querySelector(
+  "#submit_game_form",
+) as HTMLFormElement;

@@ -289,8 +289,10 @@ header {
   width: 100%;
 }
 
+/*DISABLED WHILE THE DB INFRA IS NOT READY */
 .addGameBtnWrapper {
   position: relative;
+  display: none;
 }
 
 .addGameBtn {
@@ -315,7 +317,6 @@ header {
   top: 60px;
   right: 50%;
   transform: translateX(50%);
-  border: #333834 1px dotted;
   border-radius: 10px;
   padding: 10px;
   color: var(--secondary);
@@ -323,6 +324,9 @@ header {
   text-align: center;
   font-family: "Reem Kufi Fun", sans-serif;
   display: none;
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .addGameBtnWrapper:hover .addGameBtnToolTip {
@@ -907,7 +911,7 @@ input {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  color: var(--secondary);
+  color: rgb(248, 235, 212);
   font-family: "Reem Kufi Fun", sans-serif;
   z-index: 99999;
   position: relative;
@@ -933,11 +937,10 @@ input {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 30px;
-  text-align: center;
 }
 .helpEmail {
   padding-top: 15px;
-  color: var(--secondary);
+  color: rgb(248, 235, 212);
 }
 .addGameModalInner_Left {
   border-right: dotted rgba(0, 0, 0, 0.589) 1px;
@@ -1014,6 +1017,15 @@ input[type="checkbox"] {
   margin-bottom: 30px;
   padding: 0;
   font-size: 1.8rem;
+}
+.addGameModal h5 {
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .addGameModal form div {

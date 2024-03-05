@@ -4,6 +4,7 @@ import {
   makePreviousColorButtonVisible,
   closeAddGameModal,
   openAddGameModal,
+  addGameToApi,
 } from "./index.js";
 
 import keys from "./key_codes.js";
@@ -24,6 +25,8 @@ import {
   ADD_GAME_MODAL_OVERLAY,
   ADD_GAME_MODAL_CLOSE_BUTTON,
   ADD_GAME_OPEN_BUTTON,
+  SUBMIT_GAME_BUTTON,
+  SUBMIT_GAME_FORM,
 } from "./clickable_elements.js";
 
 import Console from "./console.js";
@@ -71,6 +74,11 @@ ADD_GAME_MODAL_CLOSE_BUTTON.addEventListener("pointerup", () => {
 });
 ADD_GAME_OPEN_BUTTON.addEventListener("pointerup", () => {
   openAddGameModal();
+});
+
+SUBMIT_GAME_FORM.addEventListener("submit", (event) => {
+  event.preventDefault();
+  addGameToApi();
 });
 
 const { up, left, right, down, select, start, positive, negative } = keys;

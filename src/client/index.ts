@@ -9,8 +9,11 @@ window.addEventListener("load", async () => {
   setActiveThemeOnStartup();
 });
 
-window.addEventListener("click", () => {
-  CONSOLE_SCREEN?.focus();
+window.addEventListener("click", (event) => {
+  const htmlElementOfEvent = event?.target as HTMLElement;
+  if (htmlElementOfEvent.tagName !== "INPUT") {
+    CONSOLE_SCREEN?.focus();
+  }
 });
 
 const loadSplashScreen = () => {
@@ -123,4 +126,37 @@ export const closeAddGameModal = () => {
     ".addGameModalWrapper",
   ) as HTMLElement;
   addGameModal.style.display = "none";
+};
+
+export const addGameToApi = () => {
+  const gameName = getGameNameFromInput();
+  const gameUrl = getGameUrlFromInput();
+  if (!isValidUrl(gameUrl)) {
+    alert("This URL is either invalid or it is not using the HTTPS protocol");
+    return;
+  }
+
+  //DO STUF
+};
+
+const getGameNameFromInput = (): string => {
+  const inputElement = document.querySelector("#game_name") as HTMLInputElement;
+  return inputElement ? inputElement.value : "";
+};
+
+const getGameUrlFromInput = (): string => {
+  const inputElement = document.querySelector("#game_url") as HTMLInputElement;
+  return inputElement ? inputElement.value : "";
+};
+
+const isValidUrl = (urlString: string) => {
+  var urlPattern = new RegExp(
+    "^(https:\\/\\/)" + // https protocol
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,})" + // domain name
+      "(\\/[-a-z\\d%_.~+]*)*" + // path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+      "(\\#[-a-z\\d_]*)?$", // fragment locator
+    "i",
+  );
+  return urlPattern.test(urlString);
 };

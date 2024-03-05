@@ -7,11 +7,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx tsc --watch",
-    "serve": "nodemon dist/server/index.cjs",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "live": "live-server",
-    "build": "npx tsc"
+    "build": "npx tsc",
+    "local:serve": "nodemon dist/server/index.js",
+    "netlify:deploy": "netlify deploy --prod",
+    "netlify:serve": "netlify serve",
+    "netlify:build": "netlify build",
+    "netlify:dev": "netlify dev"
   },
   "repository": {
     "type": "git",
@@ -36,7 +40,10 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.18.3",
+    "netlify-cli": "^17.17.2",
+    "netlify-lambda": "^2.0.16",
     "node": "^21.6.2",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "serverless-http": "^3.2.0"
   }
 }

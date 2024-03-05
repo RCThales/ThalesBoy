@@ -14,7 +14,7 @@ export class GamesList {
   async fetchGames() {
     try {
       const response = await fetch(
-        "https://ideal-carnival-7pp4jx974rgfppj5-8080.app.github.dev/v1/games",
+        "https://thalesboycolor.netlify.app/v1/games",
       );
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);

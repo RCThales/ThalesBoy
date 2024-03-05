@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="./src/styles/index.css" />
     <script type="module" defer src="./dist/client/event_triggers.js"></script>
 
+    <!--
     <link rel="manifest" href="./manifest.json" />
     <script>
       if ("serviceWorker" in navigator) {
@@ -37,6 +38,7 @@
         });
       }
     </script>
+    -->
   </head>
   <body>
     <div style="display: none" class="landscapeMessage">
@@ -317,17 +319,14 @@
           <div class="addGameModalInner_Left">
             <h2>📚Instructions</h2>
             <h4>*READ THESE SO YOUR GAME WORKS*</h4>
-            <span
-              >The game will be verified, if the instructions are not followed
-              properly, it will be removed.</span
-            >
+            <h5>
+              The game will be verified! If the instructions are not followed
+              properly and the game does not work, it might be removed.
+            </h5>
             <br />
             <!--GENERAL GUIDELINES-->
             <details>
-              <summary>
-                GENERAL GUIDELINES
-                <span class="icon">👇</span>
-              </summary>
+              <summary>GENERAL GUIDELINES</summary>
               <ul>
                 <li>
                   The game MUST be able to work within an html context using the
@@ -350,18 +349,12 @@
             </details>
             <!--GAME RESOLUTION-->
             <details>
-              <summary>
-                GAME RESOLUTION
-                <span class="icon">👇</span>
-              </summary>
+              <summary>GAME RESOLUTION</summary>
               <p>The game MUST be a 300x300 to fit properly</p>
             </details>
             <!--GAME IMAGE-->
             <details>
-              <summary>
-                GAME IMAGE
-                <span class="icon">👇</span>
-              </summary>
+              <summary>GAME IMAGE</summary>
               <ul>
                 <li>
                   The game image MUST be named with the same name as the game
@@ -375,10 +368,7 @@
             </details>
             <!--GAME CONTROLS-->
             <details>
-              <summary>
-                GAME CONTROLS
-                <span class="icon">👇</span>
-              </summary>
+              <summary>GAME CONTROLS</summary>
               <p>Your game must follow the classic game boy control pattern</p>
               <ul>
                 <li>UP, LEFT, DOWN, RIGHT for movement</li>
@@ -394,10 +384,7 @@
             </details>
             <!--CONTOLLER MAPPING-->
             <details>
-              <summary>
-                CONTROLLER MAPPING SCRIPT
-                <span class="icon">👇</span>
-              </summary>
+              <summary>CONTROLLER MAPPING SCRIPT</summary>
               <p>
                 Click below to copy the control mapping script and paste it to
                 your game's main script (ex: index.js) file (where you listen to
@@ -410,14 +397,20 @@
               </button>
             </details>
             <a class="helpEmail" href="mailto:thalescardris@gmail.com"
-              >EMAIL me if you need help</a
+              >Email me here if you need help</a
             >
           </div>
-          <form class="addGameModalInner_Right">
+          <form id="submit_game_form" class="addGameModalInner_Right">
             <h2>🎮Add your own game</h2>
             <div>
               <label for="game_name">Game Name</label>
-              <input required type="text" name="game_name" id="game_name" />
+              <input
+                required
+                maxlength="30"
+                type="text"
+                name="game_name"
+                id="game_name"
+              />
             </div>
             <div>
               <label for="game_url">Game URL</label>
@@ -430,7 +423,9 @@
                 before submiting my game!</label
               >
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" value="Submit" class="submitGameButton">
+              Submit
+            </button>
           </form>
         </div>
       </div>
