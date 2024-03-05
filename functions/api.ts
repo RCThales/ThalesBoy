@@ -12,6 +12,20 @@ router.get("/games", (req, res) => {
       gameUrl: "https://snakecardris.netlify.app/",
       imageUrl: "https://snakecardris.netlify.app/index.png",
     },
+    {
+      id: 2,
+      name: "Blue Snake",
+      gameUrl: "https://snakecardris.netlify.app/",
+      imageUrl:
+        "https://cdn.pixabay.com/photo/2013/07/13/13/42/snake-161424_1280.png",
+    },
+    {
+      id: 3,
+      name: "Yellow Snake",
+      gameUrl: "https://snakecardris.netlify.app/",
+      imageUrl:
+        "https://cdn.pixabay.com/photo/2016/03/31/15/10/cartoon-1293047_1280.png",
+    },
   ];
 
   res.header("Access-Control-Allow-Origin", "*");
