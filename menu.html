@@ -65,40 +65,30 @@
       </header>
 
       <div class="menuWrapper" id="menuWrapper">
+        <div class="gameImageWrapper">
+          <img
+            id="selectedGameImage"
+            class="gameImage selectedGameImage"
+            src="./public/assets/favicon.ico"
+            alt="Selected Game Image"
+          />
+          <img
+            class="gameImage selectedGameImageBg"
+            src="./public/assets/favicon.ico"
+            alt="Game Background Image"
+          />
+        </div>
+        <div class="navMenuOverlay"></div>
         <div class="gameListWrapper">
           <div class="gameListLoad">
             <div class="loader"></div>
           </div>
-          <div class="gameList">
-            <img
-              class="gameImage selectedGameImageBg"
-              src="./public/assets/favicon.ico"
-              alt="Game Background Image"
-            />
-            <div class="gameImageWrapper">
-              <img
-                id="selectedGameImage"
-                class="gameImage selectedGameImage"
-                src="./public/assets/favicon.ico"
-                alt="Selected Game Image"
-              />
-            </div>
-          </div>
+          <div class="gameList"></div>
         </div>
       </div>
       <div class="availableGames">
         Available Games: <span class="availableGamesNumber">loading...</span>
       </div>
     </div>
-    <!--
-    <iframe
-      onload="this.contentWindow.focus()"
-      class="game_screen"
-      src="https://snakecardris.netlify.app/"
-      title="Game"
-      frameborder="0"
-      scrolling="no"
-    >
-    </iframe>-->
   </body>
 </html>
