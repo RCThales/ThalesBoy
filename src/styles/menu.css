@@ -131,6 +131,7 @@ header a:nth-child(4) {
   flex-direction: column;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   gap: 5px;
 }
 
@@ -197,10 +198,11 @@ header a:nth-child(4) {
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: #4f4f4f;
-  min-height: 100%;
-  width: 40px;
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 35px;
+  width: 35px;
+  text-decoration: none;
+  border-radius: 5px;
   transition: all ease 0.2s;
 }
 
@@ -238,22 +240,25 @@ header a:nth-child(4) {
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  opacity: 0.2;
-  mix-blend-mode: multiply;
+
+  mix-blend-mode: overlay;
   z-index: 2;
   height: 150px;
   pointer-events: none;
 }
 
 .selectedGameImage {
-  max-width: 70px;
+  max-width: 90px;
   z-index: 3;
   border-radius: 30%;
   pointer-events: none;
+  transform: translate(-10px, -20px);
 }
 
 .activeGame {
-  background: #303030 !important;
+  background: #000000 !important;
+  transform: scale(1.1);
+  padding-left: 30px;
 }
 
 #search {

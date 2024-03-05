@@ -2,7 +2,7 @@ import {
   CONSOLE_SCREEN,
   THEME_BUTTON,
   WHOLE_PAGE_CONTAINER,
-} from "./clickable_elements.js";
+} from "./html_elements_index.js";
 
 window.addEventListener("load", async () => {
   loadSplashScreen();

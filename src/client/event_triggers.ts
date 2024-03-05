@@ -27,7 +27,7 @@ import {
   ADD_GAME_OPEN_BUTTON,
   SUBMIT_GAME_BUTTON,
   SUBMIT_GAME_FORM,
-} from "./clickable_elements.js";
+} from "./html_elements_index.js";
 
 import Console from "./console.js";
 

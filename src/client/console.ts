@@ -8,7 +8,7 @@ import {
   POWER_BTN_DESKTOP,
   POWER_BTN_MOBILE,
   YELLOW_BUTTON,
-} from "./clickable_elements.js";
+} from "./html_elements_index.js";
 import { colors } from "./console_colors.js";
 import {
   makeStartingColorButtonInvisible,
