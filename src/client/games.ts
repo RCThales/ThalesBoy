@@ -13,9 +13,7 @@ export class GamesList {
 
   async fetchGames() {
     try {
-      const response = await fetch(
-        "https://thalesboycolor.netlify.app/v1/games",
-      );
+      const response = await fetch("/api/games");
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
