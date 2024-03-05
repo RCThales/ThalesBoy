@@ -28,7 +28,7 @@ window.addEventListener("load", async () => {
   setAvailableGamesNumberOnHud();
 });
 
-window.addEventListener("keydown", (event) => {
+document.addEventListener("keydown", (event) => {
   const key = event.key.toLowerCase();
 
   if (key === "w" || key === "arrowup") {
@@ -38,13 +38,11 @@ window.addEventListener("keydown", (event) => {
     ) {
       moveUpOnTheGamesList();
       return;
-    } else if (
-      currentActiveGame > FIRST_GAME_OF_THE_LIST_ID &&
-      currentActiveGame === NO_GAME_SELECTED
-    ) {
+    } else if (currentActiveGame === NO_GAME_SELECTED) {
       return;
     } else {
       moveToNavMenuOption(FIRST_NAV_OPTION_ID);
+      activateNavMenuOverlay();
     }
   }
 
@@ -57,6 +55,7 @@ window.addEventListener("keydown", (event) => {
       return;
     } else if (currentActiveGame === NO_GAME_SELECTED) {
       moveDownFromNavToGamesList();
+      deactivateNavMenuOverlay();
       return;
     }
     selectGameById(FIRST_GAME_OF_THE_LIST_ID);
@@ -104,6 +103,7 @@ window.addEventListener("keydown", (event) => {
   // SELECT button (ThalesBoy)
   if (key === "shift") {
     moveToNavMenuOption(LAST_NAV_OPTION_ID);
+    activateNavMenuOverlay();
   }
 });
 
@@ -181,7 +181,7 @@ const moveToNavMenuOption = (navOption: number) => {
   ) as HTMLAnchorElement;
   addActiveNavMenueClass(NavOptionToBeSelected);
 
-  //changeGameImage(currentActiveGame);
+  changeGameImageToNavOption();
   consoleInstance.audioEngine.playInspectAudio();
 };
 
@@ -195,7 +195,10 @@ const moveRightOnTheNavMenu = () => {
     "#menuOption_" + currentActiveNavOption,
   ) as HTMLAnchorElement;
   addActiveNavMenueClass(NavOptionToBeSelected);
+
   consoleInstance.audioEngine.playInspectAudio();
+
+  changeGameImageToNavOption();
 };
 
 const moveLeftOnTheNavMenu = () => {
@@ -208,7 +211,10 @@ const moveLeftOnTheNavMenu = () => {
     "#menuOption_" + currentActiveNavOption,
   ) as HTMLAnchorElement;
   addActiveNavMenueClass(NavOptionToBeSelected);
+
   consoleInstance.audioEngine.playInspectAudio();
+
+  changeGameImageToNavOption();
 };
 
 const moveToFirstOptionOnNavMenu = () => {
@@ -223,7 +229,10 @@ const moveToFirstOptionOnNavMenu = () => {
     "#menuOption_" + FIRST_NAV_OPTION_ID,
   ) as HTMLAnchorElement;
   addActiveNavMenueClass(NavOptionToBeSelected);
+
   consoleInstance.audioEngine.playInspectAudio();
+
+  changeGameImageToNavOption();
 };
 
 const moveToLastOptionOnNavMenu = () => {
@@ -238,7 +247,10 @@ const moveToLastOptionOnNavMenu = () => {
     "#menuOption_" + LAST_NAV_OPTION_ID,
   ) as HTMLAnchorElement;
   addActiveNavMenueClass(NavOptionToBeSelected);
+
   consoleInstance.audioEngine.playInspectAudio();
+
+  changeGameImageToNavOption();
 };
 
 const moveDownFromNavToGamesList = () => {
@@ -256,15 +268,6 @@ const removeActiveGameClass = (htmlButton: HTMLButtonElement) => {
 
 const addActiveGameClass = (htmlButton: HTMLButtonElement) => {
   htmlButton.classList.add("activeGame");
-};
-
-const removeFirstGameOfTheListActiveClass = () => {
-  const firstGameOnGamesListId = "#game_1";
-  currentActiveGame = 0;
-  const gameToBeDeselected = document.querySelector(
-    firstGameOnGamesListId,
-  ) as HTMLButtonElement;
-  removeActiveGameClass(gameToBeDeselected);
 };
 
 const removeActiveNavMenuClass = (NavOption: HTMLAnchorElement) => {
@@ -287,6 +290,7 @@ const changeGameImage = (imageId: number) => {
     ".gameImage",
   ) as NodeListOf<HTMLImageElement>;
 
+  ResetGameImageToStartingPosition();
   const selectedGameName = gamesList.games[imageId - 1].name;
   const selectedGameImage = gamesList.games[imageId - 1].imageUrl;
 
@@ -296,8 +300,36 @@ const changeGameImage = (imageId: number) => {
   gameNameElement.textContent = selectedGameName;
 };
 
+const ResetGameImageToStartingPosition = () => {
+  const selectedMenuOptionElement = document.querySelector(
+    "#selectedGameImage",
+  ) as HTMLImageElement;
+
+  selectedMenuOptionElement.style.transform = "translate(-25px, 0px)";
+};
+
+const changeGameImageToNavOption = () => {
+  const selectedMenuOptionElement = document.querySelector(
+    "#selectedGameImage",
+  ) as HTMLImageElement;
+
+  const selectedNavOptionImage = `../../public/assets/navOption_${currentActiveNavOption}.png`;
+  selectedMenuOptionElement.src = selectedNavOptionImage;
+  selectedMenuOptionElement.style.transform = "translate(-95px, 10px)";
+};
+
 const getNumberOfGames = (): number => {
   return gamesList.games.length;
+};
+
+const activateNavMenuOverlay = () => {
+  const overlay = document.querySelector(".navMenuOverlay") as HTMLDivElement;
+  overlay.style.opacity = "0.9";
+};
+
+const deactivateNavMenuOverlay = () => {
+  const overlay = document.querySelector(".navMenuOverlay") as HTMLDivElement;
+  overlay.style.opacity = "0";
 };
 
 const setAvailableGamesNumberOnHud = () => {
