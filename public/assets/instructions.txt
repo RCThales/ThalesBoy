@@ -52,7 +52,7 @@ window.addEventListener("keydown", (event) => {
     }
 
     // Check for SELECT button (ThalesBoy)
-    if (key === "Space") {
+    if (key === "Shift") {
         // YOUR IMPLEMENTATION FOR THE SELECT THALESBOY BUTTON
     }
 

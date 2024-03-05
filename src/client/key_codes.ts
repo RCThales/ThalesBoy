@@ -6,7 +6,7 @@ const keys = {
   positive: "k",
   negative: "l",
   start: "Enter",
-  select: "Space",
+  select: "Shift",
 };
 
 export default keys;

@@ -55,6 +55,7 @@ document.addEventListener("keydown", (event) => {
       return;
     } else if (currentActiveGame === NO_GAME_SELECTED) {
       moveDownFromNavToGamesList();
+      ResetGameImageToStartingPosition();
       deactivateNavMenuOverlay();
       return;
     }
@@ -290,7 +291,6 @@ const changeGameImage = (imageId: number) => {
     ".gameImage",
   ) as NodeListOf<HTMLImageElement>;
 
-  ResetGameImageToStartingPosition();
   const selectedGameName = gamesList.games[imageId - 1].name;
   const selectedGameImage = gamesList.games[imageId - 1].imageUrl;
 
