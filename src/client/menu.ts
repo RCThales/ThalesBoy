@@ -12,8 +12,9 @@ let numberOfGamesAvailable: number;
 
 const FIRST_GAME_OF_THE_LIST_ID = 1;
 const FIRST_NAV_OPTION_ID = 1;
-const LAST_NAV_OPTION_ID = 4;
+const LAST_NAV_OPTION_ID = 3;
 const NO_GAME_SELECTED = 0;
+const START_GAME_ANIMATION_DURATION = 3000;
 
 let gamesList: GamesList = new GamesList();
 const consoleInstance: Console = new Console();
@@ -366,7 +367,7 @@ const startGame = () => {
 
   setTimeout(() => {
     consoleInstance.startSelectedGame(gameUrl);
-  }, 3000);
+  }, START_GAME_ANIMATION_DURATION);
 
   animateGameStart();
 };
