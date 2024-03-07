@@ -19,7 +19,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="./src/styles/settings.css" />
-    <script defer src="./dist/client/settings.js"></script>
+    <script defer type="module" src="./dist/client/settings.js"></script>
   </head>
   <body>
     <div class="container">
@@ -28,15 +28,20 @@
           <h1>Settings</h1>
           <ul>
             <li>
-              <button onclick="goToSettingsLink(1)" class="menuOption" id="1">
+              <button class="menuOption" id="settings_menuOption_1">
                 Mute Audio
-                <i class="fa fa-volume-up mute" aria-hidden="true"></i>
+                <img
+                  src="./public/assets/unmute_pixel.png"
+                  class="mute"
+                  alt="Audio pixel art"
+                  aria-hidden="true"
+                  width="20px"
+                  style="padding-right: 10px"
+                />
               </button>
             </li>
-            <li class="color_list">
-              <button onclick="goToSettingsLink(2)" class="menuOption" id="2">
-                Color
-              </button>
+            <li class="color_list" id="settings_menuOption_2">
+              <span class="menuOption">Color</span>
 
               <div class="color_btns">
                 <button id="yellow" class="colorBtn"></button>
@@ -46,26 +51,21 @@
                 <button id="green" class="colorBtn"></button>
               </div>
             </li>
-            <hr />
+
             <li>
               <a
                 target="_blank"
                 href="mailto:thalescardris@gmail.com"
                 class="menuOption"
-                id="2"
+                id="settings_menuOption_3"
               >
                 Contact the Developer
               </a>
             </li>
 
             <li>
-              <button
-                onclick="goToSettingsLink(3)"
-                style="margin-top: 10px"
-                class="menuOption"
-                id="3"
-              >
-                &#12296;-Back to menu
+              <button class="menuOption" id="settings_menuOption_4">
+                Back to menu
               </button>
             </li>
           </ul>
@@ -74,7 +74,7 @@
       <div class="settingsImg">
         <img
           height="80px"
-          src="https://cdn-icons-png.flaticon.com/512/126/126472.png"
+          src="./public/assets/navOption_3.png"
           alt="Spinning settings wheel"
         />
       </div>

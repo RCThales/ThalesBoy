@@ -65,7 +65,6 @@ header {
 .menuOption:hover {
   text-align: left;
   border: none;
-  background: rgb(48, 48, 48) !important;
   cursor: pointer;
 }
 
@@ -95,9 +94,10 @@ header ul {
   opacity: 0.3;
 }
 
-.activeOption {
-  background: #303030 !important;
-  max-width: 100%;
+.active {
+  background: #000000 !important;
+  transform: scale(1.1);
+  padding-left: 30px;
 }
 
 .color_list {
@@ -115,6 +115,46 @@ header ul {
 .colorBtn {
   width: 20px;
   height: 20px;
+  transform: translateX(-20px);
+}
+
+.color_btns {
+  opacity: 1;
+  animation: colorBtnsShow 1s 1 ease-in-out;
+}
+
+@keyframes colorBtnsShow {
+  0% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.colorBtnCurrent {
+  display: none;
+}
+
+.colorBtnActive {
+  width: 25px;
+  height: 25px;
+  border: white 2px dotted;
+  transform: translateX(-20px);
+  animation: colorBtnsActivate 0.5s 1 ease-in-out;
+}
+
+@keyframes colorBtnsActivate {
+  0% {
+    transform: translateX(-20px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateX(-20px) rotate(180deg);
+  }
 }
 
 #yellow {

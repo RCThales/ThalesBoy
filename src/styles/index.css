@@ -159,6 +159,10 @@ button {
   pointer-events: all;
 }
 
+.colorBtnCurrent {
+  display: none !important;
+}
+
 header {
   width: 100vw;
   background-color: var(--dark);
@@ -1181,6 +1185,10 @@ input[type="checkbox"] {
 
   .speakers {
     transform: translateY(-80px);
+  }
+
+  #splash {
+    z-index: 99999999;
   }
 
   #splash h1 {
