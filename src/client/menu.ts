@@ -5,6 +5,7 @@ import {
 import { GamesList } from "./games.js";
 import { Games } from "./types/games.type.js";
 import { consoleInstance } from "./index.js";
+import key_codes from "./key_codes.js";
 
 let currentActiveGame: number = 1;
 let currentActiveNavOption: number = 1;
@@ -31,8 +32,21 @@ window.addEventListener("load", async () => {
 
 document.addEventListener("keydown", (event) => {
   const key = event.key.toLowerCase();
+  const {
+    up,
+    upArrow,
+    down,
+    downArrow,
+    left,
+    leftArrow,
+    right,
+    rightArrow,
+    start,
+    positive,
+    select,
+  } = key_codes;
 
-  if (key === "w" || key === "arrowup") {
+  if (key === up || key === upArrow) {
     if (
       currentActiveGame > FIRST_GAME_OF_THE_LIST_ID &&
       currentActiveGame !== NO_GAME_SELECTED
@@ -47,7 +61,7 @@ document.addEventListener("keydown", (event) => {
     }
   }
 
-  if (key === "s" || key === "arrowdown") {
+  if (key === down || key === downArrow) {
     if (
       currentActiveGame < numberOfGamesAvailable &&
       currentActiveGame !== NO_GAME_SELECTED
@@ -62,8 +76,8 @@ document.addEventListener("keydown", (event) => {
     }
     selectGameById(FIRST_GAME_OF_THE_LIST_ID);
   }
-  // LEFT button (ThalesBoy)
-  if (key === "a" || key === "arrowleft") {
+
+  if (key === left || key === leftArrow) {
     if (
       currentActiveGame === NO_GAME_SELECTED &&
       currentActiveNavOption !== FIRST_NAV_OPTION_ID
@@ -78,8 +92,8 @@ document.addEventListener("keydown", (event) => {
       return;
     }
   }
-  // RIGHT button (ThalesBoy)
-  if (key === "d" || key === "arrowright") {
+
+  if (key === right || key === rightArrow) {
     if (
       currentActiveGame === NO_GAME_SELECTED &&
       currentActiveNavOption !== LAST_NAV_OPTION_ID
@@ -94,16 +108,16 @@ document.addEventListener("keydown", (event) => {
       return;
     }
   }
-  // START button (ThalesBoy)
-  if (key === "enter" || key === "k") {
+
+  if (key === start || key === positive) {
     if (currentActiveGame !== NO_GAME_SELECTED) {
       startGame();
       return;
     }
     startNavMenuOption();
   }
-  // SELECT button (ThalesBoy)
-  if (key === "shift") {
+
+  if (key === select) {
     moveToNavMenuOption(LAST_NAV_OPTION_ID);
     activateNavMenuOverlay();
   }

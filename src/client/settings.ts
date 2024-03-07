@@ -4,23 +4,24 @@ import {
 } from "./index.js";
 
 import { consoleInstance } from "./index.js";
+import key_codes from "./key_codes.js";
 
 let currentSettingsMenuOption = 1;
 
 const SETTINGS_OPTIONS = {
-  1: {
+  MENU_OPTION_1: {
     action: () => toggleMuteOrUnmute(),
     name: "Mute",
   },
-  2: {
+  MENU_OPTION_2: {
     action: () => colorChangeOnSettings(),
     name: "Color",
   },
-  3: {
+  MENU_OPTION_3: {
     action: () => contactDeveloper(),
     name: "Contact",
   },
-  4: {
+  MENU_OPTION_4: {
     action: () => backToMenu(),
     name: "BackToMenu",
   },
@@ -38,8 +39,21 @@ window.addEventListener("load", () => {
 
 document.addEventListener("keydown", (event) => {
   const key = event.key.toLowerCase();
+  const {
+    up,
+    upArrow,
+    down,
+    downArrow,
+    left,
+    leftArrow,
+    right,
+    rightArrow,
+    start,
+    positive,
+    negative,
+  } = key_codes;
 
-  if (key === "w" || key === "arrowup") {
+  if (key === up || key === upArrow) {
     if (currentSettingsMenuOption > FIRST_OPTION_OF_THE_LIST_ID) {
       moveUpOnTheSettingsList();
     }
@@ -51,7 +65,7 @@ document.addEventListener("keydown", (event) => {
     }
   }
 
-  if (key === "s" || key === "arrowdown") {
+  if (key === down || key === downArrow) {
     if (currentSettingsMenuOption < SETTINGS_QUANITITY) {
       moveDownOnTheSettingsList();
     }
@@ -62,25 +76,29 @@ document.addEventListener("keydown", (event) => {
       return;
     }
   }
-  // LEFT button (ThalesBoy)
-  if (key === "a" || key === "arrowleft") {
+
+  if (key === left || key === leftArrow) {
     if (isOnColorMenu()) {
       moveLeftOnTheColorsList();
     }
   }
-  // RIGHT button (ThalesBoy)
-  if (key === "d" || key === "arrowright") {
+
+  if (key === right || key === rightArrow) {
     if (isOnColorMenu()) {
       moveRightOnTheColorsList();
     }
   }
-  // START button (ThalesBoy)
-  if (key === "enter" || key === "k") {
+
+  if (key === positive || key === start) {
     if (isOnColorMenu()) {
       changeColor();
       return;
     }
     doSelectedOption();
+  }
+
+  if (key === negative) {
+    SETTINGS_OPTIONS["MENU_OPTION_4"].action();
   }
 });
 
@@ -295,7 +313,8 @@ const backToMenu = () => {
 
 const doSelectedOption = () => {
   SETTINGS_OPTIONS[
-    currentSettingsMenuOption as keyof typeof SETTINGS_OPTIONS
+    ("MENU_OPTION_" +
+      currentSettingsMenuOption) as keyof typeof SETTINGS_OPTIONS
   ].action();
 };
 
@@ -349,8 +368,10 @@ const changeColor = () => {
 
 const isOnColorMenu = () => {
   if (
-    SETTINGS_OPTIONS[currentSettingsMenuOption as keyof typeof SETTINGS_OPTIONS]
-      .name === "Color"
+    SETTINGS_OPTIONS[
+      ("MENU_OPTION_" +
+        currentSettingsMenuOption) as keyof typeof SETTINGS_OPTIONS
+    ].name === "Color"
   ) {
     return true;
   }
