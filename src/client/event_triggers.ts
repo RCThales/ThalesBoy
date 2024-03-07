@@ -5,6 +5,7 @@ import {
   closeAddGameModal,
   openAddGameModal,
   addGameToApi,
+  consoleInstance,
 } from "./index.js";
 
 import keys from "./key_codes.js";
@@ -29,10 +30,6 @@ import {
   SUBMIT_GAME_FORM,
 } from "./html_elements_index.js";
 
-import Console from "./console.js";
-
-const consoleInstance = new Console();
-
 window.addEventListener("load", () => {
   consoleInstance.setConsoleColorOnStartUp();
 });
@@ -43,7 +40,7 @@ CONSOLE_COLOR_BUTTONS.addEventListener("pointerup", (event) => {
   console.log(colorClickedName);
   makePreviousColorButtonVisible();
   consoleInstance.changeConsoleColor(colorClickedName);
-  makeCurrentColorButtonInvisible(target);
+  makeCurrentColorButtonInvisible();
 });
 
 POWER_BTN_DESKTOP.addEventListener("pointerdown", () => {

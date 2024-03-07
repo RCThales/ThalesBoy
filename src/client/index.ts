@@ -1,3 +1,4 @@
+import Console from "./console.js";
 import {
   CONSOLE_SCREEN,
   THEME_BUTTON,
@@ -7,6 +8,12 @@ import {
 window.addEventListener("load", async () => {
   loadSplashScreen();
   setActiveThemeOnStartup();
+
+  if (consoleInstance.audioEngine.isMuted()) {
+    consoleInstance.audioEngine.muteConsole();
+  } else {
+    consoleInstance.audioEngine.unmuteConsole();
+  }
 });
 
 window.addEventListener("click", (event) => {
@@ -16,13 +23,15 @@ window.addEventListener("click", (event) => {
   }
 });
 
+export const consoleInstance = new Console();
+
 const loadSplashScreen = () => {
   const COOLDOWN_FOR_MAIN_PAGE_TO_APPEAR_IN_MILISECONDS = 500;
   makeSplashScreenAppearWithDelay(
     COOLDOWN_FOR_MAIN_PAGE_TO_APPEAR_IN_MILISECONDS,
   );
 
-  const SPLASH_SCREEN_DURATION_IN_MILISECONDS = 1500;
+  const SPLASH_SCREEN_DURATION_IN_MILISECONDS = 1300;
   makeSplashScreenDisappearWithDelay(SPLASH_SCREEN_DURATION_IN_MILISECONDS);
 };
 
@@ -33,7 +42,7 @@ const makeSplashScreenAppearWithDelay = (delay: number) => {
 };
 
 const makeSplashScreenDisappearWithDelay = (delay: number) => {
-  const splashScreen = document.querySelector("#splash") as HTMLElement;
+  const splashScreen = parent.document.querySelector("#splash") as HTMLElement;
   setTimeout(() => {
     splashScreen.style.display = "none";
   }, delay);
@@ -84,21 +93,41 @@ export const toggleBetweenDayAndNightTheme = () => {
 };
 
 export const makePreviousColorButtonVisible = () => {
-  getCurrentColorButton().style.display = "flex";
+  getCurrentColorButton()?.classList.add("colorBtn");
+  getCurrentColorButton()?.classList.remove("colorBtnCurrent");
+
+  getCurrentColorButtonInSettings()?.classList.add("colorBtn");
+  getCurrentColorButtonInSettings()?.classList.remove("colorBtnCurrent");
 };
 
-export const makeCurrentColorButtonInvisible = (button: HTMLButtonElement) => {
-  button.style.display = "none";
+export const makeCurrentColorButtonInvisible = () => {
+  getCurrentColorButton()?.classList.remove("colorBtn");
+  getCurrentColorButton()?.classList.add("colorBtnCurrent");
+
+  getCurrentColorButtonInSettings()?.classList.remove("colorBtn");
+  getCurrentColorButtonInSettings()?.classList.remove("colorBtnActive");
+  getCurrentColorButtonInSettings()?.classList.add("colorBtnCurrent");
 };
 
 export const makeStartingColorButtonInvisible = () => {
-  getCurrentColorButton().style.display = "none";
+  getCurrentColorButton()?.classList.remove("colorBtn");
+  getCurrentColorButton()?.classList.add("colorBtnCurrent");
 };
 
 const getCurrentColorButton = () => {
   const colorName = localStorage.getItem("gameColor") as string;
-  const colorButton = document.getElementById(colorName) as HTMLButtonElement;
+  const colorButton = parent.document.getElementById(
+    colorName,
+  ) as HTMLButtonElement;
   return colorButton;
+};
+
+const getCurrentColorButtonInSettings = () => {
+  const colorName = localStorage.getItem("gameColor") as string;
+  const colorButtonInSettings = CONSOLE_SCREEN?.contentDocument?.getElementById(
+    colorName,
+  ) as HTMLButtonElement;
+  return colorButtonInSettings;
 };
 
 export const setClickHereTextOn = () => {
@@ -121,7 +150,6 @@ export const openAddGameModal = () => {
 };
 
 export const closeAddGameModal = () => {
-  console.log("test");
   const addGameModal = document.querySelector(
     ".addGameModalWrapper",
   ) as HTMLElement;

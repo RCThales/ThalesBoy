@@ -156,23 +156,21 @@ class Console {
   };
 
   public changeConsoleColor = (colorName: string) => {
-    const colorClicked = colorName;
-
     this.animateColorChangeTransition();
-    this.updateCssColorsToChosenConsoleColor(colorClicked);
-    localStorage.setItem("gameColor", colorClicked);
+    this.updateCssColorsToChosenConsoleColor(colorName);
+    localStorage.setItem("gameColor", colorName);
   };
 
   private updateCssColorsToChosenConsoleColor = (colorClicked: string) => {
-    document.documentElement.style.setProperty(
+    parent.document.documentElement.style.setProperty(
       "--primary",
       colors[colorClicked as keyof ColorLib].primary,
     );
-    document.documentElement.style.setProperty(
+    parent.document.documentElement.style.setProperty(
       "--accent",
       colors[colorClicked as keyof ColorLib].accent,
     );
-    document.documentElement.style.setProperty(
+    parent.document.documentElement.style.setProperty(
       "--carving",
       colors[colorClicked as keyof ColorLib].carving,
     );

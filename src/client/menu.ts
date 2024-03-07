@@ -1,10 +1,10 @@
-import Console from "./console.js";
 import {
   GAME_LIST_LOADER,
   GAMES_LIST_CONTAINER,
 } from "./html_elements_menu.js";
 import { GamesList } from "./games.js";
 import { Games } from "./types/games.type.js";
+import { consoleInstance } from "./index.js";
 
 let currentActiveGame: number = 1;
 let currentActiveNavOption: number = 1;
@@ -17,7 +17,6 @@ const NO_GAME_SELECTED = 0;
 const START_GAME_ANIMATION_DURATION = 3000;
 
 let gamesList: GamesList = new GamesList();
-const consoleInstance: Console = new Console();
 
 window.addEventListener("load", async () => {
   await gamesList.fetchGamesFromCache();
@@ -115,7 +114,7 @@ const selectInitiallySelectedGame = () => {
   const gameToBeSelected = document.querySelector(
     firstGameOnGamesListId,
   ) as HTMLButtonElement;
-  gameToBeSelected.classList.add("activeGame");
+  gameToBeSelected.classList.add("active");
   changeGameImage(currentActiveGame);
 };
 
@@ -136,7 +135,7 @@ const selectGameById = (gameId: number) => {
     "#game_" + gameId,
   ) as HTMLButtonElement;
 
-  gameToBeSelected.classList.add("activeGame");
+  gameToBeSelected.classList.add("active");
   changeGameImage(currentActiveGame);
   consoleInstance.audioEngine.playInspectAudio();
 };
@@ -265,11 +264,11 @@ const moveDownFromNavToGamesList = () => {
 };
 
 const removeActiveGameClass = (htmlButton: HTMLButtonElement) => {
-  htmlButton.classList.remove("activeGame");
+  htmlButton.classList.remove("active");
 };
 
 const addActiveGameClass = (htmlButton: HTMLButtonElement) => {
-  htmlButton.classList.add("activeGame");
+  htmlButton.classList.add("active");
 };
 
 const removeActiveNavMenuClass = (NavOption: HTMLAnchorElement) => {
@@ -325,7 +324,7 @@ const getNumberOfGames = (): number => {
 
 const activateNavMenuOverlay = () => {
   const overlay = document.querySelector(".navMenuOverlay") as HTMLDivElement;
-  overlay.style.opacity = "0.7";
+  overlay.style.opacity = "0.9";
 };
 
 const deactivateNavMenuOverlay = () => {
@@ -382,10 +381,14 @@ const startNavMenuOption = () => {
 
 const animateGameStart = () => {
   const container = document.querySelector(".container") as HTMLElement;
-  container.style.display = "none"; //Start Effect
+  container.style.display = "none";
+
+  const gameTransitionImage = document.querySelector(
+    ".gameTransition",
+  ) as HTMLElement;
   const gameTransitionScreen = document.querySelector(
     ".gameTransitionWrapper",
   ) as HTMLElement;
-
-  gameTransitionScreen.style.transform = "scale(1.2)";
+  gameTransitionScreen.style.display = "flex";
+  gameTransitionImage.style.transform = "scale(1.2)";
 };
