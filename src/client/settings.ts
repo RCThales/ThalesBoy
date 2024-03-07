@@ -125,8 +125,81 @@ const moveRightOnTheColorsList = () => {
   const currentActiveColor = document.querySelector(
     ".colorBtnActive",
   ) as HTMLButtonElement;
-  let colorToBeActive =
+  let nextColorOnColorList =
     currentActiveColor?.nextElementSibling as HTMLButtonElement;
+
+  if (!nextColorOnColorList) {
+    moveToTheFirstElementInTheColorsList();
+    return;
+  }
+
+  if (isLastElementOfTheColorListTheCurrentConsoleColor()) {
+    moveToTheFirstElementInTheColorsList();
+    return;
+  }
+
+  if (isElementTheCurrentConsoleColor(nextColorOnColorList)) {
+    nextColorOnColorList =
+      nextColorOnColorList?.nextElementSibling as HTMLButtonElement;
+  }
+
+  unsetColorAsActive();
+  setColorAsActiveByName(nextColorOnColorList.id);
+
+  consoleInstance.audioEngine.playInspectAudio();
+};
+
+const moveLeftOnTheColorsList = () => {
+  const currentActiveColor = document.querySelector(
+    ".colorBtnActive",
+  ) as HTMLButtonElement;
+
+  let previousColorOnColorList =
+    currentActiveColor?.previousElementSibling as HTMLButtonElement;
+
+  if (!previousColorOnColorList) {
+    moveToTheLastElementInTheColorsList();
+    return;
+  }
+
+  if (isFirstElementOfTheColorListTheCurrentConsoleColor()) {
+    moveToTheLastElementInTheColorsList();
+    return;
+  }
+
+  if (isElementTheCurrentConsoleColor(previousColorOnColorList)) {
+    previousColorOnColorList =
+      previousColorOnColorList?.previousElementSibling as HTMLButtonElement;
+  }
+
+  unsetColorAsActive();
+  setColorAsActiveByName(previousColorOnColorList.id);
+
+  consoleInstance.audioEngine.playInspectAudio();
+};
+
+const moveToTheLastElementInTheColorsList = () => {
+  const colorElements = document.querySelector(
+    ".color_btns",
+  ) as HTMLButtonElement;
+  let colorToBeActive = colorElements?.lastElementChild as HTMLButtonElement;
+
+  if (colorToBeActive.classList.contains("colorBtnCurrent")) {
+    colorToBeActive =
+      colorToBeActive?.previousElementSibling as HTMLButtonElement;
+  }
+
+  unsetColorAsActive();
+  setColorAsActiveByName(colorToBeActive.id);
+
+  consoleInstance.audioEngine.playInspectAudio();
+};
+
+const moveToTheFirstElementInTheColorsList = () => {
+  const colorElements = document.querySelector(
+    ".color_btns",
+  ) as HTMLButtonElement;
+  let colorToBeActive = colorElements?.firstElementChild as HTMLButtonElement;
 
   if (colorToBeActive.classList.contains("colorBtnCurrent")) {
     colorToBeActive = colorToBeActive?.nextElementSibling as HTMLButtonElement;
@@ -138,22 +211,45 @@ const moveRightOnTheColorsList = () => {
   consoleInstance.audioEngine.playInspectAudio();
 };
 
-const moveLeftOnTheColorsList = () => {
-  const currentActiveColor = document.querySelector(
-    ".colorBtnActive",
+const isFirstElementOfTheColorListTheCurrentConsoleColor = () => {
+  const colorElements = document.querySelector(
+    ".color_btns",
   ) as HTMLButtonElement;
-  let colorToBeActive =
-    currentActiveColor?.previousElementSibling as HTMLButtonElement;
 
-  if (colorToBeActive.classList.contains("colorBtnCurrent")) {
-    colorToBeActive =
-      colorToBeActive?.previousElementSibling as HTMLButtonElement;
+  if (
+    colorElements.firstElementChild?.classList.contains("colorBtnCurrent") &&
+    colorElements.firstElementChild?.nextElementSibling?.classList.contains(
+      "colorBtnActive",
+    )
+  ) {
+    return true;
   }
+  return false;
+};
 
-  unsetColorAsActive();
-  setColorAsActiveByName(colorToBeActive.id);
+const isLastElementOfTheColorListTheCurrentConsoleColor = () => {
+  const colorElements = document.querySelector(
+    ".color_btns",
+  ) as HTMLButtonElement;
 
-  consoleInstance.audioEngine.playInspectAudio();
+  if (
+    colorElements.lastElementChild?.classList.contains("colorBtnCurrent") &&
+    colorElements.lastElementChild?.previousElementSibling?.classList.contains(
+      "colorBtnActive",
+    )
+  ) {
+    return true;
+  }
+  return false;
+};
+
+const isElementTheCurrentConsoleColor = (
+  colorToBeActive: HTMLButtonElement,
+) => {
+  if (colorToBeActive.classList.contains("colorBtnCurrent")) {
+    return true;
+  }
+  return false;
 };
 
 const removeActiveSettingsClass = (htmlButton: HTMLButtonElement) => {

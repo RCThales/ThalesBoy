@@ -20,6 +20,7 @@ let gamesList: GamesList = new GamesList();
 
 window.addEventListener("load", async () => {
   await gamesList.fetchGamesFromCache();
+  //await gamesList.fetchGamesFromApi();
   numberOfGamesAvailable = getNumberOfGames();
 
   substituteLoaderForGameList();
