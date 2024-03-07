@@ -1,5 +1,5 @@
 class ConsoleAudio {
-  static instance: ConsoleAudio | null = null;
+  public static instance: ConsoleAudio | null = null;
   private consoleOnAudio = new Audio("../public/audio/consoleOnAudio.mp3");
   private powerButonAudio = new Audio("../public/audio/powerButtonAudio.mp3");
   private settingsInspectAudio = new Audio("../public/audio/inspect.wav");
@@ -41,13 +41,27 @@ class ConsoleAudio {
   };
 
   public muteConsole = () => {
+    localStorage.setItem("mute", "true");
     this.consoleOnAudio.muted = true;
     this.powerButonAudio.muted = true;
+    this.settingsInspectAudio.muted = true;
+    this.startGameAudio.muted = true;
   };
 
   public unmuteConsole = () => {
+    localStorage.setItem("mute", "false");
     this.consoleOnAudio.muted = false;
     this.powerButonAudio.muted = false;
+    this.settingsInspectAudio.muted = false;
+    this.startGameAudio.muted = false;
+  };
+
+  public isMuted = () => {
+    if (localStorage.getItem("mute") === "true") {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   public setConsoleVolume = (volume = 1) => {
