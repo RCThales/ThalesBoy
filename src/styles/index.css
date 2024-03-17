@@ -1089,7 +1089,7 @@ input[type="checkbox"] {
 /* ------------------------------- */
 
 /*MOBILE*/
-@media screen and (max-width: 800px) and (orientation: portrait) {
+@media screen and (max-width: 915px) and (orientation: portrait) {
   header {
     display: none;
   }
