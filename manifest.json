@@ -4,8 +4,8 @@
   "theme_color": "#f8b725",
   "background_color": "#1b1b20",
   "display": "standalone",
-  "orientation": "landscape-primary",
-  "description": "An homage to one of the greates consoles of all times, the GameBoy Color. You can play html based games on this console on desktop or mobile.",
+  "orientation": "portrait-primary",
+  "description": "An homage to one of the greatest consoles of all times, the GameBoy Color. You can play html based games on this console on desktop or mobile.",
   "scope": "/",
   "start_url": "/",
   "screenshots": [
@@ -18,6 +18,20 @@
     },
     {
       "src": "images/screenshot_thalesboy2.jpg",
+      "sizes": "367x796",
+      "type": "image/jpg",
+      "form_factor": "narrow",
+      "label": "Application"
+    },
+    {
+      "src": "images/screenshot_thalesboy3.jpg",
+      "sizes": "367x796",
+      "type": "image/jpg",
+      "form_factor": "narrow",
+      "label": "Application"
+    },
+    {
+      "src": "images/screenshot_thalesboy4.jpg",
       "sizes": "367x796",
       "type": "image/jpg",
       "form_factor": "narrow",
