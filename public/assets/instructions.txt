@@ -1,7 +1,7 @@
 // THIS LISTENER IS REQUIRED so THALESBOY can recognize your inputs through it's gamepad
 window.addEventListener("message", (event) => {
     // Check the origin of the message
-    if (event.origin !== "https://thalesboycolor.netlify.app") {
+    if (event.origin !== "https://thalesboycolor.netlify.app" && event.origin !== "https://thalescardoso.dev/" ) {
         return;
     }
 

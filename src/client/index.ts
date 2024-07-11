@@ -5,7 +5,7 @@ import {
   WHOLE_PAGE_CONTAINER,
 } from "./html_elements_index.js";
 
-parent.window.addEventListener("load", async () => {
+window.addEventListener("load", async () => {
   loadSplashScreen();
   setActiveThemeOnStartup();
 
@@ -16,7 +16,7 @@ parent.window.addEventListener("load", async () => {
   }
 });
 
-parent.window.addEventListener("click", (event) => {
+window.addEventListener("click", (event) => {
   const htmlElementOfEvent = event?.target as HTMLElement;
   if (htmlElementOfEvent.tagName !== "INPUT") {
     CONSOLE_SCREEN?.focus();
