@@ -30,7 +30,7 @@ import {
   SUBMIT_GAME_FORM,
 } from "./html_elements_index.js";
 
-window.addEventListener("load", () => {
+parent.window.addEventListener("load", () => {
   consoleInstance.setConsoleColorOnStartUp();
 });
 

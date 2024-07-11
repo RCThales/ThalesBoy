@@ -208,7 +208,7 @@
     <link rel="manifest" href="./manifest.json" />
     <script>
       if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
+        parent.window.addEventListener("load", () => {
           navigator.serviceWorker.register("./service_worker/sw.js");
         });
       }
